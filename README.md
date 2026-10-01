@@ -2,7 +2,9 @@
 
 Public waitlist site: [wegunterjr.github.io/gunterbots.io](https://wegunterjr.github.io/gunterbots.io/).
 
-**Robot Logic Lab** is the club families join. **Gunterbots LLC** is the company. Engineering work (CTIS, custom robots) belongs on `gunterbots.com` later. This site is the school.
+**Robot Logic Lab** is the club families join. **Gunterbots LLC** is the company. **GN2R** (Gunter) is the robot guide; members are a merry band of pirates. Engineering work (CTIS, custom robots) belongs on `gunterbots.com` later. This site is the school.
+
+Crew lore and the wheels quest live at [Let's Make Wheels](https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html).
 
 Course content stays in the private repo `gunterbots-robot-logic-lab` and on Moodle at [learn.mgit.io](https://learn.mgit.io).
 

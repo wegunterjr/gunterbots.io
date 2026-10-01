@@ -192,6 +192,39 @@
 
     .split { display: grid; gap: 1.5rem; margin-top: 2rem; align-items: center; }
     .split img { width: 100%; border-radius: 12px; border: 1px solid var(--line); aspect-ratio: 3/2; object-fit: cover; }
+    .crew { display: grid; gap: 1.75rem; margin-top: 1.75rem; align-items: center; }
+    .crew-art {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem 0;
+      display: grid;
+      place-items: end center;
+      min-height: 320px;
+    }
+    .crew-art img.mascot {
+      width: min(360px, 82%);
+      height: auto;
+      border: 0;
+      aspect-ratio: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
+    }
+    .crew-art img.flag {
+      position: absolute; top: .85rem; right: .85rem;
+      width: 72px; height: 72px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--line);
+      aspect-ratio: auto;
+    }
+    .crew-copy { display: grid; gap: .85rem; align-content: start; }
+    .crew-copy blockquote {
+      margin: 0; padding-left: 1rem; border-left: 3px solid var(--accent);
+      font-family: var(--display); font-size: 1.2rem; line-height: 1.35;
+    }
+    @media (min-width: 900px) {
+      .crew { grid-template-columns: .85fr 1.15fr; gap: 2.5rem; }
+    }
     @media (min-width: 900px) { .split { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } }
 
     .anatomy {
@@ -288,6 +321,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#why">Why</a>
+        <a href="#crew">GN2R</a>
         <a href="#missions">Missions</a>
         <a href="#ai">AI Lab</a>
         <a href="#pricing">Pricing</a>
@@ -300,6 +334,7 @@
     </div>
     <div class="mobile-menu wrap" id="menu">
       <a href="#why">Why it works</a>
+      <a href="#crew">GN2R &amp; the crew</a>
       <a href="#missions">Missions</a>
       <a href="#ai">AI Lab</a>
       <a href="#pricing">Pricing</a>
@@ -314,7 +349,7 @@
         <div>
           <div class="label">A Gunterbots school · founding launch</div>
           <h1>Build robots that <span>move, think and play.</span></h1>
-          <p class="pitch">Robot Logic Lab is a kitchen-table robotics club. Kids 8–14 and kids at heart learn logic by building real robots, one mission a week, with a working roboticist in the room.</p>
+          <p class="pitch">Robot Logic Lab is a kitchen-table robotics club. Kids 8–14 and kids at heart learn logic by building real robots, one mission a week. GN2R is your robot guide. Walter is the captain of a merry band of pirates.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#join">Reserve a founding spot</a>
             <a class="btn btn-ghost" href="#missions">See the year of missions</a>
@@ -357,6 +392,25 @@
             <span class="tag b">The edge</span>
             <h3>A roboticist teaching</h3>
             <p class="muted">Walter Gunter teaches how to think through a problem, not which blocks to drag. Useful to a 9-year-old and still interesting at 50.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="crew">
+      <div class="wrap">
+        <div class="label">Your guide</div>
+        <h2 class="h2">GN2R and a merry band of pirates</h2>
+        <div class="crew">
+          <div class="crew-art">
+            <img class="flag" src="images/pirate-flag.jpg" alt="Robot pirate flag: a mechanical skull in a captain's hat over crossed bones." />
+            <img class="mascot" src="images/gn2r-bot.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
+          </div>
+          <div class="crew-copy">
+            <blockquote>Here be the course we're chartin' today, mateys.</blockquote>
+            <p class="muted">GN2R (say it <b style="color:var(--ink)">Gunter</b>) is the club's robot guide. Members are the crew: we pick a mission, we build the ship, we steal the problem back from “I don't know how.”</p>
+            <p class="muted">We've already been sailing. One of our favorite quests is <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" style="color:var(--accent)" target="_blank" rel="noopener">casting our own robot wheels</a> — 3D-printed cores, rubber treads, grippy enough for the living-room floor. That's the pirate way: make the part if the store doesn't have it.</p>
+            <p><a class="btn btn-ghost" href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" target="_blank" rel="noopener">See Let's Make Wheels</a></p>
           </div>
         </div>
       </div>
@@ -670,10 +724,12 @@
         <div>
           <strong style="color:var(--ink);font-family:var(--display)">Robot Logic Lab</strong>
           <p>A Gunterbots school · Gunterbots LLC · Utah</p>
+          <p>GN2R leads a merry band of pirates</p>
         </div>
         <div>
           <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a><br />
           <a href="https://learn.mgit.io">Member login</a> ·
+          <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html">Let's Make Wheels</a> ·
           <a href="https://www.youtube.com/channel/UC4CIOAoX7dYtOeQBi9R8izw">YouTube</a>
         </div>
       </div>
