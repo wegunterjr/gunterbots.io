@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>You're on the list — Gunterbots</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper:#0F1626; --ink:#E6EBF4; --ink-2:#A3AEC4; --accent:#FF8A4C; --accent-deep:#E8590C; --line:#2A3656;
+      --display:"Chakra Petch",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100svh; display: grid; place-items: center;
+      background: var(--paper); color: var(--ink); font-family: var(--body);
+      background-image: linear-gradient(rgba(230,235,244,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(230,235,244,.045) 1px,transparent 1px);
+      background-size: 24px 24px; padding: 2rem;
+    }
+    main { max-width: 36rem; display: grid; gap: 1rem; }
+    .label { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+    h1 { font-family: var(--display); font-size: clamp(2rem,6vw,3rem); line-height: 1.1; margin: 0; }
+    p { margin: 0; color: var(--ink-2); line-height: 1.65; }
+    a.btn {
+      display: inline-flex; align-items: center; justify-content: center; height: 3rem; padding: 0 1.3rem;
+      background: var(--accent-deep); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="label">Waitlist confirmed</div>
+    <h1>You're on the founding list.</h1>
+    <p>We'll email the free 5-day Robot Starter Challenge and ping you when the 20 founding-family spots open. Check spam for a note from hello@gunterbots.com if nothing shows up.</p>
+    <p>No charge today. Explorer founding rate is $29/mo. Inventor is $89/mo. Locked for as long as you stay.</p>
+    <a class="btn" href="index.html">Back to Robot Logic Lab</a>
+  </main>
+</body>
+</html>

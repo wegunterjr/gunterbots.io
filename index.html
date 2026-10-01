@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gunterbots Robot Logic Lab — kitchen-table robotics for kids 8–14 and kids at heart</title>
+  <meta name="description" content="An online robotics club. One mission a week, a real robot on the kitchen table, and a live roboticist to get unstuck. Founding family pricing for the first 20 families." />
+  <meta name="theme-color" content="#0F1626" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://wegunterjr.github.io/gunterbots.io/" />
+  <meta property="og:title" content="Gunterbots Robot Logic Lab" />
+  <meta property="og:description" content="Build robots that move, think and play. One mission a week. Founding family spots open now." />
+  <meta property="og:url" content="https://wegunterjr.github.io/gunterbots.io/" />
+  <meta property="og:image" content="https://wegunterjr.github.io/gunterbots.io/og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://wegunterjr.github.io/gunterbots.io/og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Gunterbots Robot Logic Lab",
+    "description": "An online robotics club where kids and kids at heart learn logic, problem solving, and invention by building real robots, one mission a week.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Gunterbots",
+      "url": "https://wegunterjr.github.io/gunterbots.io/"
+    },
+    "educationalLevel": "Ages 8–14 and adults",
+    "inLanguage": "en",
+    "offers": [
+      { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
+      { "@type": "Offer", "name": "Inventor", "price": "119", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --paper: #0F1626;
+      --panel: #16203A;
+      --ink: #E6EBF4;
+      --ink-2: #A3AEC4;
+      --line: #2A3656;
+      --grid: rgba(230,235,244,.045);
+      --accent: #FF8A4C;
+      --accent-deep: #E8590C;
+      --accent-soft: #3A2419;
+      --green: #4CC9A4;
+      --green-soft: #15342C;
+      --blue: #7FA6E8;
+      --blue-soft: #1B2A4A;
+      --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+      --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; }
+    p { margin: 0; text-wrap: pretty; }
+    button, input, select, textarea { font-family: inherit; }
+    .wrap { width: min(72rem, calc(100% - 2rem)); margin-inline: auto; }
+    @media (min-width: 640px) { .wrap { width: min(72rem, calc(100% - 3rem)); } }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      height: 3rem; padding: 0 1.35rem; border-radius: 8px; border: 0;
+      font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer;
+      transition: transform .15s, filter .15s, background .15s;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--accent-deep); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+    .btn-ghost:hover { background: var(--panel); }
+    .btn-full { width: 100%; }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .label {
+      font-family: var(--mono); font-size: .75rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .muted { color: var(--ink-2); }
+    .tag {
+      display: inline-block; font-family: var(--mono); font-size: .7rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 3px;
+      background: var(--accent-soft); color: var(--accent); justify-self: start;
+    }
+    .tag.g { background: var(--green-soft); color: var(--green); }
+    .tag.b { background: var(--blue-soft); color: var(--blue); }
+
+    header.nav {
+      position: fixed; inset: 0 0 auto; z-index: 40; height: 4rem;
+      background: rgba(15,22,38,.96);
+      border-bottom: 1px solid transparent;
+    }
+    header.nav.on { border-bottom-color: var(--line); }
+    .nav-inner { height: 4rem; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--ink); }
+    .logo img { width: 32px; height: 32px; }
+    .logo-name { font-family: var(--display); font-weight: 700; letter-spacing: .04em; font-size: .95rem; }
+    .logo-sub { display: block; font-family: var(--mono); font-size: .62rem; letter-spacing: .14em; color: var(--ink-2); text-transform: uppercase; }
+    .nav-links { display: none; gap: 1.4rem; }
+    .nav-links a { font-size: .9rem; color: var(--ink-2); text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { display: none; }
+    .burger { width: 44px; height: 44px; border: 0; background: none; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+    .mobile-menu { display: none; background: var(--paper); border-top: 1px solid var(--line); padding: 1rem 0 1.25rem; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: flex; height: 2.8rem; align-items: center; text-decoration: none; color: var(--ink); }
+    @media (min-width: 860px) {
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .mobile-menu { display: none !important; }
+    }
+
+    .hero { padding: 6.5rem 0 3.5rem; }
+    .hero-grid { display: grid; gap: 2rem; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: -.02em; }
+    .hero h1 span { color: var(--accent); }
+    .hero .pitch { margin-top: 1rem; font-size: 1.15rem; max-width: 42ch; color: var(--ink-2); }
+    .hero-actions { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+    .hero .fine { margin-top: 1rem; font-size: .85rem; color: var(--ink-2); font-family: var(--mono); }
+    .hero-shot { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+    .hero-shot img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .hero-shot::after {
+      content: ""; position: absolute; inset: auto 0 0; height: 42%;
+      background: linear-gradient(transparent, rgba(8,12,22,.82));
+      pointer-events: none;
+    }
+    .hero-shot figcaption {
+      position: absolute; left: .9rem; right: .9rem; bottom: .75rem; z-index: 1;
+      font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+      color: #fff;
+    }
+    @media (max-width: 859px) {
+      .hero-shot figcaption, .hero-shot::after { display: none; }
+      #join { padding-bottom: 5.5rem; }
+    }
+    @media (min-width: 960px) {
+      .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 3.5rem; }
+      .hero-shot img { aspect-ratio: 4/3; }
+    }
+
+    .proof { border-block: 1px solid var(--line); background: var(--panel); }
+    .proof-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .proof-item { padding: 1.35rem 1rem; }
+    .proof-item:nth-child(odd) { border-right: 1px solid var(--line); }
+    .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .proof-k { font-family: var(--display); font-size: 1.55rem; color: var(--accent); }
+    .proof-v { margin-top: .35rem; font-size: .85rem; color: var(--ink-2); }
+    @media (min-width: 800px) {
+      .proof-grid { grid-template-columns: repeat(4, 1fr); }
+      .proof-item { padding: 1.6rem 1.25rem; border-bottom: 0 !important; }
+      .proof-item:not(:last-child) { border-right: 1px solid var(--line); }
+    }
+
+    section.block { padding: 4.5rem 0; }
+    .h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .lead { margin-top: .85rem; max-width: 62ch; color: var(--ink-2); font-size: 1.05rem; }
+
+    .grid { display: grid; gap: 1rem; margin-top: 1.75rem; }
+    .g2 { grid-template-columns: 1fr; }
+    .g3 { grid-template-columns: 1fr; }
+    @media (min-width: 700px) {
+      .g2 { grid-template-columns: 1fr 1fr; }
+      .g3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+      padding: 1.25rem; display: grid; gap: .65rem; align-content: start;
+    }
+    .panel ul { margin: 0; padding-left: 1.1em; display: grid; gap: .3rem; }
+    .panel h3 { font-size: 1.15rem; }
+
+    .split { display: grid; gap: 1.5rem; margin-top: 2rem; align-items: center; }
+    .split img { width: 100%; border-radius: 12px; border: 1px solid var(--line); aspect-ratio: 3/2; object-fit: cover; }
+    @media (min-width: 900px) { .split { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } }
+
+    .anatomy {
+      margin-top: 2rem; display: grid; border: 1px solid var(--line); border-radius: 8px;
+      overflow: hidden; background: var(--panel);
+    }
+    .anatomy div { padding: 1.15rem; border-bottom: 1px solid var(--line); display: grid; gap: .35rem; }
+    .anatomy div:last-child { border-bottom: 0; }
+    .anatomy .t { font-family: var(--mono); font-size: .78rem; color: var(--accent); }
+    @media (min-width: 900px) {
+      .anatomy { grid-template-columns: repeat(5, 1fr); }
+      .anatomy div { border-bottom: 0; border-right: 1px solid var(--line); }
+      .anatomy div:last-child { border-right: 0; }
+    }
+
+    .season .weeks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .season .weeks li {
+      display: grid; grid-template-columns: 52px 1fr; gap: .7rem;
+      padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .92rem;
+    }
+    .season .wk { font-family: var(--mono); font-size: .75rem; color: var(--ink-2); padding-top: 2px; }
+    .season-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .8rem; }
+
+    .tier { position: relative; }
+    .tier .price { font-family: var(--display); font-size: 2.4rem; line-height: 1; }
+    .tier .price small { font-family: var(--body); font-size: .9rem; color: var(--ink-2); }
+    .tier.featured { border: 2px solid var(--accent); }
+    .tier .btn { margin-top: .5rem; }
+
+    .ai-rules { margin: 0; padding-left: 1.2em; display: grid; gap: .35rem; }
+
+    details { border-bottom: 1px solid var(--line); }
+    details:first-of-type { border-top: 1px solid var(--line); }
+    summary {
+      list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem;
+      padding: 1.1rem 0; font-weight: 600;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .chev { color: var(--ink-2); transition: transform .2s; }
+    details[open] summary .chev { transform: rotate(180deg); }
+    details p { margin: 0 0 1.1rem; font-size: .95rem; color: var(--ink-2); }
+
+    .join {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+      padding: 1.5rem; display: grid; gap: 1rem;
+    }
+    .join h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    form { display: grid; gap: .85rem; }
+    label { display: grid; gap: .35rem; font-size: .85rem; font-weight: 500; }
+    input, select, textarea {
+      height: 2.85rem; padding: 0 .8rem; border-radius: 6px;
+      border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-size: 1rem;
+    }
+    textarea { height: auto; padding: .7rem .8rem; resize: vertical; min-height: 5rem; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .hp { position: absolute; left: -9999px; }
+    .form-note { font-size: .8rem; color: var(--ink-2); }
+    .form-ok, .form-err { display: none; padding: .85rem 1rem; border-radius: 6px; font-size: .95rem; }
+    .form-ok { background: var(--green-soft); color: var(--green); }
+    .form-err { background: var(--accent-soft); color: var(--accent); }
+    .form-ok.show, .form-err.show { display: block; }
+    @media (min-width: 900px) {
+      .join { grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; padding: 2rem; }
+    }
+
+    footer.site { border-top: 1px solid var(--line); padding: 2.5rem 0 6.5rem; font-size: .85rem; color: var(--ink-2); }
+    .foot { display: flex; flex-direction: column; gap: 1.5rem; }
+    .foot a { color: var(--ink-2); text-decoration: none; }
+    .foot a:hover { color: var(--accent); }
+    .legal { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: .4rem; font-size: .75rem; }
+    @media (min-width: 700px) {
+      .foot { flex-direction: row; justify-content: space-between; align-items: end; }
+      footer.site { padding-bottom: 2.5rem; }
+      .legal { flex-direction: row; justify-content: space-between; }
+    }
+
+    .sticky {
+      position: fixed; inset: auto 0 0; z-index: 30; padding: .75rem;
+      background: rgba(15,22,38,.95); border-top: 1px solid var(--line);
+    }
+    @media (min-width: 860px) { .sticky { display: none; } }
+    @media print {
+      header.nav, .sticky, .burger { display: none !important; }
+      body { background: #fff; color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top">
+        <img src="favicon.svg" alt="" />
+        <span><span class="logo-name">Gunterbots</span><span class="logo-sub">Robot Logic Lab</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#why">Why</a>
+        <a href="#missions">Missions</a>
+        <a href="#ai">AI Lab</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#join">Reserve a founding spot</a>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu wrap" id="menu">
+      <a href="#why">Why it works</a>
+      <a href="#missions">Missions</a>
+      <a href="#ai">AI Lab</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary btn-full" href="#join" style="margin-top:.5rem">Reserve a founding spot</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="label">Online robotics club · founding launch</div>
+          <h1>Build robots that <span>move, think and play.</span></h1>
+          <p class="pitch">Gunterbots Robot Logic Lab is a kitchen-table robotics club. Kids 8–14 and kids at heart learn logic by building real robots, one mission a week, with a working roboticist in the room.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#join">Reserve a founding spot</a>
+            <a class="btn btn-ghost" href="#missions">See the year of missions</a>
+          </div>
+          <p class="fine">First 20 families lock Explorer at $29/mo or Inventor at $89/mo — for life.</p>
+        </div>
+        <figure class="hero-shot">
+          <img src="images/hero.jpg" alt="A child at a kitchen table holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
+          <figcaption>Simulator first · real robot when you're ready</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="proof">
+      <div class="wrap proof-grid">
+        <div class="proof-item"><div class="proof-k">1 / week</div><div class="proof-v">A new mission video, a build, and something to show off</div></div>
+        <div class="proof-item"><div class="proof-k">Rookie + Pro</div><div class="proof-v">Same mission, two difficulty levels — kids and grown-ups</div></div>
+        <div class="proof-item"><div class="proof-k">Live help</div><div class="proof-v">Weekly office hour with a real roboticist on Inventor</div></div>
+        <div class="proof-item"><div class="proof-k">$40–80 kit</div><div class="proof-v">One micro:bit robot car. Start in the free simulator today</div></div>
+      </div>
+    </div>
+
+    <section class="block" id="why">
+      <div class="wrap">
+        <div class="label">The idea</div>
+        <h2 class="h2">Real hardware on the kitchen table. A mission every week.</h2>
+        <p class="lead">Parents buy it because it builds thinking skills. Kids stay because they get to make a robot do something. A live roboticist shows up once a week to get everyone unstuck.</p>
+        <div class="grid g3">
+          <div class="panel">
+            <span class="tag">Primary</span>
+            <h3>Parents of kids 8–14</h3>
+            <p class="muted">Homeschool families, STEM-curious parents, and families whose school has no robotics team. Utah first, then anywhere with a kitchen table.</p>
+          </div>
+          <div class="panel">
+            <span class="tag g">Also</span>
+            <h3>Kids at heart</h3>
+            <p class="muted">Adults who always wanted to build robots, retirees, grandparents building side by side. Same missions, Pro difficulty.</p>
+          </div>
+          <div class="panel">
+            <span class="tag b">The edge</span>
+            <h3>A roboticist teaching</h3>
+            <p class="muted">Walter Gunter teaches how to think through a problem, not which blocks to drag. Useful to a 9-year-old and still interesting at 50.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="week">
+      <div class="wrap">
+        <div class="label">A member's week</div>
+        <h2 class="h2">About two hours. Something to show by the weekend.</h2>
+        <div class="anatomy">
+          <div><span class="t">Monday</span><h3>Mission drops</h3><p class="muted">A 10–15 minute video: the story, the concept, the build.</p></div>
+          <div><span class="t">Mon–Sat</span><h3>Build it</h3><p class="muted">1–2 hours, Rookie or Pro. Simulator or the real robot.</p></div>
+          <div><span class="t">Anytime</span><h3>Logic puzzle</h3><p class="muted">A short unplugged brain-teaser. Car, dinner table, no screen.</p></div>
+          <div><span class="t">Thursday</span><h3>Office hour</h3><p class="muted">Inventor members bring questions and builds. Live troubleshooting.</p></div>
+          <div><span class="t">Weekend</span><h3>Show it off</h3><p class="muted">A 30-second video in the showcase. Robot only. Earn the badge.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="missions">
+      <div class="wrap">
+        <div class="label">The course</div>
+        <h2 class="h2">A year of missions in four seasons</h2>
+        <p class="lead">Each season is 12 weeks plus a catch-up week. Every mission has a Rookie build and a Pro build. New members can join any season. Join mid-year and a short catch-up mission gets you moving.</p>
+        <div class="split">
+          <img src="images/rover.jpg" alt="A yellow micro:bit robot car with a glowing LED heart and an ultrasonic sensor on a wooden table." />
+          <div>
+            <span class="tag">Hardware path</span>
+            <h3 style="margin-top:.6rem">One kit. The whole year.</h3>
+            <p class="muted" style="margin-top:.6rem">A micro:bit V2 robot car (Elecfreaks Cutebot or DFRobot Maqueen) in the $40–80 range. We link the kit on signup. Every mission also runs in the free MakeCode simulator, so families can start before the box arrives.</p>
+          </div>
+        </div>
+        <div class="grid g2" style="margin-top:1.5rem">
+          <div class="panel season">
+            <div class="season-head"><span class="tag">Season 1</span><h3>Make It Move</h3></div>
+            <p class="muted">Circuits, motors, and the first rules of logic.</p>
+            <ul class="weeks">
+              <li><span class="wk">Wk 1</span><span><b>The Robot's Heartbeat</b> · blink an LED, meet the loop</span></li>
+              <li><span class="wk">Wk 2</span><span><b>Bristlebot Races</b> · a vibrating motor and a toothbrush</span></li>
+              <li><span class="wk">Wk 3</span><span><b>If This, Then That</b> · buttons and simple decisions</span></li>
+              <li><span class="wk">Wk 4</span><span><b>Robot Dance Party</b> · sequences, timing, sound</span></li>
+              <li><span class="wk">5–8</span><span><b>Wheels On</b> · drive, turn, write your first program</span></li>
+              <li><span class="wk">9–12</span><span><b>Remote Control Rover</b> · build it, drive it, race the family</span></li>
+            </ul>
+          </div>
+          <div class="panel season">
+            <div class="season-head"><span class="tag b">Season 2</span><h3>Make It Think</h3></div>
+            <p class="muted">Sensors, loops, and decisions the robot makes on its own.</p>
+            <ul class="weeks">
+              <li><span class="wk">Wk 1</span><span><b>Robot Senses</b> · light, distance, and touch</span></li>
+              <li><span class="wk">2–3</span><span><b>Don't Crash!</b> · obstacle-avoiding robot</span></li>
+              <li><span class="wk">4–5</span><span><b>Follow the Line</b> · design the logic on paper first</span></li>
+              <li><span class="wk">6–8</span><span><b>Maze Escape</b> · the right-hand rule and algorithms</span></li>
+              <li><span class="wk">9–10</span><span><b>Robot Moods</b> · state machines</span></li>
+              <li><span class="wk">11–12</span><span><b>Hide and Seek Bot</b> · combine everything so far</span></li>
+            </ul>
+          </div>
+          <div class="panel season">
+            <div class="season-head"><span class="tag g">Season 3</span><h3>Make It Useful</h3></div>
+            <p class="muted">Find a real problem at home and build the fix.</p>
+            <ul class="weeks">
+              <li><span class="wk">Wk 1</span><span><b>Problem Hunt</b> · spot annoying problems around the house</span></li>
+              <li><span class="wk">2–3</span><span><b>Cookie Jar Alarm</b> · a security system for snacks</span></li>
+              <li><span class="wk">4–5</span><span><b>Thirsty Plant Alert</b> · soil sensor that asks for water</span></li>
+              <li><span class="wk">6–7</span><span><b>Pet Treat Machine</b> · servos and timing</span></li>
+              <li><span class="wk">8–12</span><span><b>Invention Sprint</b> · sketch, prototype, test, pitch</span></li>
+            </ul>
+          </div>
+          <div class="panel season">
+            <div class="season-head"><span class="tag">Season 4</span><h3>Make It Epic</h3></div>
+            <p class="muted">Big builds, friendly competition, and a public showcase.</p>
+            <ul class="weeks">
+              <li><span class="wk">1–4</span><span><b>Sumo Bots</b> · design, build, and push-battle in a paper ring</span></li>
+              <li><span class="wk">5–7</span><span><b>Chain Reaction</b> · a Rube Goldberg machine with a robot finale</span></li>
+              <li><span class="wk">8–11</span><span><b>Capstone</b> · your own robot, your own mission</span></li>
+              <li><span class="wk">Wk 12</span><span><b>Robot Expo</b> · livestream showcase for families, with awards</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="split" style="margin-top:1.5rem">
+          <img src="images/maze.jpg" alt="A small robot with headlights driving a black-tape maze on a wooden floor." />
+          <div>
+            <span class="tag">Why it stays fun</span>
+            <h3 style="margin-top:.6rem">Every mission ends with something to show.</h3>
+            <p class="muted" style="margin-top:.6rem">A robot that dances, escapes a maze, or guards the cookie jar. Showing off is the hook. Badges, the monthly Build-Off, and the quarterly Robot Expo give everyone a reason to finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="mini">
+      <div class="wrap">
+        <div class="label">Mini-course</div>
+        <h2 class="h2">Cat Laser Turret</h2>
+        <p class="lead">A four-mission servo course members can take any time: build a pan-and-tilt turret that plays with the family cat. Simulator first. Feather Mode if you'd rather skip the laser.</p>
+        <div class="split">
+          <img src="images/cat-laser.jpg" alt="A homemade two-servo laser turret on a wooden floor, with an orange tabby cat watching the red dot." />
+          <div class="panel" style="margin:0">
+            <ul>
+              <li><b>Meet the Servo</b> — a robot joint that sweeps</li>
+              <li><b>Aim It</b> — pan and tilt by tilting the micro:bit</li>
+              <li><b>Cat Mode</b> — random darts, a floor-only safe zone, a 5-minute timer</li>
+              <li><b>Turret on Wheels</b> — radio remote, or a robot that patrols while it plays</li>
+            </ul>
+            <p class="muted">Class 2 laser only, or a bright LED. Kids under 13 use the laser with an adult.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="ai">
+      <div class="wrap">
+        <div class="label">AI Lab</div>
+        <h2 class="h2">Once a month, the mission becomes an AI Lab</h2>
+        <p class="lead">Kids learn three things: how to use AI as a helper, how to use it safely, and how to train their own models and put them on a robot. Free tools. No extra kit in year one.</p>
+        <div class="grid g3">
+          <div class="panel">
+            <span class="tag b">Use it</span>
+            <h3>AI as a helper</h3>
+            <p class="muted">Ask it to explain code or find a bug. Then test what it says on the real robot. The robot is the judge.</p>
+          </div>
+          <div class="panel">
+            <span class="tag">Use it safely</span>
+            <h3>Robot Rules for AI</h3>
+            <p class="muted">What not to share, how to spot wrong answers, and why AI isn't a friend. Parents sign the rules with their kid.</p>
+          </div>
+          <div class="panel">
+            <span class="tag g">Train it</span>
+            <h3>Build your own model</h3>
+            <p class="muted">Wave, clap, stand still — then drive the rover with the model you trained. Bad data makes bad AI. Kids see it.</p>
+          </div>
+        </div>
+        <div class="grid g2">
+          <div class="panel">
+            <h3>Robot Rules for AI</h3>
+            <ol class="ai-rules">
+              <li>Never share your name, address, school, photos, or passwords with an AI.</li>
+              <li>AI can be confidently wrong. Test it before you trust it.</li>
+              <li>Use chatbots with a grown-up. Many have minimum ages.</li>
+              <li>AI is a tool, not a friend. Real questions go to real people.</li>
+              <li>Say when AI helped. It's part of showing your work.</li>
+              <li>You are the engineer. AI makes suggestions, you make decisions.</li>
+            </ol>
+          </div>
+          <div class="panel">
+            <h3>How kids use chatbots here</h3>
+            <ul>
+              <li>Kids never need a chatbot account. Model training uses free tools with no sign-up.</li>
+              <li>Chatbot missions are done with a parent, or demoed live in office hours.</li>
+              <li>Parents own every account. No private messages between members.</li>
+              <li>Showcase posts are approved before anyone else sees them. Live sessions are recorded.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pricing">
+      <div class="wrap">
+        <div class="label">The offer</div>
+        <h2 class="h2">Two tiers. One founding deal.</h2>
+        <p class="lead">Founding Family pricing is for the first 20 families only, locked for as long as you stay. In exchange we ask for feedback and a short testimonial, and your name goes on the Founders wall.</p>
+        <div class="grid g3">
+          <div class="panel tier">
+            <span class="tag b">Most members</span>
+            <h3>Explorer</h3>
+            <div class="price">$39<small> /month</small></div>
+            <p class="muted">Founding: <b style="color:var(--ink)">$29/mo locked</b></p>
+            <ul>
+              <li>New mission video every week</li>
+              <li>Rookie and Pro build levels</li>
+              <li>Weekly logic puzzle, no hardware needed</li>
+              <li>Member showcase and monthly Build-Off</li>
+              <li>Full back library, including Cat Laser Turret</li>
+            </ul>
+            <a class="btn btn-ghost btn-full" href="#join">Join the waitlist</a>
+          </div>
+          <div class="panel tier featured">
+            <span class="tag">Where the help is</span>
+            <h3>Inventor</h3>
+            <div class="price">$119<small> /month</small></div>
+            <p class="muted">Founding: <b style="color:var(--ink)">$89/mo locked</b></p>
+            <ul>
+              <li>Everything in Explorer</li>
+              <li>Weekly live office hour with Walter (group, 60–90 min)</li>
+              <li>Feedback on submitted builds, done live</li>
+              <li>One bonus “boss level” build per month</li>
+              <li>Inventor badge and first seat at Robot Expo</li>
+            </ul>
+            <a class="btn btn-primary btn-full" href="#join">Reserve Inventor</a>
+          </div>
+          <div class="panel tier">
+            <span class="tag g">First 20 families</span>
+            <h3>Founding Family</h3>
+            <div class="price">$29 / $89</div>
+            <p class="muted">Locked for life. Closes when 20 spots fill.</p>
+            <ul>
+              <li>Explorer or Inventor at the founding rate</li>
+              <li>Feedback and a short testimonial in exchange</li>
+              <li>Name on the Founders wall</li>
+              <li>Sibling seat later: +$10/mo per extra kid in the same home</li>
+              <li>Gift subscriptions for grandparents at the holidays</li>
+            </ul>
+            <a class="btn btn-ghost btn-full" href="#join">Claim a founding spot</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="teacher">
+      <div class="wrap">
+        <div class="split">
+          <img src="images/together.jpg" alt="An adult and a child assembling a small robot together under a warm desk lamp, parts spread across the table." />
+          <div>
+            <div class="label">Your teacher</div>
+            <h2 class="h2">A working roboticist, on Thursday nights.</h2>
+            <p class="muted" style="margin-top:.85rem">Walter Gunter Jr. is a roboticist in Utah. He has built autonomous machines for farms, warehouses, and aircraft, and he still sits at the kitchen table with a micro:bit. Robot Logic Lab is the class he wished existed: real hardware, real logic, no busywork.</p>
+            <p class="muted" style="margin-top:.85rem">Office hours are live. Questions go there, not into a ticket queue. Past sessions become a searchable library.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="faq">
+      <div class="wrap">
+        <div class="label">Questions</div>
+        <h2 class="h2">Before you join</h2>
+        <div style="margin-top:1.5rem;max-width:48rem">
+          <details open>
+            <summary>Do we need a robot on day one? <span class="chev">▾</span></summary>
+            <p>No. Every mission runs in the free MakeCode simulator at makecode.microbit.org. When you're ready, buy one recommended micro:bit V2 robot car ($40–80). We link the kit. We don't ship parts ourselves.</p>
+          </details>
+          <details>
+            <summary>What ages is this for? <span class="chev">▾</span></summary>
+            <p>Kids 8–14 on Rookie, older kids and adults on Pro. Same weekly mission, two difficulty levels. Grandparents and parents who want to build beside a kid are welcome — that's a lot of Inventor members.</p>
+          </details>
+          <details>
+            <summary>How much time is this, really? <span class="chev">▾</span></summary>
+            <p>Plan on 1–2 hours of building during the week, plus a 10–15 minute Monday video. Inventor office hour is Thursday, 60–90 minutes. You can skip a week and catch up from the library.</p>
+          </details>
+          <details>
+            <summary>How do you keep kids safe? <span class="chev">▾</span></summary>
+            <p>Parents create and manage the accounts. There are no private messages between members. Showcase posts are approved before they appear. Live sessions are recorded. For kids under 13 we collect only what we need, with parent consent (US COPPA). Chatbot missions are done with a grown-up.</p>
+          </details>
+          <details>
+            <summary>When does it start? <span class="chev">▾</span></summary>
+            <p>Founding families open late October 2026. Public launch follows in November, in time for holiday gift subscriptions. Join the waitlist and you'll get the free 5-day Robot Starter Challenge — no kit needed — while we finish Season 1.</p>
+          </details>
+          <details>
+            <summary>Already a member? <span class="chev">▾</span></summary>
+            <p>Head to the course at <a href="https://learn.mgit.io" style="color:var(--accent)">learn.mgit.io</a> and log in with the account your parent created.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="join">
+      <div class="wrap">
+        <div class="join">
+          <div>
+            <div class="label">Waitlist · 20 founding spots</div>
+            <h2>Save a founding-family seat.</h2>
+            <p class="muted" style="margin-top:.75rem">Tell us who is building. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding spots open. No charge today.</p>
+            <p class="muted" style="margin-top:.75rem">Explorer founding rate $29/mo. Inventor founding rate $89/mo. Locked for as long as you stay.</p>
+          </div>
+          <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
+            <input type="hidden" name="_subject" value="Gunterbots founding waitlist" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://wegunterjr.github.io/gunterbots.io/thanks.html" />
+            <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+            <label>Your name
+              <input name="name" type="text" required autocomplete="name" placeholder="Alex Gunter" />
+            </label>
+            <label>Email
+              <input name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+            </label>
+            <label>Who is building?
+              <select name="builder" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Kid 8–10</option>
+                <option>Kid 11–14</option>
+                <option>Parent and kid together</option>
+                <option>Adult / kid at heart</option>
+              </select>
+            </label>
+            <label>Which founding seat?
+              <select name="tier" required>
+                <option value="" disabled selected>Choose one</option>
+                <option>Explorer — $29/mo locked</option>
+                <option>Inventor — $89/mo locked</option>
+                <option>Not sure yet</option>
+              </select>
+            </label>
+            <label>Anything we should know? <span class="muted">(optional)</span>
+              <textarea name="note" rows="3" placeholder="Homeschool co-op, gift for a grandkid, Utah, …"></textarea>
+            </label>
+            <button class="btn btn-primary btn-full" type="submit" id="submit-btn">Join the waitlist</button>
+            <p class="form-note">You'll also get the free 5-day starter challenge. Parents only — we don't collect kids' emails. See <a href="privacy.html" style="color:var(--accent)">privacy</a>.</p>
+            <div class="form-ok" id="form-ok">You're on the list. Check your inbox for the first starter-challenge email (and a confirmation from us).</div>
+            <div class="form-err" id="form-err">The form didn't send. Email hello@gunterbots.com and we'll add you by hand.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <strong style="color:var(--ink);font-family:var(--display)">Gunterbots</strong>
+          <p>Robot Logic Lab · Utah, USA</p>
+        </div>
+        <div>
+          <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a><br />
+          <a href="https://learn.mgit.io">Member login</a> ·
+          <a href="https://www.youtube.com/channel/UC4CIOAoX7dYtOeQBi9R8izw">YouTube</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© <span id="y"></span> Gunterbots. Parents own the accounts.</span>
+        <a href="privacy.html">Privacy &amp; kid safety</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky">
+    <a class="btn btn-primary btn-full" href="#join">Reserve a founding spot</a>
+  </div>
+
+  <script>
+    (function () {
+      document.getElementById("y").textContent = new Date().getFullYear();
+      var nav = document.getElementById("nav");
+      var burger = document.getElementById("burger");
+      var menu = document.getElementById("menu");
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("on", window.scrollY > 8);
+      }, { passive: true });
+      burger.addEventListener("click", function () {
+        var open = menu.classList.toggle("open");
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); });
+      });
+
+      var form = document.getElementById("waitlist");
+      var ok = document.getElementById("form-ok");
+      var err = document.getElementById("form-err");
+      var btn = document.getElementById("submit-btn");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (form._honey && form._honey.value) return;
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        var data = {
+          name: form.name.value,
+          email: form.email.value,
+          builder: form.builder.value,
+          tier: form.tier.value,
+          note: form.note.value,
+          _subject: "Gunterbots founding waitlist"
+        };
+        fetch("https://formsubmit.co/ajax/hello@gunterbots.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (res.ok) {
+              ok.classList.add("show");
+              err.classList.remove("show");
+              form.reset();
+              window.location.href = "thanks.html";
+            } else { throw new Error("send failed"); }
+          }).catch(function () {
+            err.classList.add("show");
+            btn.disabled = false;
+            btn.textContent = "Join the waitlist";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
