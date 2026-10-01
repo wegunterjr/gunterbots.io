@@ -648,7 +648,10 @@ html = f"""<!DOCTYPE html>
   <title>Robot Logic Lab — go-live math</title>
   <meta name="robots" content="noindex" />
   <meta name="description" content="Pre-launch scenarios for Robot Logic Lab: 10 Explorers, one Inventor, and whether $5,000 net still holds at the new prices." />
+  <link rel="icon" href="../favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
