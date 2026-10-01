@@ -10,21 +10,22 @@ Course content stays in the private repo `gunterbots-robot-logic-lab` and on Moo
 
 ## Waitlist form
 
-The form posts to [Formsubmit](https://formsubmit.co) at `hello@gunterbots.com`.
+The form posts to n8n (`https://n8n.gunterbots.com/webhook/rll-waitlist`), which creates the Moodle user on learn.mgit.io. If n8n is down it falls back to [Formsubmit](https://formsubmit.co) at `hello@gunterbots.com`.
 
-The first submission sends a confirmation email to that inbox. Click it or waitlist signups will sit unconfirmed.
+Setup: [docs/automation.md](docs/automation.md). Import [n8n/rll-waitlist.json](n8n/rll-waitlist.json).
 
-`gunterbots.com` is already on Cloudflare. Point `hello@` with Cloudflare Email Routing to whatever inbox you actually read.
+## Custom domain
 
-To change the destination, edit both the form `action` and the `fetch` URL in `index.html`.
+Point **gunterbots.com** at this GitHub Pages site (Cloudflare already holds the domain):
 
-## Custom domain later
+| Type | Name | Target | Proxy |
+|---|---|---|---|
+| CNAME | `@` | `wegunterjr.github.io` | DNS only until GitHub issues the cert |
+| CNAME | `www` | `gunterbots.com` | DNS only |
 
-Keep `gunterbots.com` for the LLC / engineering work. Point the school at `learn.gunterbots.com`:
+Then GitHub → Settings → Pages → Custom domain `gunterbots.com`. This repo has a `CNAME` file.
 
-1. In this repo, add a `CNAME` file containing `learn.gunterbots.com`
-2. GitHub → repo Settings → Pages → Custom domain
-3. In Cloudflare DNS, CNAME `learn` to `wegunterjr.github.io` and set SSL to Full
+Moodle stays at [learn.mgit.io](https://learn.mgit.io) until you change its wwwroot. Engineering / CTIS can take the apex later; move the school to `lab.gunterbots.com` when that happens.
 
 ## Local preview
 
