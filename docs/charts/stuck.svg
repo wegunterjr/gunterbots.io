@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Cash if you stay at 10 founding Explorers all year (lean costs)">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Cash if you stay at 10 founding Explorers all year (lean costs)</text>
+  <line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$785</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$1,570</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$2,355</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$3,139</text>
+<polyline fill="none" stroke="#FF8A4C" stroke-width="2.5" points="64.0,251.7 125.5,247.6 186.9,247.6 248.4,247.6 309.8,247.6 371.3,247.6 432.7,247.6 494.2,247.6 555.6,247.6 617.1,247.6 678.5,247.6 740.0,247.6"/>
+<circle cx="740.0" cy="247.6" r="3.5" fill="#FF8A4C"/>
+<polyline fill="none" stroke="#4CC9A4" stroke-width="2.5" points="64.0,251.7 125.5,235.3 186.9,218.9 248.4,202.5 309.8,186.1 371.3,169.6 432.7,153.2 494.2,136.8 555.6,120.4 617.1,104.0 678.5,87.6 740.0,71.1"/>
+<circle cx="740.0" cy="71.1" r="3.5" fill="#4CC9A4"/>
+<text x="64.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">1</text>
+<text x="186.9" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">3</text>
+<text x="309.8" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">5</text>
+<text x="432.7" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">7</text>
+<text x="555.6" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">9</text>
+<text x="678.5" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">11</text>
+<text x="740.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">12</text>
+<text x="380.0" y="316" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month</text>
+<rect x="64" y="36" width="10" height="10" fill="#FF8A4C" rx="2"/>
+<text x="78" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Monthly net</text>
+<rect x="234" y="36" width="10" height="10" fill="#4CC9A4" rx="2"/>
+<text x="248" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Cumulative cash</text>
+</svg>

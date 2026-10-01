@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 272" width="760" height="272" role="img" aria-label="Net this month, 10 cheap seats (lean $40 overhead)">
+  <rect width="760" height="272" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Net this month, 10 cheap seats (lean $40 overhead)</text>
+  <text x="200" y="64" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">10 Explorer founding</text>
+<rect x="210" y="50" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="50" width="139.5" height="22" fill="#FF8A4C" rx="4"/>
+<text x="357.5" y="66" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$239</text>
+<text x="200" y="100" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">10 Explorer + 1 Inventor</text>
+<rect x="210" y="86" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="86" width="184.2" height="22" fill="#4CC9A4" rx="4"/>
+<text x="402.2" y="102" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$315</text>
+<text x="200" y="136" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">15 Explorer founding</text>
+<rect x="210" y="122" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="122" width="221.0" height="22" fill="#7FA6E8" rx="4"/>
+<text x="439.0" y="138" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$378</text>
+<text x="200" y="172" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">12 E + 3 I founding</text>
+<rect x="210" y="158" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="158" width="306.2" height="22" fill="#4CC9A4" rx="4"/>
+<text x="524.2" y="174" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$524</text>
+<text x="200" y="208" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Plan M1 headcount 15+5</text>
+<rect x="210" y="194" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="194" width="444.4" height="22" fill="#4CC9A4" rx="4"/>
+<text x="662.4" y="210" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$760</text>
+<text x="200" y="244" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">10 E public, no founders</text>
+<rect x="210" y="230" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="230" width="196.3" height="22" fill="#7FA6E8" rx="4"/>
+<text x="414.3" y="246" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$336</text>
+</svg>

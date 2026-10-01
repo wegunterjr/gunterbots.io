@@ -27,6 +27,15 @@ Then GitHub → Settings → Pages → Custom domain `gunterbots.com`. This repo
 
 Moodle stays at [learn.mgit.io](https://learn.mgit.io) until you change its wwwroot. Engineering / CTIS can take the apex later; move the school to `lab.gunterbots.com` when that happens.
 
+## Go-live math
+
+Scenario review before charging families (10 Explorers, one Inventor, lean vs $600 overhead):
+
+- Shareable page: [docs/rollout.html](https://wegunterjr.github.io/gunterbots.io/docs/rollout.html)
+- Markdown: [docs/rollout.md](docs/rollout.md)
+
+Regenerate: `python3 docs/build_rollout_report.py`
+
 ## Local preview
 
 ```bash

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Robot Logic Lab — go-live math</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Pre-launch scenarios for Robot Logic Lab: 10 Explorers, one Inventor, and whether $5,000 net still holds at the new prices." />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper:#0F1626; --panel:#16203A; --ink:#E6EBF4; --ink-2:#A3AEC4; --line:#2A3656;
+      --accent:#FF8A4C; --accent-deep:#E8590C; --green:#4CC9A4; --blue:#7FA6E8; --red:#E85D5D;
+      --display:"Chakra Petch",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",monospace;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0; background:var(--paper); color:var(--ink); font-family:var(--body); line-height:1.55;
+      background-image:linear-gradient(rgba(230,235,244,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(230,235,244,.045) 1px,transparent 1px);
+      background-size:24px 24px;
+    }
+    .wrap { max-width:920px; margin:0 auto; padding:0 1.25rem; }
+    header.hero { padding:2.5rem 0 1.5rem; }
+    .label { font-family:var(--mono); font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); }
+    h1 { font-family:var(--display); font-size:clamp(2rem,5vw,3.1rem); line-height:1.1; margin:.4rem 0; }
+    h2 { font-family:var(--display); font-size:1.7rem; margin:2.4rem 0 .6rem; }
+    h3 { font-family:var(--display); font-size:1.15rem; margin:1.2rem 0 .4rem; }
+    p { color:var(--ink-2); }
+    a { color:var(--accent); }
+    .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:.75rem; margin:1.2rem 0 1.6rem; }
+    .kpi { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:.9rem 1rem; }
+    .kpi .k { font-family:var(--mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); }
+    .kpi .v { font-family:var(--display); font-size:1.45rem; color:var(--ink); margin:.2rem 0; }
+    .kpi .s { font-size:.8rem; color:var(--ink-2); }
+    .callout { background:#15342C; border:1px solid #2a5a4c; border-radius:10px; padding:1rem 1.1rem; color:var(--ink); margin:1rem 0; }
+    .warn { background:#3A2419; border:1px solid #6a3b1e; }
+    .chart { margin:1rem 0 1.4rem; overflow:auto; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:.4rem; }
+    .chart svg { display:block; width:100%; height:auto; }
+    .tbl { overflow:auto; margin:1rem 0 1.4rem; border:1px solid var(--line); border-radius:10px; }
+    table { border-collapse:collapse; width:100%; font-size:.92rem; }
+    th, td { padding:.55rem .7rem; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { font-family:var(--mono); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); background:#121a30; }
+    td:nth-child(n+2) { font-variant-numeric:tabular-nums; }
+    tr:last-child td { border-bottom:0; }
+    ul { color:var(--ink-2); }
+    footer { padding:2rem 0 3rem; color:var(--ink-2); font-size:.9rem; }
+    nav.toc { display:flex; flex-wrap:wrap; gap:.5rem .9rem; margin:1rem 0 0; font-size:.9rem; }
+    @media print {
+      body { background:#fff; color:#111; background-image:none; }
+      p, ul, td { color:#222; }
+      .kpi, .chart, .tbl, .callout { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="label">Gunterbots school · 1 Oct 2026 · pre-launch</div>
+      <h1>Go-live math for Robot Logic Lab</h1>
+      <p>Does the $5,000/month rollout still hold at Inventor $99 / $299 a semester? What if you only get 10 Explorers, or one Inventor? This is the review before you charge anyone.</p>
+      <nav class="toc">
+        <a href="#verdict">Verdict</a>
+        <a href="#costs">Costs</a>
+        <a href="#ramp">Ramp</a>
+        <a href="#ten">10 Explorers</a>
+        <a href="#one">One Inventor</a>
+        <a href="#gates">Go-live gates</a>
+      </nav>
+      <div class="kpis">
+        <div class="kpi"><div class="k">10 Explorers, lean net</div><div class="v">$239</div><div class="s">founding $29, 0 Inventors</div></div>
+        <div class="kpi"><div class="k">Those 10 + 1 Inventor</div><div class="v">$315</div><div class="s">still skip $600 ads</div></div>
+        <div class="kpi"><div class="k">Month 9 net, lean</div><div class="v">$5,173</div><div class="s">75 Explorer / 25 Inventor</div></div>
+        <div class="kpi"><div class="k">Break-even Explorers</div><div class="v">1 lean / 4 honest</div><div class="s">founding $29</div></div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section id="verdict">
+      <h2>Verdict</h2>
+      <div class="callout">The $5,000 net goal still works if overhead stays lean. It fails if you turn on the plan’s $600 stack (Kajabi + $300 ads) while you only have 10 cheap seats.</div>
+      <p>Inventor dropped $20/month versus the written plan ($119 → $99). On month-9 headcount that is $500 less revenue. You already run Moodle, n8n, GitHub Pages, and Cloudflare, so you do not need Kajabi. Lean costs ($40) replace that $500 and then some. Month 9 net on lean public rates: <b style="color:var(--ink)">$5,173</b>. Same headcount on the $600 stack: <b style="color:var(--ink)">$4,613</b>, which misses the goal.</p>
+      <p><b style="color:var(--ink)">10 founding Explorers and zero Inventors is a viable studio, not a salary.</b> Lean net about $239/month. Two founding Explorers cover lean costs. Five cover the honest $120 stack. The $600 stack needs 22 founding Explorers before it breaks even.</p>
+      <p><b style="color:var(--ink)">One Inventor is worth a short Thursday, not a 90-minute show.</b> The office hour is a fixed cost. Keep it to 25–30 minutes until four Inventors are in the room. Do not buy tools for one person.</p>
+    </section>
+
+    <section id="costs">
+      <h2>Cost stack — keep it boring</h2>
+      <p>The original plan assumed a paid course platform and $300 ads. Your real stack is already paid for. Use lean $40 at launch. Move to honest $120 when the sixth paying kid joins (insurance).</p>
+      <div class='tbl'><table><thead><tr><th>Line</th><th>Plan $600</th><th>Lean $40 at launch</th><th>Honest $120 later</th></tr></thead><tbody><tr><td>Course platform</td><td>$100–150 Kajabi / Teachable</td><td>$0 Moodle you already run</td><td>$25 VPS share</td></tr><tr><td>Live video</td><td>$15 Zoom</td><td>$15 Zoom or $0 Meet</td><td>$16</td></tr><tr><td>Design</td><td>$30</td><td>$0 Canva free</td><td>$15 Canva Pro</td></tr><tr><td>Ads</td><td>$300</td><td>$0 until the starter converts</td><td>$0 until month 6</td></tr><tr><td>Insurance, domain, parts</td><td>$100</td><td>$25 domain + parts</td><td>$40 liability + parts</td></tr><tr><td>n8n / Cloudflare / Pages</td><td>not in the plan</td><td>$0 already on</td><td>$0</td></tr><tr><td>Stripe</td><td>~3% of revenue</td><td>2.9% + $0.30 / invoice</td><td>same</td></tr><tr><td>GN2R patch</td><td>not costed</td><td>$6 × paid founders, once</td><td>same</td></tr></tbody></table></div>
+      <p>Break-even founding Explorers at $29: <b style="color:var(--ink)">2 on lean, 5 on honest, 22 on the $600 plan stack.</b></p>
+    </section>
+
+    <section id="ramp">
+      <h2>Original ramp, rerun at live prices</h2>
+      <p>Explorer is still $39. Inventor is $99 public / $79 founding (was $119 / $89). Month 1 uses founding rates. Later rows use public rates, same as the written plan. The last column keeps 15 Explorer + 5 Inventor locked at founding rates.</p>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Monthly revenue on the original headcount ramp">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Monthly revenue on the original headcount ramp</text>
+  <text x="18" y="48" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif" transform="rotate(-90 18 160)">USD</text>
+<line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$1,982</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$3,965</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$5,947</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$7,930</text>
+<rect x="88.3" y="240.0" width="43.3" height="24.0" fill="#7FA6E8" rx="3"/>
+<rect x="135.6" y="241.4" width="43.3" height="22.6" fill="#FF8A4C" rx="3"/>
+<text x="131.6" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month 1</text>
+<rect x="223.5" y="199.7" width="43.3" height="64.3" fill="#7FA6E8" rx="3"/>
+<rect x="270.8" y="205.2" width="43.3" height="58.8" fill="#FF8A4C" rx="3"/>
+<text x="266.8" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month 3</text>
+<rect x="358.7" y="135.4" width="43.3" height="128.6" fill="#7FA6E8" rx="3"/>
+<rect x="406.0" y="146.3" width="43.3" height="117.7" fill="#FF8A4C" rx="3"/>
+<text x="402.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month 6</text>
+<rect x="493.9" y="103.3" width="43.3" height="160.7" fill="#7FA6E8" rx="3"/>
+<rect x="541.2" y="116.9" width="43.3" height="147.1" fill="#FF8A4C" rx="3"/>
+<text x="537.2" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month 9</text>
+<rect x="629.1" y="71.1" width="43.3" height="192.9" fill="#7FA6E8" rx="3"/>
+<rect x="676.4" y="87.5" width="43.3" height="176.5" fill="#FF8A4C" rx="3"/>
+<text x="672.4" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month 12</text>
+<rect x="64" y="278" width="10" height="10" fill="#7FA6E8" rx="2"/>
+<text x="78" y="287" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Old prices $39 / $119</text>
+<rect x="204" y="278" width="10" height="10" fill="#FF8A4C" rx="2"/>
+<text x="218" y="287" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Live prices $39 / $99</text>
+</svg></div>
+      <div class='tbl'><table><thead><tr><th>Milestone</th><th>E</th><th>I</th><th>Old rev</th><th>New rev</th><th>Net lean</th><th>Net honest</th><th>Net $600</th><th>Locked rev</th></tr></thead><tbody><tr><td>Month 1 · founding</td><td>15</td><td>5</td><td>$880</td><td>$830</td><td>$760</td><td>$680</td><td>$200</td><td>$830</td></tr><tr><td>Month 3</td><td>30</td><td>10</td><td>$2,360</td><td>$2,160</td><td>$2,045</td><td>$1,965</td><td>$1,485</td><td>$1,910</td></tr><tr><td>Month 6</td><td>60</td><td>20</td><td>$4,720</td><td>$4,320</td><td>$4,131</td><td>$4,051</td><td>$3,571</td><td>$4,070</td></tr><tr><td>Month 9 · goal</td><td>75</td><td>25</td><td>$5,900</td><td>$5,400</td><td>$5,173</td><td>$5,093</td><td>$4,613</td><td>$5,150</td></tr><tr><td>Month 12</td><td>90</td><td>30</td><td>$7,080</td><td>$6,480</td><td>$6,216</td><td>$6,136</td><td>$5,656</td><td>$6,230</td></tr></tbody></table></div>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Month-9 net at 75 / 25 (public rates unless noted)">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Month-9 net at 75 / 25 (public rates unless noted)</text>
+  <text x="18" y="48" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif" transform="rotate(-90 18 160)">USD</text>
+<line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$1,449</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$2,897</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$4,346</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$5,794</text>
+<rect x="88.3" y="73.9" width="43.3" height="190.1" fill="#4CC9A4" rx="3"/>
+<text x="131.6" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Old+$600</text>
+<rect x="223.5" y="92.0" width="43.3" height="172.0" fill="#4CC9A4" rx="3"/>
+<text x="266.8" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">New+$600</text>
+<rect x="358.7" y="74.1" width="43.3" height="189.9" fill="#4CC9A4" rx="3"/>
+<text x="402.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">New+$120</text>
+<rect x="493.9" y="71.1" width="43.3" height="192.9" fill="#4CC9A4" rx="3"/>
+<text x="537.2" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">New+$40</text>
+<rect x="629.1" y="75.1" width="43.3" height="188.9" fill="#4CC9A4" rx="3"/>
+<text x="672.4" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Locked+$40</text>
+<rect x="64" y="278" width="10" height="10" fill="#4CC9A4" rx="2"/>
+<text x="78" y="287" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Net $</text>
+</svg></div>
+      <p>Members needed to clear $5,000 net at public rates, by Inventor mix:</p>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Members needed to clear $5,000 net / month">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Members needed to clear $5,000 net / month</text>
+  <line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">42</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">83</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">125</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">167</text>
+<polyline fill="none" stroke="#4CC9A4" stroke-width="2.5" points="64.0,90.4 97.8,102.9 131.6,113.7 165.4,123.2 199.2,131.5 233.0,138.9 266.8,145.5 300.6,151.5 334.4,156.9 368.2,161.8 402.0,166.2 435.8,170.3 469.6,174.1 503.4,177.6 537.2,180.8 571.0,183.8 604.8,186.5 638.6,189.1 672.4,191.5 706.2,193.8 740.0,196.0"/>
+<circle cx="740.0" cy="196.0" r="3.5" fill="#4CC9A4"/>
+<polyline fill="none" stroke="#FF8A4C" stroke-width="2.5" points="64.0,87.7 97.8,100.4 131.6,111.3 165.4,120.9 199.2,129.4 233.0,136.9 266.8,143.7 300.6,149.7 334.4,155.2 368.2,160.1 402.0,164.7 435.8,168.8 469.6,172.7 503.4,176.2 537.2,179.5 571.0,182.5 604.8,185.3 638.6,187.9 672.4,190.4 706.2,192.7 740.0,194.9"/>
+<circle cx="740.0" cy="194.9" r="3.5" fill="#FF8A4C"/>
+<polyline fill="none" stroke="#E85D5D" stroke-width="2.5" points="64.0,71.1 97.8,85.0 131.6,97.0 165.4,107.5 199.2,116.8 233.0,125.0 266.8,132.4 300.6,139.0 334.4,145.0 368.2,150.4 402.0,155.4 435.8,159.9 469.6,164.1 503.4,168.0 537.2,171.5 571.0,174.8 604.8,177.9 638.6,180.8 672.4,183.5 706.2,186.0 740.0,188.4"/>
+<circle cx="740.0" cy="188.4" r="3.5" fill="#E85D5D"/>
+<polyline fill="none" stroke="#7FA6E8" stroke-width="2.5" points="64.0,71.1 97.8,89.2 131.6,104.2 165.4,116.8 199.2,127.6 233.0,136.9 266.8,145.0 300.6,152.1 334.4,158.4 368.2,164.1 402.0,169.2 435.8,173.8 469.6,177.9 503.4,181.7 537.2,185.2 571.0,188.4 604.8,191.3 638.6,194.1 672.4,196.6 706.2,198.9 740.0,201.1"/>
+<circle cx="740.0" cy="201.1" r="3.5" fill="#7FA6E8"/>
+<text x="64.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">0</text>
+<text x="165.4" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">15</text>
+<text x="266.8" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">30</text>
+<text x="368.2" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">45</text>
+<text x="469.6" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">60</text>
+<text x="571.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">75</text>
+<text x="672.4" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">90</text>
+<text x="740.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">100</text>
+<text x="380.0" y="316" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Inventor share of members (%)</text>
+<rect x="64" y="36" width="10" height="10" fill="#4CC9A4" rx="2"/>
+<text x="78" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">New prices, lean $40</text>
+<rect x="234" y="36" width="10" height="10" fill="#FF8A4C" rx="2"/>
+<text x="248" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">New prices, honest $120</text>
+<rect x="404" y="36" width="10" height="10" fill="#E85D5D" rx="2"/>
+<text x="418" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">New prices, plan $600</text>
+<rect x="574" y="36" width="10" height="10" fill="#7FA6E8" rx="2"/>
+<text x="588" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Old $119 Inventor, plan $600</text>
+</svg></div>
+      <p>At the plan’s 25% Inventor mix you need about <b style="color:var(--ink)">97 members on lean costs</b>, 98 on honest, 107 on $600. The old $119 price needed about 98 on $600. Lean ops buy back the $20 Inventor cut.</p>
+    </section>
+
+    <section id="ten">
+      <h2>Play-through: 10 cheap seats</h2>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 272" width="760" height="272" role="img" aria-label="Net this month, 10 cheap seats (lean $40 overhead)">
+  <rect width="760" height="272" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Net this month, 10 cheap seats (lean $40 overhead)</text>
+  <text x="200" y="64" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">10 Explorer founding</text>
+<rect x="210" y="50" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="50" width="139.5" height="22" fill="#FF8A4C" rx="4"/>
+<text x="357.5" y="66" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$239</text>
+<text x="200" y="100" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">10 Explorer + 1 Inventor</text>
+<rect x="210" y="86" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="86" width="184.2" height="22" fill="#4CC9A4" rx="4"/>
+<text x="402.2" y="102" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$315</text>
+<text x="200" y="136" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">15 Explorer founding</text>
+<rect x="210" y="122" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="122" width="221.0" height="22" fill="#7FA6E8" rx="4"/>
+<text x="439.0" y="138" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$378</text>
+<text x="200" y="172" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">12 E + 3 I founding</text>
+<rect x="210" y="158" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="158" width="306.2" height="22" fill="#4CC9A4" rx="4"/>
+<text x="524.2" y="174" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$524</text>
+<text x="200" y="208" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Plan M1 headcount 15+5</text>
+<rect x="210" y="194" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="194" width="444.4" height="22" fill="#4CC9A4" rx="4"/>
+<text x="662.4" y="210" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$760</text>
+<text x="200" y="244" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">10 E public, no founders</text>
+<rect x="210" y="230" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="230" width="196.3" height="22" fill="#7FA6E8" rx="4"/>
+<text x="414.3" y="246" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$336</text>
+</svg></div>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 164" width="760" height="164" role="img" aria-label="What 10 founding Explorers net under each cost stack">
+  <rect width="760" height="164" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">What 10 founding Explorers net under each cost stack</text>
+  <text x="200" y="64" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Lean $40 (your stack)</text>
+<rect x="210" y="50" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="50" width="444.4" height="22" fill="#4CC9A4" rx="4"/>
+<text x="662.4" y="66" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$239</text>
+<text x="200" y="100" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Honest $120</text>
+<rect x="210" y="86" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="86" width="295.4" height="22" fill="#7FA6E8" rx="4"/>
+<text x="513.4" y="102" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$159</text>
+<text x="200" y="136" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Plan $600 (Kajabi + ads)</text>
+<rect x="210" y="122" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="122" width="0.0" height="22" fill="#E85D5D" rx="4"/>
+<text x="218.0" y="138" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">-$321</text>
+</svg></div>
+      <div class='tbl'><table><thead><tr><th>Scenario</th><th>People</th><th>Revenue</th><th>Stripe</th><th>Net lean $40</th><th>Net honest $120</th><th>Net plan $600</th></tr></thead><tbody><tr><td>10 Explorer founding, 0 Inventor</td><td>10 E + 0 I</td><td>$290</td><td>$11.41</td><td>$239</td><td>$159</td><td>-$321</td></tr><tr><td>10 Explorer founding + 1 Inventor founding</td><td>10 E + 1 I</td><td>$369</td><td>$14.00</td><td>$315</td><td>$235</td><td>-$245</td></tr><tr><td>15 Sentinel, all Explorer founding</td><td>15 E + 0 I</td><td>$435</td><td>$17.12</td><td>$378</td><td>$298</td><td>-$182</td></tr><tr><td>12 Explorer + 3 Inventor founding</td><td>12 E + 3 I</td><td>$585</td><td>$21.46</td><td>$524</td><td>$444</td><td>-$36</td></tr><tr><td>15 Explorer + 5 Inventor founding (plan M1 headcount)</td><td>15 E + 5 I</td><td>$830</td><td>$30.07</td><td>$760</td><td>$680</td><td>$200</td></tr><tr><td>20 founders: 15 Explorer + 5 Inventor, new rates</td><td>15 E + 5 I</td><td>$830</td><td>$30.07</td><td>$760</td><td>$680</td><td>$200</td></tr><tr><td>20 founders: 10 Explorer + 10 Inventor</td><td>10 E + 10 I</td><td>$1,080</td><td>$37.32</td><td>$1,003</td><td>$923</td><td>$443</td></tr><tr><td>Stuck 6 months: 10 Explorer public, 0 Inventor</td><td>10 E + 0 I</td><td>$390</td><td>$14.31</td><td>$336</td><td>$256</td><td>-$224</td></tr></tbody></table></div>
+      <h3>10 Explorers, 0 Inventors</h3>
+      <p>Revenue $290 at founding $29. Lean net <b style="color:var(--ink)">$239</b>. Honest $159. Plan $600: <b style="color:var(--ink)">-$321</b> — a loss. Skip Thursday office hour. About 24 hours/month of recording and community, ~$10/hour. Treat months 1–3 as building the library.</p>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Cash if you stay at 10 founding Explorers all year (lean costs)">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Cash if you stay at 10 founding Explorers all year (lean costs)</text>
+  <line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$785</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$1,570</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$2,355</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$3,139</text>
+<polyline fill="none" stroke="#FF8A4C" stroke-width="2.5" points="64.0,251.7 125.5,247.6 186.9,247.6 248.4,247.6 309.8,247.6 371.3,247.6 432.7,247.6 494.2,247.6 555.6,247.6 617.1,247.6 678.5,247.6 740.0,247.6"/>
+<circle cx="740.0" cy="247.6" r="3.5" fill="#FF8A4C"/>
+<polyline fill="none" stroke="#4CC9A4" stroke-width="2.5" points="64.0,251.7 125.5,235.3 186.9,218.9 248.4,202.5 309.8,186.1 371.3,169.6 432.7,153.2 494.2,136.8 555.6,120.4 617.1,104.0 678.5,87.6 740.0,71.1"/>
+<circle cx="740.0" cy="71.1" r="3.5" fill="#4CC9A4"/>
+<text x="64.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">1</text>
+<text x="186.9" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">3</text>
+<text x="309.8" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">5</text>
+<text x="432.7" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">7</text>
+<text x="555.6" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">9</text>
+<text x="678.5" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">11</text>
+<text x="740.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">12</text>
+<text x="380.0" y="316" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Month</text>
+<rect x="64" y="36" width="10" height="10" fill="#FF8A4C" rx="2"/>
+<text x="78" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Monthly net</text>
+<rect x="234" y="36" width="10" height="10" fill="#4CC9A4" rx="2"/>
+<text x="248" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Cumulative cash</text>
+</svg></div>
+      <p>If you never grow past those 10 founding Explorers, twelve months of lean costs (plus $60 of patches in month 1) leaves about <b style="color:var(--ink)">$2,803</b> cash. A studio. Not the plan’s $44k year-1 keep figure.</p>
+    </section>
+
+    <section id="one">
+      <h2>What if you only get one Inventor?</h2>
+      <p>10 founding Explorers + 1 founding Inventor: revenue $369, lean net <b style="color:var(--ink)">$315</b>. The extra $79 does not change overhead. A 90-minute office hour for one kid is ~8–9 live hours/month for $76 after Stripe, about $9/hour on the live slice.</p>
+      <div class="warn callout">Keep Thursday to 25–30 minutes until four Inventors are in the room. One session, one calendar slot. The plan already says a second office hour starts at 40 Inventors.</div>
+      <div class="chart"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Inventor office-hour contribution (founding $79, before overhead)">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Inventor office-hour contribution (founding $79, before overhead)</text>
+  <line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$257</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$513</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$770</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">$1,027</text>
+<polyline fill="none" stroke="#FF8A4C" stroke-width="2.5" points="64.0,264.0 120.3,247.9 176.7,231.9 233.0,215.8 289.3,199.7 345.7,183.6 402.0,167.6 458.3,151.5 514.7,135.4 571.0,119.4 627.3,103.3 683.7,87.2 740.0,71.1"/>
+<circle cx="740.0" cy="71.1" r="3.5" fill="#FF8A4C"/>
+<text x="64.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">0</text>
+<text x="176.7" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">2</text>
+<text x="289.3" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">4</text>
+<text x="402.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">6</text>
+<text x="514.7" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">8</text>
+<text x="627.3" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">10</text>
+<text x="740.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">12</text>
+<text x="380.0" y="316" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Inventors in the one Thursday session</text>
+<rect x="64" y="36" width="10" height="10" fill="#FF8A4C" rx="2"/>
+<text x="78" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Monthly Inventor revenue − Stripe</text>
+</svg></div>
+      <p>Four founding Inventors in that one session: $316 before fees, still one Thursday. That is the live product. Explorer remains the scalable one.</p>
+      <h3>15 Sentinel families</h3>
+      <p>All Explorer founding: lean net $378. Twelve Explorer + three Inventor: $524. Plan month-1 headcount (15+5): $760. Hold those 15 at the front of the 20 founding spots.</p>
+      <h3>Semester cash</h3>
+      <p>10 Explorer founding semesters = $1,090 now, then quiet until spring. 1 Inventor public semester = $299, the industry-study course. Inventors get summer camp free; at n=1 that perk is cheap. Leave it.</p>
+    </section>
+
+    <section id="gates">
+      <h2>Does it meet the rollout plan?</h2>
+      <div class='tbl'><table><thead><tr><th>Checkpoint</th><th>Met?</th></tr></thead><tbody><tr><td>$5,000 net at ~100 members</td><td>Yes on lean/honest ($5,173 / $5,093 at 75/25). No on $600/month from day one.</td></tr><tr><td>Month 1 founding 15+5 = $880</td><td>New founding mix $830 revenue. Fine on lean costs.</td></tr><tr><td>3 of 4 Explorer</td><td>Still right. Explorer scales. Inventor is a room you fill.</td></tr><tr><td>Industry $299 / 12 live</td><td>Yes — Inventor semester. Monthly $99 is that course on a club bill.</td></tr><tr><td>5–8 hours/week</td><td>Yes if office hour shrinks at n=1 and content is batched.</td></tr><tr><td>Year 1 keep ≈ $44k</td><td>Needs the ramp, not 10 stuck Explorers. Camp can still help.</td></tr><tr><td>Utah ESA</td><td>$299 is 7.5% of a $4,000 Utah Fits All award. Kit stays a separate $40–80 line.</td></tr></tbody></table></div>
+      <h2>Go-live gates</h2>
+      <ol>
+        <li>Finish Cloudflare: <code>@</code> and <code>www</code> CNAME to <code>wegunterjr.github.io</code>, DNS only. Do not send the family email until https://gunterbots.com loads.</li>
+        <li>Charge after five Explorers or three Inventors say yes. The waitlist can collect before that.</li>
+        <li>Overhead cap at launch: $40. No Kajabi, no ads, no second Zoom account.</li>
+        <li>Office hour: off at 0 Inventors, 30 minutes at 1–3, 60–90 minutes at 4+.</li>
+        <li>Mail patches only after a paid founding seat, not with the free Sentinel login.</li>
+        <li>Buy liability insurance at the 6th paying kid, not before.</li>
+        <li>Ads $0 until the 5-day starter converts waitlist → paid at 5%+. Then $50 tests, not $300.</li>
+        <li>Sibling +$10 and “pay 10 months, get 12” are still good levers from the plan. Add them after the first 20.</li>
+      </ol>
+      <div class="callout">Go live on the waitlist and the Sentinel reconstruction now. Charge founding families when the domain works and five cheap seats (or three Inventors) are ready to pay.</div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">
+      Robot Logic Lab · a Gunterbots school · planning math, not a demand forecast · <a href="rollout.md">Markdown</a> · <a href="../index.html">Back to the club</a>
+    </div>
+  </footer>
+</body>
+</html>

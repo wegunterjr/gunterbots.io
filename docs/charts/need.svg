@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" width="760" height="320" role="img" aria-label="Members needed to clear $5,000 net / month">
+  <rect width="760" height="320" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">Members needed to clear $5,000 net / month</text>
+  <line x1="64" y1="264.0" x2="740" y2="264.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="268.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">0</text>
+<line x1="64" y1="210.0" x2="740" y2="210.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="214.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">42</text>
+<line x1="64" y1="156.0" x2="740" y2="156.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="160.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">83</text>
+<line x1="64" y1="102.0" x2="740" y2="102.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="106.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">125</text>
+<line x1="64" y1="48.0" x2="740" y2="48.0" stroke="#2A3656" stroke-width="1"/>
+<text x="56" y="52.0" fill="#A3AEC4" font-size="11" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">167</text>
+<polyline fill="none" stroke="#4CC9A4" stroke-width="2.5" points="64.0,90.4 97.8,102.9 131.6,113.7 165.4,123.2 199.2,131.5 233.0,138.9 266.8,145.5 300.6,151.5 334.4,156.9 368.2,161.8 402.0,166.2 435.8,170.3 469.6,174.1 503.4,177.6 537.2,180.8 571.0,183.8 604.8,186.5 638.6,189.1 672.4,191.5 706.2,193.8 740.0,196.0"/>
+<circle cx="740.0" cy="196.0" r="3.5" fill="#4CC9A4"/>
+<polyline fill="none" stroke="#FF8A4C" stroke-width="2.5" points="64.0,87.7 97.8,100.4 131.6,111.3 165.4,120.9 199.2,129.4 233.0,136.9 266.8,143.7 300.6,149.7 334.4,155.2 368.2,160.1 402.0,164.7 435.8,168.8 469.6,172.7 503.4,176.2 537.2,179.5 571.0,182.5 604.8,185.3 638.6,187.9 672.4,190.4 706.2,192.7 740.0,194.9"/>
+<circle cx="740.0" cy="194.9" r="3.5" fill="#FF8A4C"/>
+<polyline fill="none" stroke="#E85D5D" stroke-width="2.5" points="64.0,71.1 97.8,85.0 131.6,97.0 165.4,107.5 199.2,116.8 233.0,125.0 266.8,132.4 300.6,139.0 334.4,145.0 368.2,150.4 402.0,155.4 435.8,159.9 469.6,164.1 503.4,168.0 537.2,171.5 571.0,174.8 604.8,177.9 638.6,180.8 672.4,183.5 706.2,186.0 740.0,188.4"/>
+<circle cx="740.0" cy="188.4" r="3.5" fill="#E85D5D"/>
+<polyline fill="none" stroke="#7FA6E8" stroke-width="2.5" points="64.0,71.1 97.8,89.2 131.6,104.2 165.4,116.8 199.2,127.6 233.0,136.9 266.8,145.0 300.6,152.1 334.4,158.4 368.2,164.1 402.0,169.2 435.8,173.8 469.6,177.9 503.4,181.7 537.2,185.2 571.0,188.4 604.8,191.3 638.6,194.1 672.4,196.6 706.2,198.9 740.0,201.1"/>
+<circle cx="740.0" cy="201.1" r="3.5" fill="#7FA6E8"/>
+<text x="64.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">0</text>
+<text x="165.4" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">15</text>
+<text x="266.8" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">30</text>
+<text x="368.2" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">45</text>
+<text x="469.6" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">60</text>
+<text x="571.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">75</text>
+<text x="672.4" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">90</text>
+<text x="740.0" y="302" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">100</text>
+<text x="380.0" y="316" fill="#A3AEC4" font-size="11" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif">Inventor share of members (%)</text>
+<rect x="64" y="36" width="10" height="10" fill="#4CC9A4" rx="2"/>
+<text x="78" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">New prices, lean $40</text>
+<rect x="234" y="36" width="10" height="10" fill="#FF8A4C" rx="2"/>
+<text x="248" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">New prices, honest $120</text>
+<rect x="404" y="36" width="10" height="10" fill="#E85D5D" rx="2"/>
+<text x="418" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">New prices, plan $600</text>
+<rect x="574" y="36" width="10" height="10" fill="#7FA6E8" rx="2"/>
+<text x="588" y="45" fill="#A3AEC4" font-size="11" font-family="IBM Plex Sans, system-ui, sans-serif">Old $119 Inventor, plan $600</text>
+</svg>

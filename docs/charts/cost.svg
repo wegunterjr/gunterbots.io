@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 164" width="760" height="164" role="img" aria-label="What 10 founding Explorers net under each cost stack">
+  <rect width="760" height="164" fill="#16203A" rx="12"/>
+  <text x="20" y="28" fill="#E6EBF4" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="600">What 10 founding Explorers net under each cost stack</text>
+  <text x="200" y="64" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Lean $40 (your stack)</text>
+<rect x="210" y="50" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="50" width="444.4" height="22" fill="#4CC9A4" rx="4"/>
+<text x="662.4" y="66" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$239</text>
+<text x="200" y="100" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Honest $120</text>
+<rect x="210" y="86" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="86" width="295.4" height="22" fill="#7FA6E8" rx="4"/>
+<text x="513.4" y="102" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">$159</text>
+<text x="200" y="136" fill="#A3AEC4" font-size="12" text-anchor="end" font-family="IBM Plex Sans, system-ui, sans-serif">Plan $600 (Kajabi + ads)</text>
+<rect x="210" y="122" width="480" height="22" fill="#0F1626" rx="4"/>
+<rect x="210" y="122" width="0.0" height="22" fill="#E85D5D" rx="4"/>
+<text x="218.0" y="138" fill="#E6EBF4" font-size="12" font-family="IBM Plex Mono, ui-monospace, monospace">-$321</text>
+</svg>
