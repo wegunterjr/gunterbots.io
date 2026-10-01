@@ -191,7 +191,7 @@
       .gn2r-buddy { width: 64px; right: 10px; top: auto; bottom: 5.4rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .hero-shot img.hero-gn2r, .hero-shot img.hero-eyes, .gn2r-buddy img, .crew-art img.eyes { animation: none; }
+      .hero-shot img.hero-gn2r, .hero-shot img.hero-eyes, .gn2r-buddy img { animation: none; }
     }
 
     .proof { border-block: 1px solid var(--line); background: var(--panel); }
@@ -233,7 +233,7 @@
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 1.5rem 1.25rem 0;
+      padding: 1.5rem 1.25rem 7.25rem;
       display: grid;
       place-items: end center;
       min-height: 320px;
@@ -246,11 +246,11 @@
       object-fit: contain;
       filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
     }
-    .crew-art img.eyes {
-      position: absolute; left: .75rem; top: .75rem;
-      width: 118px; height: auto; border: 0; aspect-ratio: auto;
-      animation: gn2r-bob 4s ease-in-out infinite;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,.35));
+    .crew-art img.sticker {
+      position: absolute; left: .75rem; bottom: .75rem;
+      width: 148px; height: auto; border: 0; aspect-ratio: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.35);
     }
     .crew-art img.flag {
       position: absolute; top: .85rem; right: .85rem;
@@ -416,9 +416,9 @@
         <h2 class="h2">GN2R and a merry band of pirates</h2>
         <div class="crew">
           <div class="crew-art">
-            <img class="eyes" src="images/gn2r-eyes.png" alt="GN2R's screen face — two pale eyes." />
             <img class="flag" src="images/pirate-flag.jpg" alt="Robot pirate flag: a mechanical skull in a captain's hat over crossed bones." />
             <img class="mascot" src="images/gn2r-bot.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
+            <img class="sticker" src="images/gn2r-sticker.png" alt="GN2R BOTS sticker with gunterbots.com around the border." />
           </div>
           <div class="crew-copy">
             <blockquote>Here be the course we're chartin' today, mateys.</blockquote>
