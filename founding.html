@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Founding seats — Robot Logic Lab</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Founding seats for Robot Logic Lab waitlist families." />
+  <meta name="theme-color" content="#0F1626" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper:#0F1626; --panel:#16203A; --ink:#E6EBF4; --ink-2:#C2CBDC; --line:#2A3656;
+      --accent:#FF8A4C; --accent-deep:#E8590C; --good:#7BD389;
+      --display:"Chakra Petch",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100svh; background: var(--paper); color: var(--ink);
+      font-family: var(--body); line-height: 1.6;
+      background-image: linear-gradient(rgba(230,235,244,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(230,235,244,.045) 1px,transparent 1px);
+      background-size: 24px 24px;
+    }
+    a { color: var(--accent); }
+    h1 { font-family: var(--display); font-size: clamp(2rem,6vw,3.1rem); line-height: 1.1; margin: 0; }
+    h2 { font-family: var(--display); font-size: 1.35rem; margin: 0; }
+    p { margin: 0; }
+    .wrap { width: min(52rem, calc(100% - 2rem)); margin: 0 auto; padding: 1.5rem 0 3rem; display: grid; gap: 1.25rem; }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); text-decoration: none; }
+    .logo img { width: 42px; height: 28px; object-fit: contain; }
+    .logo-name { font-family: var(--display); font-weight: 700; }
+    .logo-sub { display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; color: var(--ink-2); text-transform: uppercase; }
+    .login { color: var(--ink-2); text-decoration: none; font-weight: 600; font-size: .95rem; }
+    .label { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+    .muted { color: var(--ink-2); }
+    .test { display: none; border: 1px dashed var(--accent); border-radius: 10px; padding: .7rem .9rem; font-size: .92rem; }
+    .test.show { display: block; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.15rem; display: grid; gap: .7rem; align-content: start; }
+    .card.featured { border-color: var(--accent-deep); }
+    .tag { justify-self: start; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; padding: .15rem .5rem; border-radius: 999px; background: rgba(255,138,76,.14); color: var(--accent); }
+    .price { font-family: var(--display); font-size: 2rem; line-height: 1; }
+    .price small { font-family: var(--body); font-size: .9rem; color: var(--ink-2); font-weight: 400; }
+    .card ul { margin: 0; padding-left: 1.1em; display: grid; gap: .3rem; font-size: .95rem; }
+    .buttons { display: grid; gap: .5rem; margin-top: .3rem; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; min-height: 3rem; border-radius: 8px; padding: .5rem 1rem;
+      background: var(--accent-deep); color: #fff; font-weight: 600; text-decoration: none; text-align: center;
+    }
+    .btn.ghost { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+    .btn:hover { filter: brightness(1.08); }
+    .fine { font-size: .88rem; color: var(--ink-2); display: grid; gap: .45rem; }
+    .fine b { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" href="/">
+        <img src="images/gn2r-eyes.png" alt="" />
+        <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">by Gunterbots · GN2R</span></span>
+      </a>
+      <a class="login" href="https://learn.mgit.io/my/courses.php" target="_blank" rel="noopener">Member login</a>
+    </div>
+
+    <div class="label">Founding Family · first 20 families</div>
+    <h1>Your founding seat is ready.</h1>
+    <p class="muted">Thanks for joining the waitlist. Pick a seat below. You get the founding price for as long as you stay a member, plus a GN2R pirate patch, a badge and your name on the Founders wall. Your login arrives by email a minute or two after checkout.</p>
+
+    <div class="test" id="test-note"><b>Test mode.</b> These buttons use Stripe's test checkout. Pay with card 4242 4242 4242 4242, any future date, any CVC and ZIP. No real money moves.</div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="tag">Start here</span>
+        <h2>Explorer</h2>
+        <div class="price">$29<small> /month founding</small></div>
+        <ul>
+          <li>A new mission each week of the season</li>
+          <li>Rookie and Pro build levels</li>
+          <li>Weekly logic puzzle, member showcase</li>
+          <li>The full mission library</li>
+        </ul>
+        <div class="buttons">
+          <a class="btn" data-plan="explorer-founding-monthly" href="#">Join monthly: $29/mo</a>
+          <a class="btn ghost" data-plan="explorer-founding-season" href="#">Or one season: $87</a>
+        </div>
+      </div>
+      <div class="card featured">
+        <span class="tag">Live help</span>
+        <h2>Inventor</h2>
+        <div class="price">$79<small> /month founding</small></div>
+        <ul>
+          <li>Everything in Explorer</li>
+          <li>Thursday office hour with Walter (group drop-in)</li>
+          <li>Feedback on builds, done live</li>
+          <li>Inventor badge and first demo at Robot Expo</li>
+        </ul>
+        <div class="buttons">
+          <a class="btn" data-plan="inventor-founding-monthly" href="#">Join monthly: $79/mo</a>
+          <a class="btn ghost" data-plan="inventor-founding-season" href="#">Or one season: $237</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fine">
+      <p><b>Monthly</b> is the ongoing club. Pause or cancel any month from your Stripe receipt. Pause and your founding rate is waiting when you come back; cancel and rejoin later is public pricing.</p>
+      <p><b>A season</b> is 12 weekly missions plus a catch-up week, paid once. Fall is September–November, Spring is January–March.</p>
+      <p>The grown-up who pays gets the login and manages it. Questions? Email <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a>. <a href="privacy.html">Privacy</a></p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // One place to swap test links for live links.
+      var MODE = "test";
+      var LINKS = {
+        test: {
+          "explorer-founding-monthly": "https://buy.stripe.com/test_cNi3cx0AV56ggpFeAm7IY00",
+          "inventor-founding-monthly": "https://buy.stripe.com/test_28E4gBdnHeGQ5L14ZM7IY01",
+          "explorer-founding-season": "https://buy.stripe.com/test_28E7sN1EZcyI3CTdwi7IY04",
+          "inventor-founding-season": "https://buy.stripe.com/test_4gM6oJdnHgOYgpF1NA7IY05"
+        },
+        live: {}
+      };
+      if (MODE === "test") document.getElementById("test-note").classList.add("show");
+      // founding.html?email=parent@example.com fills in the email on Stripe's checkout page.
+      var email = new URLSearchParams(location.search).get("email") || "";
+      document.querySelectorAll("[data-plan]").forEach(function (a) {
+        var url = LINKS[MODE][a.getAttribute("data-plan")];
+        if (!url) { a.removeAttribute("href"); a.style.opacity = ".5"; return; }
+        a.href = url + (email ? "?prefilled_email=" + encodeURIComponent(email) : "");
+      });
+    })();
+  </script>
+</body>
+</html>
