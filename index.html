@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Robot Logic Lab — a Gunterbots school</title>
-  <meta name="description" content="A home robotics club from Gunterbots LLC. Real robots, one mission a week, and a live roboticist to get unstuck. Year-round, fall, spring, or summer. Founding family pricing for the first 20 families." />
+  <title>Robot Logic Lab by Gunterbots</title>
+  <meta name="description" content="Robot Logic Lab by Gunterbots. Your robot guide: GN2R. A home robotics club — real robots, one mission a week, live help on Inventor. Founding waitlist open; seats in late October 2026." />
   <meta name="theme-color" content="#0F1626" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="canonical" href="https://wegunterjr.github.io/gunterbots.io/" />
-  <meta property="og:title" content="Robot Logic Lab — a Gunterbots school" />
-  <meta property="og:description" content="Build robots that move, think and play. Real hardware at home. Year-round, fall, spring, or summer. Founding family spots open now." />
-  <meta property="og:url" content="https://wegunterjr.github.io/gunterbots.io/" />
-  <meta property="og:image" content="https://wegunterjr.github.io/gunterbots.io/og.jpg" />
+  <link rel="canonical" href="https://gunterbots.com/" />
+  <meta property="og:title" content="Robot Logic Lab by Gunterbots" />
+  <meta property="og:description" content="Build robots that move, think and play. GN2R is your guide. Founding waitlist open; seats in late October 2026." />
+  <meta property="og:url" content="https://gunterbots.com/" />
+  <meta property="og:image" content="https://gunterbots.com/og.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://wegunterjr.github.io/gunterbots.io/og.jpg" />
+  <meta name="twitter:image" content="https://gunterbots.com/og.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -30,7 +30,7 @@
     "provider": {
       "@type": "Organization",
       "name": "Gunterbots LLC",
-      "url": "https://wegunterjr.github.io/gunterbots.io/"
+      "url": "https://gunterbots.com/"
     },
     "educationalLevel": "Ages 8–14 and adults",
     "inLanguage": "en",
@@ -46,7 +46,7 @@
       --paper: #0F1626;
       --panel: #16203A;
       --ink: #E6EBF4;
-      --ink-2: #A3AEC4;
+      --ink-2: #C2CBDC;
       --line: #2A3656;
       --grid: rgba(230,235,244,.045);
       --accent: #FF8A4C;
@@ -97,12 +97,12 @@
     .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     .label {
-      font-family: var(--mono); font-size: .75rem; letter-spacing: .1em;
+      font-family: var(--mono); font-size: .82rem; letter-spacing: .1em;
       text-transform: uppercase; color: var(--accent);
     }
-    .muted { color: var(--ink-2); }
+    .muted { color: var(--ink-2); font-size: 1rem; }
     .tag {
-      display: inline-block; font-family: var(--mono); font-size: .7rem;
+      display: inline-block; font-family: var(--mono); font-size: .75rem;
       letter-spacing: .08em; text-transform: uppercase;
       padding: 3px 8px; border-radius: 3px;
       background: var(--accent-soft); color: var(--accent); justify-self: start;
@@ -146,39 +146,26 @@
     .hero-grid { display: grid; gap: 2rem; align-items: center; }
     .hero h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: -.02em; }
     .hero h1 span { color: var(--accent); }
-    .hero .pitch { margin-top: 1rem; font-size: 1.15rem; max-width: 42ch; color: var(--ink-2); }
+    .hero .pitch { margin-top: 1rem; font-size: 1.18rem; max-width: 44ch; color: var(--ink-2); }
     .hero-actions { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .75rem; }
-    .hero .fine { margin-top: 1rem; font-size: .85rem; color: var(--ink-2); font-family: var(--mono); }
+    .hero .fine { margin-top: 1rem; font-size: 1rem; color: var(--ink-2); line-height: 1.55; }
     .hero-shot { position: relative; overflow: visible; }
     .hero-shot img.photo {
       width: 100%; aspect-ratio: 16/9; object-fit: cover;
       border-radius: 12px; border: 1px solid var(--line); display: block;
     }
-    .hero-shot img.hero-gn2r {
-      position: absolute; right: -3%; bottom: -16%; width: 34%; z-index: 2;
-      filter: drop-shadow(0 12px 20px rgba(0,0,0,.45));
-      animation: gn2r-bob 4.2s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .hero-shot img.hero-eyes {
-      position: absolute; right: 7%; top: 7%; width: 24%; z-index: 2;
-      filter: drop-shadow(0 8px 16px rgba(0,0,0,.4));
-      animation: gn2r-bob 3.2s ease-in-out infinite reverse;
-      pointer-events: none;
-    }
     .hero-shot figcaption {
       position: absolute; left: .9rem; right: .9rem; bottom: .75rem; z-index: 1;
-      font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
       color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,.7);
     }
     @keyframes gn2r-bob {
       0%, 100% { transform: translateY(0) rotate(-2deg); }
       50% { transform: translateY(-12px) rotate(2deg); }
     }
     @media (max-width: 859px) {
-      .hero-shot figcaption { display: none; }
-      .hero-shot img.hero-gn2r { display: none; }
-      .hero-shot img.hero-eyes { width: 30%; top: auto; bottom: 6%; right: 5%; }
+      .hero-shot figcaption { font-size: .72rem; }
       #join { padding-bottom: 5.5rem; }
     }
     @media (min-width: 960px) {
@@ -186,7 +173,7 @@
       .hero-shot img.photo { aspect-ratio: 4/3; }
     }
     .gn2r-buddy {
-      position: fixed; z-index: 22; width: 92px; right: 16px; top: 22%;
+      position: fixed; z-index: 22; width: 92px; right: 16px; top: 58%;
       filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
       transition: top .7s ease, right .7s ease;
     }
@@ -195,7 +182,7 @@
       .gn2r-buddy { width: 64px; right: 10px; top: auto; bottom: 5.4rem; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .hero-shot img.hero-gn2r, .hero-shot img.hero-eyes, .gn2r-buddy img { animation: none; }
+      .gn2r-buddy img { animation: none; }
     }
 
     .proof { border-block: 1px solid var(--line); background: var(--panel); }
@@ -204,7 +191,7 @@
     .proof-item:nth-child(odd) { border-right: 1px solid var(--line); }
     .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
     .proof-k { font-family: var(--display); font-size: 1.55rem; color: var(--accent); }
-    .proof-v { margin-top: .35rem; font-size: .85rem; color: var(--ink-2); }
+    .proof-v { margin-top: .35rem; font-size: .95rem; color: var(--ink-2); }
     @media (min-width: 800px) {
       .proof-grid { grid-template-columns: repeat(4, 1fr); }
       .proof-item { padding: 1.6rem 1.25rem; border-bottom: 0 !important; }
@@ -237,10 +224,10 @@
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 1.5rem 1.25rem 7.25rem;
+      padding: 1.5rem 1.25rem 1.5rem;
       display: grid;
       place-items: end center;
-      min-height: 320px;
+      min-height: 280px;
     }
     .crew-art img.mascot {
       width: min(360px, 82%);
@@ -249,12 +236,6 @@
       aspect-ratio: auto;
       object-fit: contain;
       filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
-    }
-    .crew-art img.sticker {
-      position: absolute; left: .75rem; bottom: .75rem;
-      width: 148px; height: auto; border: 0; aspect-ratio: auto;
-      border-radius: 10px;
-      box-shadow: 0 8px 18px rgba(0,0,0,.35);
     }
     .crew-art img.flag {
       position: absolute; top: .85rem; right: .85rem;
@@ -326,7 +307,9 @@
     textarea { height: auto; padding: .7rem .8rem; resize: vertical; min-height: 5rem; }
     input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
     .hp { position: absolute; left: -9999px; }
-    .form-note { font-size: .8rem; color: var(--ink-2); }
+    .form-note { font-size: .9rem; color: var(--ink-2); }
+    .try ol { margin: .35rem 0 0; padding-left: 1.2em; display: grid; gap: .45rem; color: var(--ink); }
+    .price-note { font-size: .95rem; color: var(--ink-2); max-width: 62ch; margin-top: .35rem; }
     .form-ok, .form-err { display: none; padding: .85rem 1rem; border-radius: 6px; font-size: .95rem; }
     .form-ok { background: var(--green-soft); color: var(--green); }
     .form-err { background: var(--accent-soft); color: var(--accent); }
@@ -362,10 +345,11 @@
     <div class="wrap nav-inner">
       <a class="logo" href="#top">
         <img src="images/gn2r-eyes.png" alt="GN2R" />
-        <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">A Gunterbots school</span></span>
+        <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">by Gunterbots · GN2R guides</span></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#why">Why</a>
+        <a href="#try">Try a mission</a>
         <a href="#crew">GN2R</a>
         <a href="#missions">Missions</a>
         <a href="#ai">AI Lab</a>
@@ -374,7 +358,7 @@
       </nav>
       <div class="nav-cta-wrap">
         <a class="nav-login" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
-        <a class="btn btn-primary nav-cta" href="#join">Reserve a founding spot</a>
+        <a class="btn btn-primary nav-cta" href="#join">Join the founding waitlist</a>
       </div>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -382,13 +366,14 @@
     </div>
     <div class="mobile-menu wrap" id="menu">
       <a href="#why">Why it works</a>
+      <a href="#try">Try a mission</a>
       <a href="#crew">GN2R &amp; the crew</a>
       <a href="#missions">Missions</a>
       <a href="#ai">AI Lab</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
-      <a class="btn btn-primary btn-full" href="#join" style="margin-top:.5rem">Reserve a founding spot</a>
+      <a class="btn btn-primary btn-full" href="#join" style="margin-top:.5rem">Join the founding waitlist</a>
     </div>
   </header>
 
@@ -396,21 +381,47 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="label">A Gunterbots school · founding launch</div>
+          <div class="label">Founding waitlist · seats late October 2026</div>
           <h1>Build robots that <span>move, think and play.</span></h1>
-          <p class="pitch">Robot Logic Lab is a home robotics club. Real robots, real parts, one mission a week. Build on the table, the garage floor, a hallway maze — wherever the robot fits. GN2R is your guide. Walter is the captain of a merry band of pirates.</p>
+          <p class="pitch"><b style="color:var(--ink)">Robot Logic Lab by Gunterbots.</b> Your robot guide: <b style="color:var(--ink)">GN2R</b>. A home robotics club — real robots, one mission a week, a merry band of pirates. Walter is the captain.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#join">Reserve a founding spot</a>
-            <a class="btn btn-ghost" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
+            <a class="btn btn-primary" href="#join">Join the founding waitlist</a>
+            <a class="btn btn-ghost" href="#try">Try a 10-minute mission</a>
           </div>
-          <p class="fine">Founding gift for the first 20 families: rate locked for life, a name on the Founders wall, and a GN2R pirate patch in the mail.<br />Already in the crew? <a href="https://learn.mgit.io" target="_blank" rel="noopener" style="color:var(--accent)">Log in at learn.mgit.io</a>.</p>
+          <p class="fine">First 20 families: founding price while you stay a member, a name on the Founders wall, and a GN2R pirate patch in the mail. No charge to join the waitlist.<br />Already in the crew? <a href="https://learn.mgit.io" target="_blank" rel="noopener" style="color:var(--accent)">Log in at learn.mgit.io</a>.</p>
         </div>
         <figure class="hero-shot">
-          <img class="photo" src="images/hero.jpg" alt="A child at a kitchen table holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
-          <img class="hero-eyes" src="images/gn2r-eyes.png" alt="" />
-          <img class="hero-gn2r" src="images/gn2r-bot.png" alt="GN2R, the club's robot guide" />
+          <img class="photo" src="images/hero.jpg" alt="A child holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
           <figcaption>Simulator first · real robot when you're ready</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="block" id="try" style="padding-top:0">
+      <div class="wrap">
+        <div class="label">Try this · 10 minutes · no kit</div>
+        <h2 class="h2">Mission 1: The Robot's Heartbeat</h2>
+        <p class="lead">Every robot you'll ever meet is a loop. Make a heart blink on a pretend micro:bit. That's the same idea as a rover's heartbeat.</p>
+        <div class="grid g2 try">
+          <div class="panel">
+            <h3>On a computer</h3>
+            <ol>
+              <li>Open <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">makecode.microbit.org</a> and start a new project.</li>
+              <li>Inside <b>forever</b>, add <b>show icon</b> (a heart), <b>pause 500 ms</b>, <b>clear screen</b>, <b>pause 500 ms</b>.</li>
+              <li>Watch the board on the left beat. That's a loop: do this, then do it again.</li>
+            </ol>
+            <p class="muted" style="margin-top:.75rem">No robot required. The picture <em>is</em> the robot until a box arrives.</p>
+          </div>
+          <div class="panel">
+            <h3>No computer handy</h3>
+            <ol>
+              <li>You are the robot. A grown-up is the programmer.</li>
+              <li>They say: “Clap. Wait. Clap. Wait. Repeat.” You loop until they say stop.</li>
+              <li>Change the program: two claps, then a stomp. Same idea, no screen.</li>
+            </ol>
+            <p class="muted" style="margin-top:.75rem">That's the pirate way: steal the idea with whatever's on the table.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -422,11 +433,10 @@
           <div class="crew-art">
             <img class="flag" src="images/pirate-flag.jpg" alt="Robot pirate flag: a mechanical skull in a captain's hat over crossed bones." />
             <img class="mascot" src="images/gn2r-bot.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
-            <img class="sticker" src="images/gn2r-sticker.png" alt="GN2R BOTS sticker with gunterbots.com around the border." />
           </div>
           <div class="crew-copy">
             <blockquote>Here be the course we're chartin' today, mateys.</blockquote>
-            <p class="muted">GN2R (say it <b style="color:var(--ink)">Gunter</b>) is the club's robot guide. Members are the crew: we pick a mission, we build the ship, we steal the problem back from “I don't know how.”</p>
+            <p class="muted">One club, three names, one job: <b style="color:var(--ink)">Robot Logic Lab</b> is the school. <b style="color:var(--ink)">Gunterbots</b> is the company. <b style="color:var(--ink)">GN2R</b> (say it Gunter) is your robot guide. Members are the crew.</p>
             <p class="muted">We've already been sailing. One of our favorite quests is <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" style="color:var(--accent)" target="_blank" rel="noopener">casting our own robot wheels</a> — 3D-printed cores, rubber treads, grippy enough for the living-room floor. That's the pirate way: make the part if the store doesn't have it.</p>
             <p><a class="btn btn-ghost" href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" target="_blank" rel="noopener">See Let's Make Wheels</a></p>
           </div>
@@ -439,7 +449,7 @@
         <div class="proof-item"><div class="proof-k">1 / week</div><div class="proof-v">A new mission video, a build, and something to show off</div></div>
         <div class="proof-item"><div class="proof-k">Rookie + Pro</div><div class="proof-v">Same mission, two difficulty levels — kids and grown-ups</div></div>
         <div class="proof-item"><div class="proof-k">Live help</div><div class="proof-v">Weekly office hour with a real roboticist on Inventor</div></div>
-        <div class="proof-item"><div class="proof-k">$40–80 kit</div><div class="proof-v">One micro:bit robot car. Start in the free simulator today</div></div>
+        <div class="proof-item"><div class="proof-k">$40–80 kit</div><div class="proof-v">micro:bit V2 + robot car, bought from the maker</div></div>
       </div>
     </div>
 
@@ -490,16 +500,28 @@
         <div class="split">
           <img src="images/rover.jpg" alt="A yellow micro:bit robot car with a glowing LED heart and an ultrasonic sensor on a wooden table." />
           <div>
-            <span class="tag">Hardware path</span>
-            <h3 style="margin-top:.6rem">One kit. The whole year.</h3>
-            <p class="muted" style="margin-top:.6rem">Buy the robot from the maker. We don't stock, ship, or mark it up. Tuition is the club: missions, GN2R, and live help. The box is a micro:bit V2 plus a small robot car. Start in the free MakeCode simulator; order the car when you're ready.</p>
-            <p class="muted" style="margin-top:.6rem"><b style="color:var(--ink)">Recommended: Elecfreaks Cutebot.</b> Car about $30, micro:bit V2 about $16–26. Three AAA batteries from the grocery store. That's the $40–80 on this page — their price, not ours.</p>
+            <span class="tag">Hardware</span>
+            <h3 style="margin-top:.6rem">Year 1 kit: a micro:bit and a small car.</h3>
+            <p class="muted" style="margin-top:.6rem">That $40–80 <b style="color:var(--ink)">includes the micro:bit board</b> plus the car. Buy it from the maker — we don't stock or ship kits. Tuition is the club.</p>
+            <p class="muted" style="margin-top:.6rem"><b style="color:var(--ink)">In the box:</b> BBC micro:bit V2 (~$16–26) + Elecfreaks Cutebot (~$30) + 3 AAA batteries. That covers driving, lights, bumpers, line follow, and maze missions.</p>
             <p class="muted" style="margin-top:.35rem">
-              <a href="https://www.amazon.com/dp/B081ZSCZTV" target="_blank" rel="noopener" style="color:var(--accent)">Cutebot car (Amazon)</a>
-              · <a href="https://shop.elecfreaks.com/products/elecfreaks-micro-bit-smart-cutebot-kit-without-micro-bit-board" target="_blank" rel="noopener" style="color:var(--accent)">Cutebot (Elecfreaks)</a>
+              <a href="https://www.amazon.com/dp/B081ZSCZTV" target="_blank" rel="noopener" style="color:var(--accent)">Cutebot car</a>
               · <a href="https://www.amazon.com/dp/B0B2836JNC" target="_blank" rel="noopener" style="color:var(--accent)">micro:bit V2</a>
+              · <a href="https://www.dfrobot.com/product-1783.html" target="_blank" rel="noopener" style="color:var(--accent)">Maqueen with micro:bit (~$54)</a>
             </p>
-            <p class="muted" style="margin-top:.6rem">One-box option: <a href="https://www.dfrobot.com/product-1783.html" target="_blank" rel="noopener" style="color:var(--accent)">DFRobot Maqueen Lite with micro:bit V2</a> (~$54). Same missions. We teach Cutebot in the videos, so pick Cutebot if you can.</p>
+            <p class="muted" style="margin-top:.6rem"><b style="color:var(--ink)">Not in the box:</b> a toothbrush bristlebot (household, or skip and make the car dance), extra servos for the Robot Cat Toy (~$5, optional), soil sensors and other add-ons listed per mission. Never required to finish the week.</p>
+          </div>
+        </div>
+        <div class="grid g2" style="margin-top:1.5rem">
+          <div class="panel">
+            <span class="tag">Year 1 path</span>
+            <h3>MakeCode + micro:bit</h3>
+            <p class="muted">Blocks in the browser, then the same code on the Cutebot. This is the club's main track. Programming, driving, and sensors all run in the <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> until the box arrives. Physical things (tape mazes, a toothbrush bug, a real rover on the floor) need household stuff or the kit — each mission names a no-kit stand-in.</p>
+          </div>
+          <div class="panel">
+            <span class="tag b">Later path</span>
+            <h3>Wokwi + ESP32</h3>
+            <p class="muted">When you're ready for text code and a different chip, we use <a href="https://wokwi.com" style="color:var(--accent)" target="_blank" rel="noopener">Wokwi</a> in the browser, then a real ESP32 if you want one. Same missions, new brain. Year 1 stays on micro:bit so nobody buys two kits in October.</p>
           </div>
         </div>
         <div class="grid g2" style="margin-top:1.5rem">
@@ -508,7 +530,7 @@
             <p class="muted">Circuits, motors, and the first rules of logic.</p>
             <ul class="weeks">
               <li><span class="wk">Wk 1</span><span><b>The Robot's Heartbeat</b> · blink an LED, meet the loop</span></li>
-              <li><span class="wk">Wk 2</span><span><b>Bristlebot Races</b> · a vibrating motor and a toothbrush</span></li>
+              <li><span class="wk">Wk 2</span><span><b>Bristlebot Races</b> · toothbrush + coin cell, or skip and make the car dance</span></li>
               <li><span class="wk">Wk 3</span><span><b>If This, Then That</b> · buttons and simple decisions</span></li>
               <li><span class="wk">Wk 4</span><span><b>Robot Dance Party</b> · sequences, timing, sound</span></li>
               <li><span class="wk">5–8</span><span><b>Wheels On</b> · drive, turn, write your first program</span></li>
@@ -533,8 +555,8 @@
             <ul class="weeks">
               <li><span class="wk">Wk 1</span><span><b>Problem Hunt</b> · spot annoying problems around the house</span></li>
               <li><span class="wk">2–3</span><span><b>Cookie Jar Alarm</b> · a security system for snacks</span></li>
-              <li><span class="wk">4–5</span><span><b>Thirsty Plant Alert</b> · soil sensor that asks for water</span></li>
-              <li><span class="wk">6–7</span><span><b>Pet Treat Machine</b> · servos and timing</span></li>
+              <li><span class="wk">4–5</span><span><b>Thirsty Plant Alert</b> · optional soil sensor, or a paper dry/wet flag</span></li>
+              <li><span class="wk">6–7</span><span><b>Pet Treat Machine</b> · timing; extra servos optional</span></li>
               <li><span class="wk">8–12</span><span><b>Invention Sprint</b> · sketch, prototype, test, pitch</span></li>
             </ul>
           </div>
@@ -563,18 +585,18 @@
     <section class="block" id="mini">
       <div class="wrap">
         <div class="label">Mini-course</div>
-        <h2 class="h2">Cat Laser Turret</h2>
-        <p class="lead">A four-mission servo course members can take any time: build a pan-and-tilt turret that plays with the family cat. Simulator first. Feather Mode if you'd rather skip the laser.</p>
+        <h2 class="h2">Robot Cat Toy</h2>
+        <p class="lead">A four-mission servo course you can take any time: a pan-and-tilt toy that plays with the family cat. <b style="color:var(--ink)">Feather Mode is the default</b> — a bright LED, no laser. Optional Class 2 laser only with an adult, and never as the first step.</p>
         <div class="split">
-          <img src="images/cat-laser.jpg" alt="A homemade two-servo laser turret on a wooden floor, with an orange tabby cat watching the red dot." />
+          <img src="images/cat-laser.jpg" alt="A homemade two-servo cat toy on a wooden floor, with an orange tabby watching a light on the floor." />
           <div class="panel" style="margin:0">
             <ul>
               <li><b>Meet the Servo</b> — a robot joint that sweeps</li>
               <li><b>Aim It</b> — pan and tilt by tilting the micro:bit</li>
-              <li><b>Cat Mode</b> — random darts, a floor-only safe zone, a 5-minute timer</li>
-              <li><b>Turret on Wheels</b> — radio remote, or a robot that patrols while it plays</li>
+              <li><b>Feather Mode</b> — a dancing LED, a floor-only safe zone, a 5-minute timer</li>
+              <li><b>Cat Toy on Wheels</b> — radio remote, or a rover that patrols while it plays</li>
             </ul>
-            <p class="muted">Class 2 laser only, or a bright LED. Kids under 13 use the laser with an adult.</p>
+            <p class="muted">Two small servos (~$5) if you build the physical toy. Simulator works without them. Laser is never required.</p>
           </div>
         </div>
       </div>
@@ -631,18 +653,19 @@
       <div class="wrap">
         <div class="label">The offer</div>
         <h2 class="h2">Year-round, a semester, or summer.</h2>
-        <p class="lead">Same club, three ways to sail. Pick the depth (Explorer or Inventor), then pick the calendar. Inventor is twelve live sessions a semester at $299 — the same band as published small-group coding clubs ($284–$420 for twelve sessions). Founding families lock the monthly rate for life and use it on year-round or a semester.</p>
+        <p class="lead">Pick a depth, then a calendar. Monthly is the ongoing club. A semester is the same club, paid once for four months — cheaper than four monthly bills.</p>
+        <p class="price-note">Inventor live help is a <b style="color:var(--ink)">Thursday office hour</b> (group, 60–90 min): bring your build, get unstuck. A Fall or Spring Inventor semester includes <b style="color:var(--ink)">12 of those office hours</b>, not a 12-week lecture. Four months of Inventor monthly is $396 ($99 × 4). The $299 semester is that same season, paid once.</p>
         <div class="grid g3">
           <div class="panel">
             <span class="tag">Year-round</span>
             <h3>Monthly, all year</h3>
-            <p class="muted">The club. A new mission every week, all four seasons. Pause any month. Best if you want the whole pirate year.</p>
-            <p class="muted"><b style="color:var(--ink)">Explorer $39/mo</b> · <b style="color:var(--ink)">Inventor $99/mo</b><br />Founding: $29 / $79 locked</p>
+            <p class="muted">A new mission every week, all four seasons. Pause any month. Four months of Inventor at $99 is $396 — the semester pass exists so you don't have to do that.</p>
+            <p class="muted"><b style="color:var(--ink)">Explorer $39/mo</b> · <b style="color:var(--ink)">Inventor $99/mo</b><br />Founding: $29 / $79 while you stay a member</p>
           </div>
           <div class="panel">
             <span class="tag b">School year</span>
             <h3>Fall or Spring semester</h3>
-            <p class="muted">Pay once. Fall is Sep–Dec. Spring is Jan–Apr. Twelve live Inventor sessions, weekly missions, then you're done unless you come back.</p>
+            <p class="muted">Pay once. Fall is Sep–Dec. Spring is Jan–Apr. Weekly missions plus, on Inventor, 12 Thursday office hours. Then you're done unless you come back.</p>
             <p class="muted"><b style="color:var(--ink)">Explorer $149</b> · <b style="color:var(--ink)">Inventor $299</b> per semester<br />Founding: $109 / $249</p>
           </div>
           <div class="panel">
@@ -653,10 +676,10 @@
           </div>
         </div>
         <p class="lead" style="margin-top:2.2rem">Two depths. One founding gift.</p>
-        <p class="muted" style="max-width:62ch">The first 20 families get the founding gift: Explorer or Inventor locked at $29 / $79 a month for as long as you stay (and the matching semester price), your name on the Founders wall, a Founding Family badge, and a GN2R pirate patch in the mail. In exchange we ask for feedback and a short testimonial.</p>
+        <p class="muted" style="max-width:62ch">The first 20 families get the founding gift: Explorer $29/mo or Inventor $79/mo (or $109 / $249 a semester) for as long as you remain a member, your name on the Founders wall, a Founding Family badge, and a GN2R pirate patch in the mail. We'd love honest feedback. A public testimonial is optional.</p>
         <div class="grid g3">
           <div class="panel tier">
-            <span class="tag b">Most members</span>
+            <span class="tag b">Start here</span>
             <h3>Explorer</h3>
             <div class="price">$39<small> /month</small></div>
             <p class="muted">Founding: <b style="color:var(--ink)">$29/mo</b> or <b style="color:var(--ink)">$109 / semester</b></p>
@@ -665,37 +688,37 @@
               <li>Rookie and Pro build levels</li>
               <li>Weekly logic puzzle, no hardware needed</li>
               <li>Member showcase and monthly Build-Off</li>
-              <li>Full back library, including Cat Laser Turret</li>
+              <li>Full back library, including Robot Cat Toy</li>
             </ul>
-            <a class="btn btn-ghost btn-full" href="#join">Join the waitlist</a>
+            <a class="btn btn-ghost btn-full" href="#join">Join the founding waitlist</a>
           </div>
           <div class="panel tier featured">
-            <span class="tag">Where the help is</span>
+            <span class="tag">Live help</span>
             <h3>Inventor</h3>
             <div class="price">$99<small> /month</small></div>
             <p class="muted">Founding: <b style="color:var(--ink)">$79/mo</b> or <b style="color:var(--ink)">$249 / semester</b> · public semester $299</p>
             <ul>
               <li>Everything in Explorer</li>
-              <li>Weekly live office hour with Walter (group, 60–90 min)</li>
+              <li>Thursday office hour with Walter (group, 60–90 min)</li>
+              <li>12 office hours in a semester pass — not a lecture series</li>
               <li>Feedback on submitted builds, done live</li>
-              <li>One bonus “boss level” build per month</li>
               <li>Inventor badge and first seat at Robot Expo</li>
             </ul>
-            <a class="btn btn-primary btn-full" href="#join">Reserve Inventor</a>
+            <a class="btn btn-primary btn-full" href="#join">Join the founding waitlist</a>
           </div>
           <div class="panel tier">
             <span class="tag g">First 20 families</span>
             <h3>Founding Family</h3>
             <div class="price">$29 / $79</div>
-            <p class="muted">The founding gift. Closes when 20 spots fill.</p>
+            <p class="muted">Closes when 20 spots fill. Opens late October 2026.</p>
             <ul>
-              <li>Rate locked for life: $29 / $79 a month, or $109 / $249 a semester</li>
-              <li>GN2R pirate patch mailed to the crew</li>
-              <li>Founding Family badge in the club</li>
-              <li>Name on the Founders wall</li>
-              <li>Feedback and a short testimonial in exchange</li>
+              <li>Founding price while you remain a member ($29 / $79 a month, or $109 / $249 a semester)</li>
+              <li>Pause a month: the rate is waiting when you return</li>
+              <li>Cancel and rejoin later: public pricing</li>
+              <li>GN2R pirate patch, badge, Founders wall</li>
+              <li>Honest feedback welcome; a testimonial is optional</li>
             </ul>
-            <a class="btn btn-ghost btn-full" href="#join">Claim a founding spot</a>
+            <a class="btn btn-ghost btn-full" href="#join">Join the founding waitlist</a>
           </div>
         </div>
       </div>
@@ -704,12 +727,12 @@
     <section class="block" id="teacher">
       <div class="wrap">
         <div class="split">
-          <img src="images/together.jpg" alt="An adult and a child assembling a small robot together under a warm desk lamp, parts spread across the table." />
+          <img src="images/together.jpg" alt="An adult and a child assembling a small robot together under a warm desk lamp, real parts on the table." />
           <div>
             <div class="label">Your teacher</div>
             <h2 class="h2">A working roboticist, on Thursday nights.</h2>
             <p class="muted" style="margin-top:.85rem">Walter Gunter Jr. is a roboticist in Utah. He has built autonomous machines for farms, warehouses, and aircraft, and he still builds at home with a micro:bit. Robot Logic Lab is a Gunterbots school — the teaching arm of Gunterbots LLC, and the class he wished existed: real hardware, real logic, no busywork.</p>
-            <p class="muted" style="margin-top:.85rem">Office hours are live. Questions go there, not into a ticket queue. Past sessions become a searchable library.</p>
+            <p class="muted" style="margin-top:.85rem">Inventor office hour is live help, not a lecture: bring the robot, get unstuck. Questions go there, not into a ticket queue. Past sessions become a searchable library.</p>
           </div>
         </div>
       </div>
@@ -722,7 +745,7 @@
         <div style="margin-top:1.5rem;max-width:48rem">
           <details open>
             <summary>Do we need a robot on day one? <span class="chev">▾</span></summary>
-            <p>No. Every mission runs in the free MakeCode simulator at makecode.microbit.org. When you're ready, buy the robot from the maker — we don't stock or ship kits. Recommended: <a href="https://www.amazon.com/dp/B081ZSCZTV" style="color:var(--accent)" target="_blank" rel="noopener">Elecfreaks Cutebot</a> (~$30) plus a <a href="https://www.amazon.com/dp/B0B2836JNC" style="color:var(--accent)" target="_blank" rel="noopener">micro:bit V2</a> (~$16–26) and three AAA batteries. One-box: <a href="https://www.dfrobot.com/product-1783.html" style="color:var(--accent)" target="_blank" rel="noopener">Maqueen Lite with micro:bit V2</a> (~$54). That $40–80 is the vendor's hardware price, not club tuition.</p>
+            <p>Programming, driving, and sensors run in the free <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> — no kit. Physical movement (a rover on the floor, a tape maze) needs the Year 1 kit or a household stand-in, named on that mission. A toothbrush bristlebot can be skipped: make the car dance instead. The $40–80 kit is a micro:bit V2 plus a Cutebot (or Maqueen), bought from the maker, batteries extra. Soil sensors, extra servos, and the Robot Cat Toy parts are optional add-ons, never required to finish the week.</p>
           </details>
           <details>
             <summary>What ages is this for? <span class="chev">▾</span></summary>
@@ -742,11 +765,11 @@
           </details>
           <details>
             <summary>Monthly, a semester, or summer — what's the difference? <span class="chev">▾</span></summary>
-            <p>Year-round monthly is the full club, billed each month, all four seasons. A semester is pay-once: Fall (Sep–Dec) or Spring (Jan–Apr). Summer is Robot Rescue Camp, four weeks in June or July, its own story. Explorer and Inventor are the two depths on monthly and semester. Camp is a single pass.</p>
+            <p>Year-round monthly is the full club, billed each month. Pause any month. A semester is the same club paid once for Fall (Sep–Dec) or Spring (Jan–Apr). Four months of Inventor monthly is $396; the Inventor semester is $299 because you pay once. Inventor “12 live sessions” are 12 Thursday office hours (bring your build, get unstuck), not a lecture course. Summer is Robot Rescue Camp, four weeks in June or July.</p>
           </details>
           <details>
             <summary>What is the founding gift? <span class="chev">▾</span></summary>
-            <p>For the first 20 families: Explorer at $29/mo or Inventor at $79/mo, locked for as long as you stay, or the matching semester price ($109 / $249). A GN2R pirate patch in the mail. A Founding Family badge in the club. Your name on the Founders wall. We ask for feedback and a short testimonial in exchange.</p>
+            <p>For the first 20 families: Explorer $29/mo or Inventor $79/mo (or $109 / $249 a semester) for as long as you remain a member. Pause a month and the rate is waiting when you return. Cancel and rejoin later, and public pricing applies. You also get a GN2R pirate patch, a Founding Family badge, and a name on the Founders wall. Honest feedback helps us steer. A public testimonial is optional.</p>
           </details>
           <details>
             <summary>Can we use homeschool or ESA funds? <span class="chev">▾</span></summary>
@@ -764,16 +787,16 @@
       <div class="wrap">
         <div class="join">
           <div>
-            <div class="label">Waitlist · 20 founding spots</div>
-            <h2>Save a founding-family seat.</h2>
-            <p class="muted" style="margin-top:.75rem">Tell us who is building. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding spots open. No charge today.</p>
-            <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $79 a month (or $109 / $249 a semester) locked for life, Founders wall, Founding Family badge, and a GN2R pirate patch in the mail. Year-round, Fall, Spring, or Summer — tell us below.</p>
+            <div class="label">Founding waitlist · 20 spots · late October 2026</div>
+            <h2>Join the founding waitlist.</h2>
+            <p class="muted" style="margin-top:.75rem">Tell us who is building. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding seats open in late October 2026. No charge today.</p>
+            <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $79 a month (or $109 / $249 a semester) while you remain a member. Pause keeps the rate. Cancel and rejoin later is public pricing. Founders wall, badge, and a GN2R pirate patch in the mail.</p>
           </div>
           <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
             <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://wegunterjr.github.io/gunterbots.io/thanks.html" />
+            <input type="hidden" name="_next" value="https://gunterbots.com/thanks.html" />
             <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
             <label>Your name
               <input name="name" type="text" required autocomplete="name" placeholder="Alex Gunter" />
@@ -848,7 +871,7 @@
   </a>
 
   <div class="sticky">
-    <a class="btn btn-primary btn-full" href="#join">Reserve a founding spot</a>
+    <a class="btn btn-primary btn-full" href="#join">Join the founding waitlist</a>
   </div>
 
   <script>
@@ -875,7 +898,7 @@
         if (!buddy || reduce.matches || mobile.matches) return;
         var max = document.documentElement.scrollHeight - window.innerHeight;
         var t = max > 0 ? window.scrollY / max : 0;
-        buddy.style.top = (42 + t * 36) + "vh";
+        buddy.style.top = (58 + t * 22) + "vh";
         buddy.style.right = (22 + Math.sin(t * Math.PI * 4) * 14) + "px";
       }
       window.addEventListener("scroll", parkBuddy, { passive: true });
