@@ -134,18 +134,18 @@
           source: src,
           _subject: "Robot Logic Lab founding waitlist"
         };
-        function postJson(url) {
-          return fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify(data)
-          }).then(function (r) {
-            if (!r.ok) throw new Error("send failed");
-            return r.json().catch(function () { return { ok: true }; });
+        // Same as the homepage: one form-encoded "no-cors" POST to n8n (no CORS preflight, so it
+        // is delivered), with FormSubmit as the backup only if n8n can't be reached at all.
+        var body = new URLSearchParams(data).toString();
+        var formHeaders = { "Content-Type": "application/x-www-form-urlencoded" };
+        function post(url, mode) {
+          return fetch(url, { method: "POST", mode: mode, headers: formHeaders, body: body }).then(function (r) {
+            if (mode !== "no-cors" && !r.ok) throw new Error("send failed");
+            return true;
           });
         }
-        postJson("https://n8n.gunterbots.com/webhook/rll-waitlist")
-          .catch(function () { return postJson("https://formsubmit.co/ajax/hello@gunterbots.com"); })
+        post("https://n8n.gunterbots.com/webhook/rll-waitlist", "no-cors")
+          .catch(function () { return post("https://formsubmit.co/ajax/hello@gunterbots.com", "cors"); })
           .then(function () { window.location.href = "thanks.html"; })
           .catch(function () {
             err.classList.add("show");
