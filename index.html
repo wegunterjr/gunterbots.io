@@ -320,6 +320,10 @@
     pre.py { margin: 0; padding: 1rem; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; font: .9rem/1.55 var(--mono); color: var(--ink); }
     .sim-frame { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; margin: 0 auto; border-radius: 8px; overflow: hidden; background: var(--paper); }
     .sim-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .sim-play { position: absolute; inset: 0; width: 100%; height: 100%; display: grid; place-items: center; gap: .6rem; align-content: center; background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; color: var(--ink); font: 600 1rem var(--body); cursor: pointer; }
+    .sim-play img { width: 34%; height: auto; opacity: .55; border: 0; aspect-ratio: auto; }
+    .sim-play span { background: var(--accent-deep); color: #fff; padding: .55rem 1rem; border-radius: 8px; }
+    .sim-play:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .price-note { font-size: .95rem; color: var(--ink-2); max-width: 62ch; margin-top: .35rem; }
     .math { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: .95rem; }
     .math th, .math td { text-align: left; padding: .55rem .65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -445,7 +449,10 @@ while True:
           </div>
           <div class="panel try-sim">
             <div class="sim-frame">
-              <iframe src="https://makecode.microbit.org/---run?id=_Jtx475E1AMvX" title="The heartbeat program running on a simulated micro:bit" loading="lazy" sandbox="allow-popups allow-forms allow-scripts allow-same-origin" allowfullscreen></iframe>
+              <button type="button" class="sim-play" id="sim-play" aria-label="Run the heartbeat program on a simulated micro:bit">
+                <img src="images/heartbeat-blocks.png" alt="" />
+                <span>▶ Run the simulator</span>
+              </button>
             </div>
             <p><a class="btn btn-ghost" href="https://makecode.microbit.org/_Jtx475E1AMvX" target="_blank" rel="noopener">Open it in MakeCode</a></p>
             <p class="muted">No computer handy? Be the robot: one person calls "beat, wait, beat, wait," and the other loops until they hear "stop."</p>
@@ -777,6 +784,16 @@ while True:
         });
       });
 
+      var play = document.getElementById("sim-play");
+      if (play) play.addEventListener("click", function () {
+        var f = document.createElement("iframe");
+        f.src = "https://makecode.microbit.org/---run?id=_Jtx475E1AMvX";
+        f.title = "The heartbeat program running on a simulated micro:bit";
+        f.setAttribute("sandbox", "allow-popups allow-forms allow-scripts allow-same-origin");
+        f.setAttribute("allowfullscreen", "");
+        play.replaceWith(f);
+      });
+
       var form = document.getElementById("waitlist");
       if (!form) return;
       var ok = document.getElementById("form-ok");
@@ -796,18 +813,21 @@ while True:
           note: form.note.value,
           _subject: "Robot Logic Lab founding waitlist"
         };
-        function postJson(url) {
-          return fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify(data)
-          }).then(function (r) {
-            if (!r.ok) throw new Error("send failed");
-            return r.json().catch(function () { return { ok: true }; });
+        // One form-encoded POST to n8n. It's a "simple" request, so there is no CORS preflight and
+        // it is delivered whether or not n8n allows gunterbots.com. "no-cors" means we can't read
+        // the reply, but it only fails when n8n can't be reached at all; then FormSubmit is the backup.
+        // (Sending once avoids duplicate sign-ups.)
+        var body = new URLSearchParams(data).toString();
+        var formHeaders = { "Content-Type": "application/x-www-form-urlencoded" };
+        function post(url, mode) {
+          return fetch(url, { method: "POST", mode: mode, headers: formHeaders, body: body }).then(function (r) {
+            if (mode !== "no-cors" && !r.ok) throw new Error("send failed");
+            return true;
           });
         }
-        postJson("https://n8n.gunterbots.com/webhook/rll-waitlist")
-          .catch(function () { return postJson("https://formsubmit.co/ajax/hello@gunterbots.com"); })
+        var hook = "https://n8n.gunterbots.com/webhook/rll-waitlist";
+        post(hook, "no-cors")
+          .catch(function () { return post("https://formsubmit.co/ajax/hello@gunterbots.com", "cors"); })
           .then(function () {
             ok.classList.add("show");
             err.classList.remove("show");
