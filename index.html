@@ -68,6 +68,7 @@
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; }
@@ -113,7 +114,7 @@
     header.nav.on { border-bottom-color: var(--line); }
     .nav-inner { height: 4rem; display: flex; align-items: center; justify-content: space-between; }
     .logo { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--ink); }
-    .logo img { width: 32px; height: 32px; }
+    .logo img { width: 42px; height: 28px; object-fit: contain; }
     .logo-name { font-family: var(--display); font-weight: 700; letter-spacing: .02em; font-size: .95rem; }
     .logo-sub { display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; color: var(--ink-2); text-transform: uppercase; }
     .nav-links { display: none; gap: 1.15rem; }
@@ -144,11 +145,21 @@
     .hero .pitch { margin-top: 1rem; font-size: 1.15rem; max-width: 42ch; color: var(--ink-2); }
     .hero-actions { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .75rem; }
     .hero .fine { margin-top: 1rem; font-size: .85rem; color: var(--ink-2); font-family: var(--mono); }
-    .hero-shot { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
-    .hero-shot img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-    .hero-shot::after {
-      content: ""; position: absolute; inset: auto 0 0; height: 42%;
-      background: linear-gradient(transparent, rgba(8,12,22,.82));
+    .hero-shot { position: relative; overflow: visible; }
+    .hero-shot img.photo {
+      width: 100%; aspect-ratio: 16/9; object-fit: cover;
+      border-radius: 12px; border: 1px solid var(--line); display: block;
+    }
+    .hero-shot img.hero-gn2r {
+      position: absolute; right: -3%; bottom: -16%; width: 34%; z-index: 2;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,.45));
+      animation: gn2r-bob 4.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero-shot img.hero-eyes {
+      position: absolute; right: 7%; top: 7%; width: 24%; z-index: 2;
+      filter: drop-shadow(0 8px 16px rgba(0,0,0,.4));
+      animation: gn2r-bob 3.2s ease-in-out infinite reverse;
       pointer-events: none;
     }
     .hero-shot figcaption {
@@ -156,13 +167,31 @@
       font-family: var(--mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
       color: #fff;
     }
+    @keyframes gn2r-bob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
     @media (max-width: 859px) {
-      .hero-shot figcaption, .hero-shot::after { display: none; }
+      .hero-shot figcaption { display: none; }
+      .hero-shot img.hero-gn2r { display: none; }
+      .hero-shot img.hero-eyes { width: 30%; top: auto; bottom: 6%; right: 5%; }
       #join { padding-bottom: 5.5rem; }
     }
     @media (min-width: 960px) {
       .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 3.5rem; }
-      .hero-shot img { aspect-ratio: 4/3; }
+      .hero-shot img.photo { aspect-ratio: 4/3; }
+    }
+    .gn2r-buddy {
+      position: fixed; z-index: 22; width: 92px; right: 16px; top: 22%;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+      transition: top .7s ease, right .7s ease;
+    }
+    .gn2r-buddy img { width: 100%; height: auto; animation: gn2r-bob 3.6s ease-in-out infinite; }
+    @media (max-width: 859px) {
+      .gn2r-buddy { width: 64px; right: 10px; top: auto; bottom: 5.4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-shot img.hero-gn2r, .hero-shot img.hero-eyes, .gn2r-buddy img, .crew-art img.eyes { animation: none; }
     }
 
     .proof { border-block: 1px solid var(--line); background: var(--panel); }
@@ -216,6 +245,12 @@
       aspect-ratio: auto;
       object-fit: contain;
       filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
+    }
+    .crew-art img.eyes {
+      position: absolute; left: .75rem; top: .75rem;
+      width: 118px; height: auto; border: 0; aspect-ratio: auto;
+      animation: gn2r-bob 4s ease-in-out infinite;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.35));
     }
     .crew-art img.flag {
       position: absolute; top: .85rem; right: .85rem;
@@ -313,7 +348,7 @@
     }
     @media (min-width: 860px) { .sticky { display: none; } }
     @media print {
-      header.nav, .sticky, .burger { display: none !important; }
+      header.nav, .sticky, .burger, .gn2r-buddy { display: none !important; }
       body { background: #fff; color: #111; }
     }
   </style>
@@ -322,7 +357,7 @@
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
       <a class="logo" href="#top">
-        <img src="favicon.svg" alt="" />
+        <img src="images/gn2r-eyes.png" alt="GN2R" />
         <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">A Gunterbots school</span></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
@@ -367,9 +402,31 @@
           <p class="fine">Founding gift for the first 20 families: rate locked for life, a name on the Founders wall, and a GN2R pirate patch in the mail.<br />Already in the crew? <a href="https://learn.mgit.io" target="_blank" rel="noopener" style="color:var(--accent)">Log in at learn.mgit.io</a>.</p>
         </div>
         <figure class="hero-shot">
-          <img src="images/hero.jpg" alt="A child at a kitchen table holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
+          <img class="photo" src="images/hero.jpg" alt="A child at a kitchen table holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
+          <img class="hero-eyes" src="images/gn2r-eyes.png" alt="" />
+          <img class="hero-gn2r" src="images/gn2r-bot.png" alt="GN2R, the club's robot guide" />
           <figcaption>Simulator first · real robot when you're ready</figcaption>
         </figure>
+      </div>
+    </section>
+
+    <section class="block" id="crew">
+      <div class="wrap">
+        <div class="label">Your guide</div>
+        <h2 class="h2">GN2R and a merry band of pirates</h2>
+        <div class="crew">
+          <div class="crew-art">
+            <img class="eyes" src="images/gn2r-eyes.png" alt="GN2R's screen face — two pale eyes." />
+            <img class="flag" src="images/pirate-flag.jpg" alt="Robot pirate flag: a mechanical skull in a captain's hat over crossed bones." />
+            <img class="mascot" src="images/gn2r-bot.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
+          </div>
+          <div class="crew-copy">
+            <blockquote>Here be the course we're chartin' today, mateys.</blockquote>
+            <p class="muted">GN2R (say it <b style="color:var(--ink)">Gunter</b>) is the club's robot guide. Members are the crew: we pick a mission, we build the ship, we steal the problem back from “I don't know how.”</p>
+            <p class="muted">We've already been sailing. One of our favorite quests is <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" style="color:var(--accent)" target="_blank" rel="noopener">casting our own robot wheels</a> — 3D-printed cores, rubber treads, grippy enough for the living-room floor. That's the pirate way: make the part if the store doesn't have it.</p>
+            <p><a class="btn btn-ghost" href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" target="_blank" rel="noopener">See Let's Make Wheels</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -402,25 +459,6 @@
             <span class="tag b">The edge</span>
             <h3>A roboticist teaching</h3>
             <p class="muted">Walter Gunter teaches how to think through a problem, not which blocks to drag. Useful to a 9-year-old and still interesting at 50.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="crew">
-      <div class="wrap">
-        <div class="label">Your guide</div>
-        <h2 class="h2">GN2R and a merry band of pirates</h2>
-        <div class="crew">
-          <div class="crew-art">
-            <img class="flag" src="images/pirate-flag.jpg" alt="Robot pirate flag: a mechanical skull in a captain's hat over crossed bones." />
-            <img class="mascot" src="images/gn2r-bot.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
-          </div>
-          <div class="crew-copy">
-            <blockquote>Here be the course we're chartin' today, mateys.</blockquote>
-            <p class="muted">GN2R (say it <b style="color:var(--ink)">Gunter</b>) is the club's robot guide. Members are the crew: we pick a mission, we build the ship, we steal the problem back from “I don't know how.”</p>
-            <p class="muted">We've already been sailing. One of our favorite quests is <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" style="color:var(--accent)" target="_blank" rel="noopener">casting our own robot wheels</a> — 3D-printed cores, rubber treads, grippy enough for the living-room floor. That's the pirate way: make the part if the store doesn't have it.</p>
-            <p><a class="btn btn-ghost" href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html" target="_blank" rel="noopener">See Let's Make Wheels</a></p>
           </div>
         </div>
       </div>
@@ -790,6 +828,10 @@
     </div>
   </footer>
 
+  <a class="gn2r-buddy" id="gn2r-buddy" href="#crew" aria-label="Meet GN2R, your robot guide">
+    <img src="images/gn2r-eyes.png" alt="" />
+  </a>
+
   <div class="sticky">
     <a class="btn btn-primary btn-full" href="#join">Reserve a founding spot</a>
   </div>
@@ -810,6 +852,19 @@
       menu.querySelectorAll("a").forEach(function (a) {
         a.addEventListener("click", function () { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); });
       });
+
+      var buddy = document.getElementById("gn2r-buddy");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var mobile = window.matchMedia("(max-width: 859px)");
+      function parkBuddy() {
+        if (!buddy || reduce.matches || mobile.matches) return;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var t = max > 0 ? window.scrollY / max : 0;
+        buddy.style.top = (42 + t * 36) + "vh";
+        buddy.style.right = (22 + Math.sin(t * Math.PI * 4) * 14) + "px";
+      }
+      window.addEventListener("scroll", parkBuddy, { passive: true });
+      parkBuddy();
 
       var form = document.getElementById("waitlist");
       var ok = document.getElementById("form-ok");
