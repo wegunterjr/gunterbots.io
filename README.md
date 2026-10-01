@@ -1,8 +1,10 @@
-# Gunterbots Robot Logic Lab — landing page
+# Robot Logic Lab — a Gunterbots school
 
-Public waitlist site for [Robot Logic Lab](https://wegunterjr.github.io/gunterbots.io/).
+Public waitlist site: [wegunterjr.github.io/gunterbots.io](https://wegunterjr.github.io/gunterbots.io/).
 
-GitHub Pages is the host (already signed in from this machine). Course content stays in the private repo `gunterbots-robot-logic-lab` and on Moodle at [learn.mgit.io](https://learn.mgit.io).
+**Robot Logic Lab** is the club families join. **Gunterbots LLC** is the company. Engineering work (CTIS, custom robots) belongs on `gunterbots.com` later. This site is the school.
+
+Course content stays in the private repo `gunterbots-robot-logic-lab` and on Moodle at [learn.mgit.io](https://learn.mgit.io).
 
 ## Waitlist form
 
@@ -16,11 +18,11 @@ To change the destination, edit both the form `action` and the `fetch` URL in `i
 
 ## Custom domain later
 
-`gunterbots.com` currently returns Cloudflare 522 (origin down). When you want the pretty URL:
+Keep `gunterbots.com` for the LLC / engineering work. Point the school at `learn.gunterbots.com`:
 
-1. In this repo, add a `CNAME` file containing `gunterbots.com`
+1. In this repo, add a `CNAME` file containing `learn.gunterbots.com`
 2. GitHub → repo Settings → Pages → Custom domain
-3. In Cloudflare DNS, CNAME `@` (or `www`) to `wegunterjr.github.io` and set the SSL mode to Full
+3. In Cloudflare DNS, CNAME `learn` to `wegunterjr.github.io` and set SSL to Full
 
 ## Local preview
 
