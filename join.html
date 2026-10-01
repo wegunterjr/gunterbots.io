@@ -120,9 +120,15 @@
       var form = document.getElementById("waitlist");
       var err = document.getElementById("form-err");
       var btn = document.getElementById("submit-btn");
+      var loadedAt = Date.now();
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        if (form._honey && form._honey.value) return;
+        // Spam trap: bots fill the hidden box within a second or two of loading. Password managers
+        // sometimes fill it for real people too, so after a few seconds we just clear it and carry on.
+        if (form._honey && form._honey.value) {
+          if (Date.now() - loadedAt < 3000) { window.location.href = "thanks.html"; return; }
+          form._honey.value = "";
+        }
         btn.disabled = true;
         btn.textContent = "Sending…";
         var data = {
@@ -139,7 +145,11 @@
         var body = new URLSearchParams(data).toString();
         var formHeaders = { "Content-Type": "application/x-www-form-urlencoded" };
         function post(url, mode) {
-          return fetch(url, { method: "POST", mode: mode, headers: formHeaders, body: body }).then(function (r) {
+          // Give up after 8 seconds so the button never hangs on "Sending…".
+          var ctl = window.AbortController ? new AbortController() : null;
+          var timer = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+          return fetch(url, { method: "POST", mode: mode, headers: formHeaders, body: body, signal: ctl ? ctl.signal : undefined }).then(function (r) {
+            clearTimeout(timer);
             if (mode !== "no-cors" && !r.ok) throw new Error("send failed");
             return true;
           });
