@@ -37,7 +37,7 @@
     "offers": [
       { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
       { "@type": "Offer", "name": "Inventor", "price": "99", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Inventor semester", "price": "299", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+      { "@type": "Offer", "name": "Inventor season", "price": "299", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
     ]
   }
   </script>
@@ -310,6 +310,10 @@
     .form-note { font-size: .9rem; color: var(--ink-2); }
     .try ol { margin: .35rem 0 0; padding-left: 1.2em; display: grid; gap: .45rem; color: var(--ink); }
     .price-note { font-size: .95rem; color: var(--ink-2); max-width: 62ch; margin-top: .35rem; }
+    .math { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: .95rem; }
+    .math th, .math td { text-align: left; padding: .55rem .65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .math th { font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+    .math td:nth-child(n+2) { font-variant-numeric: tabular-nums; white-space: nowrap; }
     .form-ok, .form-err { display: none; padding: .85rem 1rem; border-radius: 6px; font-size: .95rem; }
     .form-ok { background: var(--green-soft); color: var(--green); }
     .form-err { background: var(--accent-soft); color: var(--accent); }
@@ -415,9 +419,9 @@
           <div class="panel">
             <h3>No computer handy</h3>
             <ol>
-              <li>You are the robot. A grown-up is the programmer.</li>
-              <li>They say: “Clap. Wait. Clap. Wait. Repeat.” You loop until they say stop.</li>
-              <li>Change the program: two claps, then a stomp. Same idea, no screen.</li>
+              <li>You write the program. A crewmate (sibling, friend, anyone) is the robot.</li>
+              <li>You say: “Clap. Wait. Clap. Wait. Repeat.” They loop until you say stop.</li>
+              <li>Change the program: two claps, then a stomp. Switch jobs and go again.</li>
             </ol>
             <p class="muted" style="margin-top:.75rem">That's the pirate way: steal the idea with whatever's on the table.</p>
           </div>
@@ -449,7 +453,7 @@
         <div class="proof-item"><div class="proof-k">1 / week</div><div class="proof-v">A new mission video, a build, and something to show off</div></div>
         <div class="proof-item"><div class="proof-k">Rookie + Pro</div><div class="proof-v">Same mission, two difficulty levels — kids and grown-ups</div></div>
         <div class="proof-item"><div class="proof-k">Live help</div><div class="proof-v">Weekly office hour with a real roboticist on Inventor</div></div>
-        <div class="proof-item"><div class="proof-k">$40–80 kit</div><div class="proof-v">micro:bit V2 + robot car, bought from the maker</div></div>
+        <div class="proof-item"><div class="proof-k">~$55 kit</div><div class="proof-v">micro:bit V2 + robot car, bought from the maker</div></div>
       </div>
     </div>
 
@@ -457,12 +461,12 @@
       <div class="wrap">
         <div class="label">The idea</div>
         <h2 class="h2">Real robots at home. A mission every week.</h2>
-        <p class="lead">Parents buy it because it builds thinking skills. Kids stay because a machine they built actually moves. A live roboticist shows up once a week to get everyone unstuck.</p>
+        <p class="lead">The kid writes the programs. The robot actually moves. A live roboticist shows up once a week to get the crew unstuck.</p>
         <div class="grid g3">
           <div class="panel">
             <span class="tag">Primary</span>
-            <h3>Parents of kids 8–14</h3>
-            <p class="muted">Homeschool families, STEM-curious parents, and families whose school has no robotics team. Utah first, then anywhere you can park a small robot.</p>
+            <h3>Kids 8–14</h3>
+            <p class="muted">Homeschool crews, kids whose school has no robotics team, anyone with a table and a hallway. Utah first, then anywhere you can park a small robot.</p>
           </div>
           <div class="panel">
             <span class="tag g">Also</span>
@@ -502,8 +506,8 @@
           <div>
             <span class="tag">Hardware</span>
             <h3 style="margin-top:.6rem">Year 1 kit: a micro:bit and a small car.</h3>
-            <p class="muted" style="margin-top:.6rem">That $40–80 <b style="color:var(--ink)">includes the micro:bit board</b> plus the car. Buy it from the maker — we don't stock or ship kits. Tuition is the club.</p>
-            <p class="muted" style="margin-top:.6rem"><b style="color:var(--ink)">In the box:</b> BBC micro:bit V2 (~$16–26) + Elecfreaks Cutebot (~$30) + 3 AAA batteries. That covers driving, lights, bumpers, line follow, and maze missions.</p>
+            <p class="muted" style="margin-top:.6rem">The kit is about <b style="color:var(--ink)">$50–60</b>: a BBC micro:bit V2 (~$16–26) plus an Elecfreaks Cutebot (~$30). That includes the board. Three AAA batteries from the grocery store. Buy it from the maker — we don't stock or ship kits. Tuition is the club.</p>
+            <p class="muted" style="margin-top:.6rem">That covers driving, lights, bumpers, line follow, and maze missions. Listings move, so we treat <b style="color:var(--ink)">$80 as the ceiling</b>.</p>
             <p class="muted" style="margin-top:.35rem">
               <a href="https://www.amazon.com/dp/B081ZSCZTV" target="_blank" rel="noopener" style="color:var(--accent)">Cutebot car</a>
               · <a href="https://www.amazon.com/dp/B0B2836JNC" target="_blank" rel="noopener" style="color:var(--accent)">micro:bit V2</a>
@@ -616,7 +620,7 @@
           <div class="panel">
             <span class="tag">Use it safely</span>
             <h3>Robot Rules for AI</h3>
-            <p class="muted">What not to share, how to spot wrong answers, and why AI isn't a friend. Parents sign the rules with their kid.</p>
+            <p class="muted">What not to share, how to spot wrong answers, and why AI isn't a friend. The crew signs the Robot Rules. A grown-up stays in the room on chatbot missions because of age limits — the kid still drives.</p>
           </div>
           <div class="panel">
             <span class="tag g">Train it</span>
@@ -630,7 +634,7 @@
             <ol class="ai-rules">
               <li>Never share your name, address, school, photos, or passwords with an AI.</li>
               <li>AI can be confidently wrong. Test it before you trust it.</li>
-              <li>Use chatbots with a grown-up. Many have minimum ages.</li>
+              <li>Chatbots have minimum ages. Stay in the room on those missions.</li>
               <li>AI is a tool, not a friend. Real questions go to real people.</li>
               <li>Say when AI helped. It's part of showing your work.</li>
               <li>You are the engineer. AI makes suggestions, you make decisions.</li>
@@ -640,8 +644,8 @@
             <h3>How kids use chatbots here</h3>
             <ul>
               <li>Kids never need a chatbot account. Model training uses free tools with no sign-up.</li>
-              <li>Chatbot missions are done with a parent, or demoed live in office hours.</li>
-              <li>Parents own every account. No private messages between members.</li>
+              <li>Chatbot missions can be demoed live in office hours so the kid still drives.</li>
+              <li>Accounts sit with the grown-up who pays. No private messages between members.</li>
               <li>Showcase posts are approved before anyone else sees them. Live sessions are recorded.</li>
             </ul>
           </div>
@@ -652,21 +656,42 @@
     <section class="block" id="pricing">
       <div class="wrap">
         <div class="label">The offer</div>
-        <h2 class="h2">Year-round, a semester, or summer.</h2>
-        <p class="lead">Pick a depth, then a calendar. Monthly is the ongoing club. A semester is the same club, paid once for four months — cheaper than four monthly bills.</p>
-        <p class="price-note">Inventor live help is a <b style="color:var(--ink)">Thursday office hour</b> (group, 60–90 min): bring your build, get unstuck. A Fall or Spring Inventor semester includes <b style="color:var(--ink)">12 of those office hours</b>, not a 12-week lecture. Four months of Inventor monthly is $396 ($99 × 4). The $299 semester is that same season, paid once.</p>
+        <h2 class="h2">Year-round, a season, or summer.</h2>
+        <p class="lead">Pick Explorer or Inventor, then how you pay. A season is <b style="color:var(--ink)">12 weekly missions plus a catch-up week</b>, sitting in Fall (September–December) or Spring (January–April). Inventor live help is a Thursday office hour — 12 of those in a season, not a lecture class.</p>
+        <div style="overflow:auto">
+          <table class="math">
+            <thead>
+              <tr><th></th><th>Monthly</th><th>Season (pay once)</th><th>Founding (first 20)</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Explorer</td>
+                <td>$39/mo</td>
+                <td>$149</td>
+                <td>$29/mo or $109/season</td>
+              </tr>
+              <tr>
+                <td>Inventor <span style="color:var(--ink-2)">(includes Thursday office hour)</span></td>
+                <td>$99/mo</td>
+                <td>$299</td>
+                <td>$79/mo or $249/season</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">Fall and Spring are each four months on the calendar. Stay monthly through that window and Inventor is <b style="color:var(--ink)">$396</b> ($99 × 4); the season pass is <b style="color:var(--ink)">$299</b> — save $97. Explorer is <b style="color:var(--ink)">$156</b> vs <b style="color:var(--ink)">$149</b> — pick monthly if you might pause.</p>
         <div class="grid g3">
           <div class="panel">
             <span class="tag">Year-round</span>
             <h3>Monthly, all year</h3>
-            <p class="muted">A new mission every week, all four seasons. Pause any month. Four months of Inventor at $99 is $396 — the semester pass exists so you don't have to do that.</p>
-            <p class="muted"><b style="color:var(--ink)">Explorer $39/mo</b> · <b style="color:var(--ink)">Inventor $99/mo</b><br />Founding: $29 / $79 while you stay a member</p>
+            <p class="muted">A new mission every week, all four seasons. Pause any month. Best if you want the whole pirate year.</p>
+            <p class="muted"><b style="color:var(--ink)">Explorer $39/mo</b> · <b style="color:var(--ink)">Inventor $99/mo</b></p>
           </div>
           <div class="panel">
             <span class="tag b">School year</span>
-            <h3>Fall or Spring semester</h3>
-            <p class="muted">Pay once. Fall is Sep–Dec. Spring is Jan–Apr. Weekly missions plus, on Inventor, 12 Thursday office hours. Then you're done unless you come back.</p>
-            <p class="muted"><b style="color:var(--ink)">Explorer $149</b> · <b style="color:var(--ink)">Inventor $299</b> per semester<br />Founding: $109 / $249</p>
+            <h3>Fall or Spring season</h3>
+            <p class="muted">Pay once. 12 weekly missions plus a catch-up week. Fall is September–December, Spring is January–April. Inventor includes 12 Thursday office hours. Then you're done unless you come back.</p>
+            <p class="muted"><b style="color:var(--ink)">Explorer $149</b> · <b style="color:var(--ink)">Inventor $299</b></p>
           </div>
           <div class="panel">
             <span class="tag g">Summer</span>
@@ -676,13 +701,13 @@
           </div>
         </div>
         <p class="lead" style="margin-top:2.2rem">Two depths. One founding gift.</p>
-        <p class="muted" style="max-width:62ch">The first 20 families get the founding gift: Explorer $29/mo or Inventor $79/mo (or $109 / $249 a semester) for as long as you remain a member, your name on the Founders wall, a Founding Family badge, and a GN2R pirate patch in the mail. We'd love honest feedback. A public testimonial is optional.</p>
+        <p class="muted" style="max-width:62ch">The first 20 families get the founding gift: Explorer $29/mo or Inventor $79/mo (or $109 / $249 a season) for as long as you remain a member, your name on the Founders wall, a Founding Family badge, and a GN2R pirate patch in the mail. We'd love honest feedback. A public testimonial is optional.</p>
         <div class="grid g3">
           <div class="panel tier">
             <span class="tag b">Start here</span>
             <h3>Explorer</h3>
             <div class="price">$39<small> /month</small></div>
-            <p class="muted">Founding: <b style="color:var(--ink)">$29/mo</b> or <b style="color:var(--ink)">$109 / semester</b></p>
+            <p class="muted">Founding: <b style="color:var(--ink)">$29/mo</b> or <b style="color:var(--ink)">$109 / season</b> · public season $149</p>
             <ul>
               <li>New mission video every week</li>
               <li>Rookie and Pro build levels</li>
@@ -696,11 +721,11 @@
             <span class="tag">Live help</span>
             <h3>Inventor</h3>
             <div class="price">$99<small> /month</small></div>
-            <p class="muted">Founding: <b style="color:var(--ink)">$79/mo</b> or <b style="color:var(--ink)">$249 / semester</b> · public semester $299</p>
+            <p class="muted">Founding: <b style="color:var(--ink)">$79/mo</b> or <b style="color:var(--ink)">$249 / season</b> · public season $299</p>
             <ul>
               <li>Everything in Explorer</li>
               <li>Thursday office hour with Walter (group, 60–90 min)</li>
-              <li>12 office hours in a semester pass — not a lecture series</li>
+              <li>12 office hours on a season pass — one each mission week</li>
               <li>Feedback on submitted builds, done live</li>
               <li>Inventor badge and first seat at Robot Expo</li>
             </ul>
@@ -709,10 +734,10 @@
           <div class="panel tier">
             <span class="tag g">First 20 families</span>
             <h3>Founding Family</h3>
-            <div class="price">$29 / $79</div>
+            <div class="price">$29 / $79<small> /month</small></div>
             <p class="muted">Closes when 20 spots fill. Opens late October 2026.</p>
             <ul>
-              <li>Founding price while you remain a member ($29 / $79 a month, or $109 / $249 a semester)</li>
+              <li>Founding price while you remain a member ($29 / $79 a month, or $109 / $249 a season)</li>
               <li>Pause a month: the rate is waiting when you return</li>
               <li>Cancel and rejoin later: public pricing</li>
               <li>GN2R pirate patch, badge, Founders wall</li>
@@ -745,11 +770,11 @@
         <div style="margin-top:1.5rem;max-width:48rem">
           <details open>
             <summary>Do we need a robot on day one? <span class="chev">▾</span></summary>
-            <p>Programming, driving, and sensors run in the free <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> — no kit. Physical movement (a rover on the floor, a tape maze) needs the Year 1 kit or a household stand-in, named on that mission. A toothbrush bristlebot can be skipped: make the car dance instead. The $40–80 kit is a micro:bit V2 plus a Cutebot (or Maqueen), bought from the maker, batteries extra. Soil sensors, extra servos, and the Cat Laser Turret parts are optional add-ons, never required to finish the week.</p>
+            <p>Programming, driving, and sensors run in the free <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> — no kit. Physical movement (a rover on the floor, a tape maze) needs the Year 1 kit or a household stand-in, named on that mission. A toothbrush bristlebot can be skipped: make the car dance instead. The kit is about $50–60: micro:bit V2 plus a Cutebot (or Maqueen with board ~$54), bought from the maker, batteries extra. Soil sensors, extra servos, and the Cat Laser Turret parts are optional add-ons, never required to finish the week.</p>
           </details>
           <details>
             <summary>What ages is this for? <span class="chev">▾</span></summary>
-            <p>Kids 8–14 on Rookie, older kids and adults on Pro. Same weekly mission, two difficulty levels. Grandparents and parents who want to build beside a kid are welcome — that's a lot of Inventor members.</p>
+            <p>Kids 8–14 on Rookie, older kids and adults on Pro. Same weekly mission, two difficulty levels. Grown-ups who want to build too are welcome on Pro — same crew, same Thursday.</p>
           </details>
           <details>
             <summary>How much time is this, really? <span class="chev">▾</span></summary>
@@ -757,23 +782,23 @@
           </details>
           <details>
             <summary>How do you keep kids safe? <span class="chev">▾</span></summary>
-            <p>Parents create and manage the accounts. There are no private messages between members. Showcase posts are approved before they appear. Live sessions are recorded. For kids under 13 we collect only what we need, with parent consent (US COPPA). Chatbot missions are done with a grown-up.</p>
+            <p>The grown-up who pays creates and manages the accounts. There are no private messages between members. Showcase posts are approved before they appear. Live sessions are recorded. For kids under 13 we collect only what we need, with parent consent (US COPPA). Chatbot missions can be demoed in office hours so the kid still drives; a grown-up stays in the room because of age limits.</p>
           </details>
           <details>
             <summary>When does it start? <span class="chev">▾</span></summary>
             <p>Founding families open late October 2026. Public launch follows in November, in time for holiday gift subscriptions. Join the waitlist and you'll get the free 5-day Robot Starter Challenge — no kit needed — while we finish Season 1.</p>
           </details>
           <details>
-            <summary>Monthly, a semester, or summer — what's the difference? <span class="chev">▾</span></summary>
-            <p>Year-round monthly is the full club, billed each month. Pause any month. A semester is the same club paid once for Fall (Sep–Dec) or Spring (Jan–Apr). Four months of Inventor monthly is $396; the Inventor semester is $299 because you pay once. Inventor “12 live sessions” are 12 Thursday office hours (bring your build, get unstuck), not a lecture course. Summer is Robot Rescue Camp, four weeks in June or July.</p>
+            <summary>Monthly, a season, or summer — what's the difference? <span class="chev">▾</span></summary>
+            <p>Monthly is the ongoing club, billed each month. Pause any month. A season is 12 weekly missions plus a catch-up week, paid once — Fall is September–December, Spring is January–April. Inventor includes one Thursday office hour each of those 12 mission weeks. Four monthly Inventor invoices in that window are $396; the season pass is $299 (save $97). Explorer is $156 vs $149 — pick monthly if you might pause. Summer is Robot Rescue Camp, four weeks in June or July.</p>
           </details>
           <details>
             <summary>What is the founding gift? <span class="chev">▾</span></summary>
-            <p>For the first 20 families: Explorer $29/mo or Inventor $79/mo (or $109 / $249 a semester) for as long as you remain a member. Pause a month and the rate is waiting when you return. Cancel and rejoin later, and public pricing applies. You also get a GN2R pirate patch, a Founding Family badge, and a name on the Founders wall. Honest feedback helps us steer. A public testimonial is optional.</p>
+            <p>For the first 20 families: Explorer $29/mo or Inventor $79/mo (or $109 / $249 a season) for as long as you remain a member. Pause a month and the rate is waiting when you return. Cancel and rejoin later, and public pricing applies. You also get a GN2R pirate patch, a Founding Family badge, and a name on the Founders wall. Honest feedback helps us steer. A public testimonial is optional.</p>
           </details>
           <details>
             <summary>Can we use homeschool or ESA funds? <span class="chev">▾</span></summary>
-            <p>Inventor at $299 a semester is sized for family education accounts: about 7.5% of a Utah Fits All $4,000 award, 15% of a Texas $2,000 homeschool account. Arizona ESA, Florida PEP, and Oklahoma's parental-choice tax credit list tutoring and online instruction as eligible categories. We are not automatically an approved vendor. Ask your program before you spend, and keep the kit ($40–80) as a separate materials line.</p>
+            <p>Inventor at $299 a season is sized for family education accounts: about 7.5% of a Utah Fits All $4,000 award. Arizona ESA, Florida PEP, and Oklahoma's parental-choice tax credit list tutoring and online instruction as eligible categories. We are not automatically an approved vendor. Ask your program before you spend, and keep the kit (~$50–60) as a separate materials line.</p>
           </details>
           <details>
             <summary>Already a member? <span class="chev">▾</span></summary>
@@ -790,7 +815,7 @@
             <div class="label">Founding waitlist · 20 spots · late October 2026</div>
             <h2>Join the founding waitlist.</h2>
             <p class="muted" style="margin-top:.75rem">Tell us who is building. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding seats open in late October 2026. No charge today.</p>
-            <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $79 a month (or $109 / $249 a semester) while you remain a member. Pause keeps the rate. Cancel and rejoin later is public pricing. Founders wall, badge, and a GN2R pirate patch in the mail.</p>
+            <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $79 a month (or $109 / $249 a season) while you remain a member. Pause keeps the rate. Cancel and rejoin later is public pricing. Founders wall, badge, and a GN2R pirate patch in the mail.</p>
           </div>
           <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
             <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
@@ -816,8 +841,8 @@
             <label>Which founding seat?
               <select name="tier" required>
                 <option value="" disabled selected>Choose one</option>
-                <option>Explorer — $29/mo or $109/semester</option>
-                <option>Inventor — $79/mo or $249/semester</option>
+                <option>Explorer — $29/mo or $109/season</option>
+                <option>Inventor — $79/mo or $249/season</option>
                 <option>Not sure yet</option>
               </select>
             </label>
@@ -825,8 +850,8 @@
               <select name="calendar" required>
                 <option value="" disabled selected>Choose one</option>
                 <option>Year-round monthly</option>
-                <option>Fall semester (Sep–Dec)</option>
-                <option>Spring semester (Jan–Apr)</option>
+                <option>Fall season (starts September)</option>
+                <option>Spring season (starts January)</option>
                 <option>Summer camp (June or July)</option>
                 <option>Not sure yet</option>
               </select>
@@ -835,7 +860,7 @@
               <textarea name="note" rows="3" placeholder="Homeschool co-op, gift for a grandkid, Utah, …"></textarea>
             </label>
             <button class="btn btn-primary btn-full" type="submit" id="submit-btn">Join the waitlist</button>
-            <p class="form-note">You'll also get the free 5-day starter challenge. Parents only — we don't collect kids' emails. See <a href="privacy.html" style="color:var(--accent)">privacy</a>.</p>
+            <p class="form-note">You'll also get the free 5-day starter challenge. We email the account holder, not kids. See <a href="privacy.html" style="color:var(--accent)">privacy</a>.</p>
             <div class="form-ok" id="form-ok">You're on the list. Check your inbox for the first starter-challenge email (and a confirmation from us).</div>
             <div class="form-err" id="form-err">The form didn't send. Email hello@gunterbots.com and we'll add you by hand.</div>
           </form>
