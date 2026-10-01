@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Missions · Robot Logic Lab by Gunterbots</title>
+  <meta name="description" content="Robot Logic Lab by Gunterbots. Your robot guide: GN2R. A home robotics club — real robots, one mission a week, live help on Inventor. Founding waitlist open; seats in late October 2026." />
+  <meta name="theme-color" content="#0F1626" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://gunterbots.com/" />
+  <meta property="og:title" content="Robot Logic Lab by Gunterbots" />
+  <meta property="og:description" content="Build robots that move, think and play. GN2R is your guide. Founding waitlist open; seats in late October 2026." />
+  <meta property="og:url" content="https://gunterbots.com/" />
+  <meta property="og:image" content="https://gunterbots.com/og.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://gunterbots.com/og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Robot Logic Lab",
+    "description": "A home robotics club where kids and kids at heart learn logic, problem solving, and invention by building real robots, one mission a week.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Gunterbots LLC",
+      "url": "https://gunterbots.com/"
+    },
+    "educationalLevel": "Ages 8–14 and adults",
+    "inLanguage": "en",
+    "offers": [
+      { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
+      { "@type": "Offer", "name": "Inventor", "price": "99", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
+      { "@type": "Offer", "name": "Explorer season", "price": "117", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
+      { "@type": "Offer", "name": "Inventor season", "price": "297", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --paper: #0F1626;
+      --panel: #16203A;
+      --ink: #E6EBF4;
+      --ink-2: #C2CBDC;
+      --line: #2A3656;
+      --grid: rgba(230,235,244,.045);
+      --accent: #FF8A4C;
+      --accent-deep: #E8590C;
+      --accent-soft: #3A2419;
+      --green: #4CC9A4;
+      --green-soft: #15342C;
+      --blue: #7FA6E8;
+      --blue-soft: #1B2A4A;
+      --display: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+      --body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+    body {
+      margin: 0;
+      background-color: var(--paper);
+      background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 24px 24px;
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; }
+    p { margin: 0; text-wrap: pretty; }
+    button, input, select, textarea { font-family: inherit; }
+    .wrap { width: min(72rem, calc(100% - 2rem)); margin-inline: auto; }
+    @media (min-width: 640px) { .wrap { width: min(72rem, calc(100% - 3rem)); } }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      height: 3rem; padding: 0 1.35rem; border-radius: 8px; border: 0;
+      font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer;
+      transition: transform .15s, filter .15s, background .15s;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--accent-deep); color: #fff; }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line); }
+    .btn-ghost:hover { background: var(--panel); }
+    .btn-full { width: 100%; }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .label {
+      font-family: var(--mono); font-size: .82rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .muted { color: var(--ink-2); font-size: 1rem; }
+    .tag {
+      display: inline-block; font-family: var(--mono); font-size: .75rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 3px;
+      background: var(--accent-soft); color: var(--accent); justify-self: start;
+    }
+    .tag.g { background: var(--green-soft); color: var(--green); }
+    .tag.b { background: var(--blue-soft); color: var(--blue); }
+
+    header.nav {
+      position: fixed; inset: 0 0 auto; z-index: 40; height: 4rem;
+      background: rgba(15,22,38,.96);
+      border-bottom: 1px solid transparent;
+    }
+    header.nav.on { border-bottom-color: var(--line); }
+    .nav-inner { height: 4rem; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--ink); }
+    .logo img { width: 42px; height: 28px; object-fit: contain; }
+    .logo-name { font-family: var(--display); font-weight: 700; letter-spacing: .02em; font-size: .95rem; }
+    .logo-sub { display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; color: var(--ink-2); text-transform: uppercase; }
+    .nav-links { display: none; gap: 1.15rem; }
+    .nav-links a { font-size: .9rem; color: var(--ink-2); text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta-wrap { display: none; align-items: center; gap: 1rem; }
+    .nav-login {
+      font-size: .9rem; font-weight: 600; color: var(--ink-2); text-decoration: none;
+    }
+    .nav-login:hover { color: var(--ink); }
+    .nav-cta { display: none; }
+    .burger { width: 44px; height: 44px; border: 0; background: none; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+    .mobile-menu { display: none; background: var(--paper); border-top: 1px solid var(--line); padding: 1rem 0 1.25rem; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: flex; height: 2.8rem; align-items: center; text-decoration: none; color: var(--ink); }
+    @media (min-width: 960px) {
+      .nav-links { display: flex; }
+      .nav-cta-wrap { display: flex; }
+      .nav-cta { display: inline-flex; }
+      .burger { display: none; }
+      .mobile-menu { display: none !important; }
+    }
+
+    .hero { padding: 6.5rem 0 3.5rem; }
+    .hero-grid { display: grid; gap: 2rem; align-items: center; }
+    .hero h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: -.02em; }
+    .hero h1 span { color: var(--accent); }
+    .hero .pitch { margin-top: 1rem; font-size: 1.18rem; max-width: 44ch; color: var(--ink-2); }
+    .hero-actions { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .75rem; }
+    .hero .fine { margin-top: 1rem; font-size: 1rem; color: var(--ink-2); line-height: 1.55; }
+    .hero-shot { position: relative; overflow: visible; }
+    .hero-shot img.photo {
+      width: 100%; aspect-ratio: 16/9; object-fit: cover;
+      border-radius: 12px; border: 1px solid var(--line); display: block;
+    }
+    .hero-shot figcaption {
+      position: absolute; left: .9rem; right: .9rem; bottom: .75rem; z-index: 1;
+      font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 1px 8px rgba(0,0,0,.7);
+    }
+    @keyframes gn2r-bob {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+    @media (max-width: 859px) {
+      .hero-shot figcaption { font-size: .72rem; }
+      #join { padding-bottom: 5.5rem; }
+    }
+    @media (min-width: 960px) {
+      .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 3.5rem; }
+      .hero-shot img.photo { aspect-ratio: 4/3; }
+    }
+    .gn2r-buddy {
+      position: fixed; z-index: 22; width: 92px; right: 16px; top: 58%;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+      transition: top .7s ease, right .7s ease;
+    }
+    .gn2r-buddy img { width: 100%; height: auto; animation: gn2r-bob 3.6s ease-in-out infinite; }
+    @media (max-width: 859px) {
+      .gn2r-buddy { width: 64px; right: 10px; top: auto; bottom: 5.4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gn2r-buddy img { animation: none; }
+    }
+
+    .proof { border-block: 1px solid var(--line); background: var(--panel); }
+    .proof-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .proof-item { padding: 1.35rem 1rem; }
+    .proof-item:nth-child(odd) { border-right: 1px solid var(--line); }
+    .proof-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .proof-k { font-family: var(--display); font-size: 1.55rem; color: var(--accent); }
+    .proof-v { margin-top: .35rem; font-size: .95rem; color: var(--ink-2); }
+    @media (min-width: 800px) {
+      .proof-grid { grid-template-columns: repeat(4, 1fr); }
+      .proof-item { padding: 1.6rem 1.25rem; border-bottom: 0 !important; }
+      .proof-item:not(:last-child) { border-right: 1px solid var(--line); }
+    }
+
+    section.block { padding: 4.5rem 0; }
+    .h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .lead { margin-top: .85rem; max-width: 62ch; color: var(--ink-2); font-size: 1.05rem; }
+
+    .grid { display: grid; gap: 1rem; margin-top: 1.75rem; }
+    .g2 { grid-template-columns: 1fr; }
+    .g3 { grid-template-columns: 1fr; }
+    @media (min-width: 700px) {
+      .g2 { grid-template-columns: 1fr 1fr; }
+      .g3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+      padding: 1.25rem; display: grid; gap: .65rem; align-content: start;
+    }
+    .panel ul { margin: 0; padding-left: 1.1em; display: grid; gap: .3rem; }
+    .panel h3 { font-size: 1.15rem; }
+
+    .split { display: grid; gap: 1.5rem; margin-top: 2rem; align-items: center; }
+    .split img { width: 100%; border-radius: 12px; border: 1px solid var(--line); aspect-ratio: 3/2; object-fit: cover; }
+    .crew { display: grid; gap: 1.75rem; margin-top: 1.75rem; align-items: center; }
+    .crew-art {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.5rem 1.25rem 1.5rem;
+      display: grid;
+      place-items: end center;
+      min-height: 280px;
+    }
+    .crew-art img.mascot {
+      width: min(360px, 82%);
+      height: auto;
+      border: 0;
+      aspect-ratio: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
+    }
+    .crew-art img.flag {
+      position: absolute; top: .85rem; right: .85rem;
+      width: 72px; height: 72px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--line);
+      aspect-ratio: auto;
+    }
+    .crew-copy { display: grid; gap: .85rem; align-content: start; }
+    .crew-copy blockquote {
+      margin: 0; padding-left: 1rem; border-left: 3px solid var(--accent);
+      font-family: var(--display); font-size: 1.2rem; line-height: 1.35;
+    }
+    @media (min-width: 900px) {
+      .crew { grid-template-columns: .85fr 1.15fr; gap: 2.5rem; }
+    }
+    @media (min-width: 900px) { .split { grid-template-columns: 1.1fr .9fr; gap: 2.5rem; } }
+
+    .anatomy {
+      margin-top: 2rem; display: grid; border: 1px solid var(--line); border-radius: 8px;
+      overflow: hidden; background: var(--panel);
+    }
+    .anatomy div { padding: 1.15rem; border-bottom: 1px solid var(--line); display: grid; gap: .35rem; }
+    .anatomy div:last-child { border-bottom: 0; }
+    .anatomy .t { font-family: var(--mono); font-size: .78rem; color: var(--accent); }
+    @media (min-width: 900px) {
+      .anatomy { grid-template-columns: repeat(5, 1fr); }
+      .anatomy div { border-bottom: 0; border-right: 1px solid var(--line); }
+      .anatomy div:last-child { border-right: 0; }
+    }
+
+    .season .weeks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .season .weeks li {
+      display: grid; grid-template-columns: 52px 1fr; gap: .7rem;
+      padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .92rem;
+    }
+    .season .wk { font-family: var(--mono); font-size: .75rem; color: var(--ink-2); padding-top: 2px; }
+    .season-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem .8rem; }
+
+    .tier { position: relative; }
+    .tier .price { font-family: var(--display); font-size: 2.4rem; line-height: 1; }
+    .tier .price small { font-family: var(--body); font-size: .9rem; color: var(--ink-2); }
+    .tier.featured { border: 2px solid var(--accent); }
+    .tier .btn { margin-top: .5rem; }
+
+    .ai-rules { margin: 0; padding-left: 1.2em; display: grid; gap: .35rem; }
+
+    details { border-bottom: 1px solid var(--line); }
+    details:first-of-type { border-top: 1px solid var(--line); }
+    summary {
+      list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem;
+      padding: 1.1rem 0; font-weight: 600;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary .chev { color: var(--ink-2); transition: transform .2s; }
+    details[open] summary .chev { transform: rotate(180deg); }
+    details p { margin: 0 0 1.1rem; font-size: .95rem; color: var(--ink-2); }
+
+    .join {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+      padding: 1.5rem; display: grid; gap: 1rem;
+    }
+    .join h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    form { display: grid; gap: .85rem; }
+    label { display: grid; gap: .35rem; font-size: .85rem; font-weight: 500; }
+    input, select, textarea {
+      height: 2.85rem; padding: 0 .8rem; border-radius: 6px;
+      border: 1px solid var(--line); background: var(--paper); color: var(--ink); font-size: 1rem;
+    }
+    textarea { height: auto; padding: .7rem .8rem; resize: vertical; min-height: 5rem; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .hp { position: absolute; left: -9999px; }
+    .form-note { font-size: .9rem; color: var(--ink-2); }
+    .try ol { margin: .35rem 0 0; padding-left: 1.2em; display: grid; gap: .45rem; color: var(--ink); }
+    .price-note { font-size: .95rem; color: var(--ink-2); max-width: 62ch; margin-top: .35rem; }
+    .math { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: .95rem; }
+    .math th, .math td { text-align: left; padding: .55rem .65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .math th { font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+    .math td:nth-child(n+2) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .form-ok, .form-err { display: none; padding: .85rem 1rem; border-radius: 6px; font-size: .95rem; }
+    .form-ok { background: var(--green-soft); color: var(--green); }
+    .form-err { background: var(--accent-soft); color: var(--accent); }
+    .form-ok.show, .form-err.show { display: block; }
+    @media (min-width: 900px) {
+      .join { grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; padding: 2rem; }
+    }
+
+    footer.site { border-top: 1px solid var(--line); padding: 2.5rem 0 6.5rem; font-size: .85rem; color: var(--ink-2); }
+    .foot { display: flex; flex-direction: column; gap: 1.5rem; }
+    .foot a { color: var(--ink-2); text-decoration: none; }
+    .foot a:hover { color: var(--accent); }
+    .legal { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: .4rem; font-size: .75rem; }
+    @media (min-width: 700px) {
+      .foot { flex-direction: row; justify-content: space-between; align-items: end; }
+      footer.site { padding-bottom: 2.5rem; }
+      .legal { flex-direction: row; justify-content: space-between; }
+    }
+
+    .sticky {
+      position: fixed; inset: auto 0 0; z-index: 30; padding: .75rem;
+      background: rgba(15,22,38,.95); border-top: 1px solid var(--line);
+    }
+    @media (min-width: 860px) { .sticky { display: none; } }
+    @media print {
+      header.nav, .sticky, .burger, .gn2r-buddy { display: none !important; }
+      body { background: #fff; color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="logo" href="index.html#top">
+        <img src="images/gn2r-eyes.png" alt="GN2R" />
+        <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">by Gunterbots · GN2R guides</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html#why">Why</a>
+        <a href="index.html#try">Try a mission</a>
+        <a href="index.html#crew">GN2R</a>
+        <a href="missions.html">Missions</a>
+        <a href="#ai">AI Lab</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta-wrap">
+        <a class="nav-login" href="https://learn.mgit.io/my/courses.php">Member login</a>
+        <a class="btn btn-primary nav-cta" href="index.html#join">Join the founding waitlist</a>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu wrap" id="menu">
+      <a href="index.html#why">Why it works</a>
+      <a href="index.html#try">Try a mission</a>
+      <a href="index.html#crew">GN2R &amp; the crew</a>
+      <a href="missions.html">Missions</a>
+      <a href="#ai">AI Lab</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="https://learn.mgit.io/my/courses.php">Member login</a>
+      <a class="btn btn-primary btn-full" href="index.html#join" style="margin-top:.5rem">Join the founding waitlist</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="block" style="padding-bottom:0">
+      <div class="wrap">
+        <div class="label">The course</div>
+        <h1 class="h2" style="font-size:clamp(2rem,4.5vw,3rem)">Every mission, the kit, and what's ready</h1>
+        <p class="lead">Season 1 is complete. Season 2 has 4 of 7 missions ready, and the rest are released ahead of members each week. Seasons 3 and 4 open in 2027. <a href="index.html#join" style="color:var(--accent)">Join the founding waitlist</a>.</p>
+      </div>
+    </section>
+
+    <section class="block" id="missions">
+      <div class="wrap">
+        <div class="label">The course</div>
+        <h2 class="h2">A year of missions in four seasons</h2>
+        <p class="lead">Each season is 12 weeks plus a catch-up week. A short mission takes a week; a bigger build, like a Line Lab, can take two. Every mission has a Rookie build and a Pro build. New members can join any season. Join mid-year and a short catch-up mission gets you moving.</p>
+        <div class="split">
+          <img src="images/rover.jpg" alt="A yellow micro:bit robot car with a glowing LED heart and an ultrasonic sensor on a wooden table." />
+          <div>
+            <span class="tag">Hardware</span>
+            <h3 style="margin-top:.6rem">Year 1 kit: a micro:bit and a small car.</h3>
+            <p class="muted" style="margin-top:.6rem">The kit is about <b style="color:var(--ink)">$50–60</b>: a BBC micro:bit V2 (~$16–26) plus an Elecfreaks Cutebot (~$30). That includes the board. Three AAA batteries from the grocery store. Buy it from the maker — we don't stock or ship kits. Tuition is the club.</p>
+            <p class="muted" style="margin-top:.6rem">That covers driving, lights, sonar, radio, and line-follow missions. Listings move, so we treat <b style="color:var(--ink)">$80 as the ceiling</b>.</p>
+            <p class="muted" style="margin-top:.35rem">
+              <a href="https://www.amazon.com/dp/B081ZSCZTV" target="_blank" rel="noopener" style="color:var(--accent)">Cutebot car</a>
+              · <a href="https://www.amazon.com/dp/B0B2836JNC" target="_blank" rel="noopener" style="color:var(--accent)">micro:bit V2</a>
+              · <a href="https://www.dfrobot.com/product-1783.html" target="_blank" rel="noopener" style="color:var(--accent)">Maqueen with micro:bit (~$54)</a>
+            </p>
+            <p class="muted" style="margin-top:.6rem"><b style="color:var(--ink)">Not in the box:</b> two small servos for the Cat Laser Turret (~$5, optional) and other add-ons listed per mission. Never required to finish the week.</p>
+          </div>
+        </div>
+        <div class="grid g2" style="margin-top:1.5rem">
+          <div class="panel">
+            <span class="tag">Year 1 path</span>
+            <h3>MakeCode + micro:bit</h3>
+            <p class="muted">Blocks in the browser, then the same code on the Cutebot. This is the club's main track. Programming, driving, and sensors all run in the <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> until the box arrives. A real rover on the floor or a tape track needs the kit; every mission also runs in the simulator.</p>
+          </div>
+          <div class="panel">
+            <span class="tag b">Later path</span>
+            <h3>Wokwi + ESP32</h3>
+            <p class="muted">When you're ready for text code and a different chip, we use <a href="https://wokwi.com" style="color:var(--accent)" target="_blank" rel="noopener">Wokwi</a> in the browser, then a real ESP32 if you want one. Same missions, new brain. Year 1 stays on micro:bit so nobody buys two kits in October.</p>
+          </div>
+        </div>
+        <div class="grid g2" style="margin-top:1.5rem">
+          <div class="panel season">
+            <div class="season-head"><span class="tag">Season 1</span><h3>Make It Move</h3></div>
+            <p class="muted">Loops, timing, decisions, variables, functions, and radio. All 12 missions are ready.</p>
+            <ul class="weeks">
+              <li><span class="wk">Wk 1</span><span><b>The Robot's Heartbeat</b> · blink a heart, meet the loop</span></li>
+              <li><span class="wk">Wk 2</span><span><b>The Race Official</b> · a countdown and stopwatch: steps in order, with timing</span></li>
+              <li><span class="wk">Wk 3</span><span><b>The Signal Lamp</b> · if this, then that: buttons and decisions</span></li>
+              <li><span class="wk">Wk 4</span><span><b>Robot Dance Party</b> · loops turn a few moves into a dance</span></li>
+              <li><span class="wk">Wk 5</span><span><b>First Voyage</b> · first drive: guess, try, measure, adjust</span></li>
+              <li><span class="wk">Wk 6</span><span><b>Steer the Ship</b> · turns and the turn ratio</span></li>
+              <li><span class="wk">Wk 7</span><span><b>The Speed Dial</b> · variables: change one number, change the robot</span></li>
+              <li><span class="wk">Wk 8</span><span><b>Make Your Own Blocks</b> · functions: pack many blocks into one</span></li>
+              <li><span class="wk">Wk 9</span><span><b>Radio Ahoy</b> · robots send each other messages</span></li>
+              <li><span class="wk">Wk 10</span><span><b>Button Remote</b> · a remote control and a robot that obeys it</span></li>
+              <li><span class="wk">Wk 11</span><span><b>Tilt Remote</b> · steer by tilting a second micro:bit</span></li>
+              <li><span class="wk">Wk 12</span><span><b>The Treasure Run</b> · everything you know, in one big run</span></li>
+              <li><span class="wk">Wk 13</span><span><b>Captain's Log</b> · review and catch-up week</span></li>
+            </ul>
+          </div>
+          <div class="panel season">
+            <div class="season-head"><span class="tag b">Season 2</span><h3>Make It Think</h3></div>
+            <p class="muted">Sensors and decisions the robot makes on its own. The four Line Labs are ready; more sensor missions are added during the season.</p>
+            <ul class="weeks">
+              <li><span class="wk">Lab 1</span><span><b>Follow the Line</b> · a rule for every case, and memory when the robot is lost</span></li>
+              <li><span class="wk">Lab 2</span><span><b>Four Eyes</b> · many sensors become one number</span></li>
+              <li><span class="wk">Lab 3</span><span><b>Smooth Operator</b> · proportional control: turn as much as you're off</span></li>
+              <li><span class="wk">Lab 4</span><span><b>Detour!</b> · state machines: modes and rules for switching</span></li>
+            </ul>
+            <p class="muted" style="margin-top:.6rem;font-size:.88rem">Coming during the season: <b>Robot Senses</b>, <b>Don't Crash!</b> and <b>Follow the Leader</b>.</p>
+          </div>
+          <div class="panel season">
+            <div class="season-head"><span class="tag g">Season 3</span><h3>Make It Useful</h3></div>
+            <p class="muted">Find a real problem at home and build the fix. In the works for 2027.</p>
+            <ul class="weeks">
+              <li><span class="wk">Soon</span><span><b>Problem Hunt</b> · spot annoying problems around the house</span></li>
+              <li><span class="wk">Soon</span><span><b>Cookie Jar Alarm</b> · a security system for snacks</span></li>
+              <li><span class="wk">Soon</span><span><b>Thirsty Plant Alert</b> · a reminder when the plant needs water</span></li>
+              <li><span class="wk">Soon</span><span><b>Weather Station</b> · measure, log, and chart your own data</span></li>
+              <li><span class="wk">Soon</span><span><b>Invention Sprint</b> · sketch, prototype, test, pitch</span></li>
+            </ul>
+          </div>
+          <div class="panel season">
+            <div class="season-head"><span class="tag">Season 4</span><h3>Make It Epic</h3></div>
+            <p class="muted">Big builds, friendly competition, and a show-and-tell. In the works for 2027.</p>
+            <ul class="weeks">
+              <li><span class="wk">Soon</span><span><b>Sumo Bots</b> · push-battle in a ring; the line sensors find the edge</span></li>
+              <li><span class="wk">Soon</span><span><b>Chain Reaction</b> · robots pass a radio message down the line</span></li>
+              <li><span class="wk">Soon</span><span><b>Capstone</b> · your own robot, your own mission</span></li>
+              <li><span class="wk">Soon</span><span><b>Robot Expo</b> · show-and-tell and awards, with robot videos from home</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="split" style="margin-top:1.5rem">
+          <img src="images/maze.jpg" alt="A small robot with headlights driving a black-tape track on a wooden floor." />
+          <div>
+            <span class="tag">Why it stays fun</span>
+            <h3 style="margin-top:.6rem">Every mission ends with something to show.</h3>
+            <p class="muted" style="margin-top:.6rem">A robot that dances, follows a line, or answers your remote. Showing off is the hook. Badges, the monthly Build-Off, and the quarterly Robot Expo give everyone a reason to finish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="mini">
+      <div class="wrap">
+        <div class="label">Bonus mini-course</div>
+        <h2 class="h2">Cat Laser Turret</h2>
+        <p class="lead">A four-mission servo course you can take any time: a pan-and-tilt turret that plays with the family cat. <b style="color:var(--ink)">Feather Mode is the default</b> — a bright LED, no laser. Class 2 laser is optional, with an adult, and never the first step.</p>
+        <div class="split">
+          <img src="images/cat-laser.jpg" alt="A homemade two-servo laser turret on a wooden floor, with an orange tabby watching a light on the floor." />
+          <div class="panel" style="margin:0">
+            <ul>
+              <li><b>Meet the Servo</b> — a robot joint that sweeps</li>
+              <li><b>Aim It</b> — pan and tilt by tilting the micro:bit</li>
+              <li><b>Cat Mode</b> — random darts and sneaks, a floor-only safe zone, a 5-minute auto-stop</li>
+              <li><b>Turret on Wheels</b> — radio remote, or a rover that patrols while it plays</li>
+            </ul>
+            <p class="muted">Two small servos (~$5) if you build the physical turret. Simulator works without them. Feather Mode first; laser is optional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="ai">
+      <div class="wrap">
+        <div class="label">AI Lab</div>
+        <h2 class="h2">Once a month, the mission becomes an AI Lab</h2>
+        <p class="lead">Kids learn three things: how to use AI as a helper, how to use it safely, and how to train their own models and put them on a robot. Free tools. No extra kit in year one.</p>
+        <div class="grid g3">
+          <div class="panel">
+            <span class="tag b">Use it</span>
+            <h3>AI as a helper</h3>
+            <p class="muted">Ask it to explain code or find a bug. Then test what it says on the real robot. The robot is the judge.</p>
+          </div>
+          <div class="panel">
+            <span class="tag">Use it safely</span>
+            <h3>Robot Rules for AI</h3>
+            <p class="muted">What not to share, how to spot wrong answers, and why AI isn't a friend. The crew signs the Robot Rules. A grown-up stays in the room on chatbot missions because of age limits — the kid still drives.</p>
+          </div>
+          <div class="panel">
+            <span class="tag g">Train it</span>
+            <h3>Build your own model</h3>
+            <p class="muted">Wave, clap, stand still — then drive the rover with the model you trained. Bad data makes bad AI. Kids see it.</p>
+          </div>
+        </div>
+        <div class="grid g2">
+          <div class="panel">
+            <h3>Robot Rules for AI</h3>
+            <ol class="ai-rules">
+              <li>Never share your name, address, school, photos, or passwords with an AI.</li>
+              <li>AI can be confidently wrong. Test it before you trust it.</li>
+              <li>Chatbots have minimum ages. Stay in the room on those missions.</li>
+              <li>AI is a tool, not a friend. Real questions go to real people.</li>
+              <li>Say when AI helped. It's part of showing your work.</li>
+              <li>You are the engineer. AI makes suggestions, you make decisions.</li>
+            </ol>
+          </div>
+          <div class="panel">
+            <h3>How kids use chatbots here</h3>
+            <ul>
+              <li>Kids never need a chatbot account. Model training uses free tools with no sign-up.</li>
+              <li>Chatbot missions can be demoed live in office hours so the kid still drives.</li>
+              <li>Accounts sit with the grown-up who pays. No private messages between members.</li>
+              <li>Showcase posts are approved before anyone else sees them. Office hours are recorded.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <strong style="color:var(--ink);font-family:var(--display)">Robot Logic Lab</strong>
+          <p>A Gunterbots school · Gunterbots LLC · Utah</p>
+          <p>GN2R leads a merry band of pirates</p>
+        </div>
+        <div>
+          <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a><br />
+          <a href="https://learn.mgit.io/my/courses.php">Member login</a> ·
+          <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html">Let's Make Wheels</a> ·
+          <a href="https://www.youtube.com/channel/UC4CIOAoX7dYtOeQBi9R8izw">YouTube</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© <span id="y"></span> Gunterbots LLC. Parents own the accounts.</span>
+        <a href="privacy.html">Privacy &amp; kid safety</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="gn2r-buddy" id="gn2r-buddy" href="index.html#crew" aria-label="Meet GN2R, your robot guide">
+    <img src="images/gn2r-eyes.png" alt="" />
+  </a>
+
+  <div class="sticky">
+    <a class="btn btn-primary btn-full" href="index.html#join">Join the founding waitlist</a>
+  </div>
+
+  <script>
+    (function () {
+      document.getElementById("y").textContent = new Date().getFullYear();
+      var nav = document.getElementById("nav");
+      var burger = document.getElementById("burger");
+      var menu = document.getElementById("menu");
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("on", window.scrollY > 8);
+      }, { passive: true });
+      burger.addEventListener("click", function () {
+        var open = menu.classList.toggle("open");
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      menu.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); });
+      });
+
+      var buddy = document.getElementById("gn2r-buddy");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var mobile = window.matchMedia("(max-width: 859px)");
+      function parkBuddy() {
+        if (!buddy || reduce.matches || mobile.matches) return;
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var t = max > 0 ? window.scrollY / max : 0;
+        buddy.style.top = (58 + t * 22) + "vh";
+        buddy.style.right = (22 + Math.sin(t * Math.PI * 4) * 14) + "px";
+      }
+      window.addEventListener("scroll", parkBuddy, { passive: true });
+      parkBuddy();
+
+      var form = document.getElementById("waitlist");
+      if (!form) return;
+      var ok = document.getElementById("form-ok");
+      var err = document.getElementById("form-err");
+      var btn = document.getElementById("submit-btn");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (form._honey && form._honey.value) return;
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        var data = {
+          name: form.name.value,
+          email: form.email.value,
+          builder: form.builder.value,
+          tier: form.tier.value,
+          
+          note: form.note.value,
+          _subject: "Robot Logic Lab founding waitlist"
+        };
+        function postJson(url) {
+          return fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(data)
+          }).then(function (r) {
+            if (!r.ok) throw new Error("send failed");
+            return r.json().catch(function () { return { ok: true }; });
+          });
+        }
+        postJson("https://n8n.gunterbots.com/webhook/rll-waitlist")
+          .catch(function () { return postJson("https://formsubmit.co/ajax/hello@gunterbots.com"); })
+          .then(function () {
+            ok.classList.add("show");
+            err.classList.remove("show");
+            form.reset();
+            window.location.href = "thanks.html";
+          }).catch(function () {
+            err.classList.add("show");
+            btn.disabled = false;
+            btn.textContent = "Join the waitlist";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

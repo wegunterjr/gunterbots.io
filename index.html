@@ -338,6 +338,8 @@
       position: fixed; inset: auto 0 0; z-index: 30; padding: .75rem;
       background: rgba(15,22,38,.95); border-top: 1px solid var(--line);
     }
+    .hero-facts { list-style: none; padding: 0; margin: .9rem 0 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+    .hero-facts li { font-size: .85rem; font-weight: 600; color: var(--ink); border: 1px solid var(--line); border-radius: 99px; padding: .3rem .75rem; background: var(--panel, transparent); }
     @media (min-width: 860px) { .sticky { display: none; } }
     @media print {
       header.nav, .sticky, .burger, .gn2r-buddy { display: none !important; }
@@ -356,13 +358,13 @@
         <a href="#why">Why</a>
         <a href="#try">Try a mission</a>
         <a href="#crew">GN2R</a>
-        <a href="#missions">Missions</a>
-        <a href="#ai">AI Lab</a>
+        <a href="missions.html">Missions</a>
+        <a href="missions.html#ai">AI Lab</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-cta-wrap">
-        <a class="nav-login" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
+        <a class="nav-login" href="https://learn.mgit.io/my/courses.php">Member login</a>
         <a class="btn btn-primary nav-cta" href="#join">Join the founding waitlist</a>
       </div>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
@@ -373,11 +375,11 @@
       <a href="#why">Why it works</a>
       <a href="#try">Try a mission</a>
       <a href="#crew">GN2R &amp; the crew</a>
-      <a href="#missions">Missions</a>
-      <a href="#ai">AI Lab</a>
+      <a href="missions.html">Missions</a>
+      <a href="missions.html#ai">AI Lab</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
+      <a href="https://learn.mgit.io/my/courses.php">Member login</a>
       <a class="btn btn-primary btn-full" href="#join" style="margin-top:.5rem">Join the founding waitlist</a>
     </div>
   </header>
@@ -386,14 +388,15 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="label">Founding waitlist · seats late October 2026</div>
-          <h1>Build robots that <span>move, think and play.</span></h1>
-          <p class="pitch"><b style="color:var(--ink)">Robot Logic Lab by Gunterbots.</b> Your robot guide: <b style="color:var(--ink)">GN2R</b>. A home robotics club — real robots, one mission a week, a merry band of pirates. Walter is the captain.</p>
+          <div class="label">Robot Logic Lab by Gunterbots · founding seats late October 2026</div>
+          <h1>Build a robot. <span>Learn to think like an engineer.</span></h1>
+          <p class="pitch">One hands-on mission every week for kids 8–14 and curious adults. Start free in the simulator, then bring your robot to life at home.</p>
+          <ul class="hero-facts"><li>From $29/month founding</li><li>No kit needed to start</li><li>Live help available</li></ul>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#join">Join the founding waitlist</a>
             <a class="btn btn-ghost" href="#try">Try a 10-minute mission</a>
           </div>
-          <p class="fine">First 20 families: founding price while you stay a member, a name on the Founders wall, and a GN2R pirate patch in the mail. No charge to join the waitlist.<br />Already in the crew? <a href="https://learn.mgit.io" target="_blank" rel="noopener" style="color:var(--accent)">Log in at learn.mgit.io</a>.</p>
+          <p class="fine">No charge to join the waitlist. Already in the crew? <a href="https://learn.mgit.io/my/courses.php" style="color:var(--accent)">Member login</a>.</p>
         </div>
         <figure class="hero-shot">
           <img class="photo" src="images/hero.jpg" alt="A child holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
@@ -451,7 +454,7 @@
 
     <div class="proof">
       <div class="wrap proof-grid">
-        <div class="proof-item"><div class="proof-k">1 / week</div><div class="proof-v">A new mission video, a build, and something to show off</div></div>
+        <div class="proof-item"><div class="proof-k">1 / week</div><div class="proof-v">A new mission, a build, and something to show off</div></div>
         <div class="proof-item"><div class="proof-k">Rookie + Pro</div><div class="proof-v">Same mission, two difficulty levels — kids and grown-ups</div></div>
         <div class="proof-item"><div class="proof-k">Live help</div><div class="proof-v">Weekly office hour with a real roboticist on Inventor</div></div>
         <div class="proof-item"><div class="proof-k">~$55 kit</div><div class="proof-v">micro:bit V2 + robot car, bought from the maker</div></div>
@@ -488,7 +491,7 @@
         <div class="label">A member's week</div>
         <h2 class="h2">About two hours. Something to show by the weekend.</h2>
         <div class="anatomy">
-          <div><span class="t">Monday</span><h3>Mission drops</h3><p class="muted">A 10–15 minute video: the story, the concept, the build.</p></div>
+          <div><span class="t">Monday</span><h3>Mission drops</h3><p class="muted">The story, the big idea and the build, step by step with pictures.</p></div>
           <div><span class="t">Mon–Sat</span><h3>Build it</h3><p class="muted">1–2 hours, Rookie or Pro. Simulator or the real robot.</p></div>
           <div><span class="t">Anytime</span><h3>Logic puzzle</h3><p class="muted">A short unplugged brain-teaser. Car, dinner table, no screen.</p></div>
           <div><span class="t">Thursday</span><h3>Office hour</h3><p class="muted">Inventor drop-in. The kid brings the robot. A grown-up does not need to sit in.</p></div>
@@ -499,164 +502,15 @@
 
     <section class="block" id="missions">
       <div class="wrap">
-        <div class="label">The course</div>
-        <h2 class="h2">A year of missions in four seasons</h2>
-        <p class="lead">Each season is 12 weeks plus a catch-up week. A short mission takes a week; a bigger build, like a Line Lab, can take two. Every mission has a Rookie build and a Pro build. New members can join any season. Join mid-year and a short catch-up mission gets you moving.</p>
-        <div class="split">
-          <img src="images/rover.jpg" alt="A yellow micro:bit robot car with a glowing LED heart and an ultrasonic sensor on a wooden table." />
-          <div>
-            <span class="tag">Hardware</span>
-            <h3 style="margin-top:.6rem">Year 1 kit: a micro:bit and a small car.</h3>
-            <p class="muted" style="margin-top:.6rem">The kit is about <b style="color:var(--ink)">$50–60</b>: a BBC micro:bit V2 (~$16–26) plus an Elecfreaks Cutebot (~$30). That includes the board. Three AAA batteries from the grocery store. Buy it from the maker — we don't stock or ship kits. Tuition is the club.</p>
-            <p class="muted" style="margin-top:.6rem">That covers driving, lights, sonar, radio, and line-follow missions. Listings move, so we treat <b style="color:var(--ink)">$80 as the ceiling</b>.</p>
-            <p class="muted" style="margin-top:.35rem">
-              <a href="https://www.amazon.com/dp/B081ZSCZTV" target="_blank" rel="noopener" style="color:var(--accent)">Cutebot car</a>
-              · <a href="https://www.amazon.com/dp/B0B2836JNC" target="_blank" rel="noopener" style="color:var(--accent)">micro:bit V2</a>
-              · <a href="https://www.dfrobot.com/product-1783.html" target="_blank" rel="noopener" style="color:var(--accent)">Maqueen with micro:bit (~$54)</a>
-            </p>
-            <p class="muted" style="margin-top:.6rem"><b style="color:var(--ink)">Not in the box:</b> two small servos for the Cat Laser Turret (~$5, optional) and other add-ons listed per mission. Never required to finish the week.</p>
-          </div>
-        </div>
-        <div class="grid g2" style="margin-top:1.5rem">
-          <div class="panel">
-            <span class="tag">Year 1 path</span>
-            <h3>MakeCode + micro:bit</h3>
-            <p class="muted">Blocks in the browser, then the same code on the Cutebot. This is the club's main track. Programming, driving, and sensors all run in the <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> until the box arrives. A real rover on the floor or a tape track needs the kit; every mission also runs in the simulator.</p>
-          </div>
-          <div class="panel">
-            <span class="tag b">Later path</span>
-            <h3>Wokwi + ESP32</h3>
-            <p class="muted">When you're ready for text code and a different chip, we use <a href="https://wokwi.com" style="color:var(--accent)" target="_blank" rel="noopener">Wokwi</a> in the browser, then a real ESP32 if you want one. Same missions, new brain. Year 1 stays on micro:bit so nobody buys two kits in October.</p>
-          </div>
-        </div>
-        <div class="grid g2" style="margin-top:1.5rem">
-          <div class="panel season">
-            <div class="season-head"><span class="tag">Season 1</span><h3>Make It Move</h3></div>
-            <p class="muted">Loops, timing, decisions, variables, functions, and radio. All 12 missions are ready.</p>
-            <ul class="weeks">
-              <li><span class="wk">Wk 1</span><span><b>The Robot's Heartbeat</b> · blink a heart, meet the loop</span></li>
-              <li><span class="wk">Wk 2</span><span><b>The Race Official</b> · a countdown and stopwatch: steps in order, with timing</span></li>
-              <li><span class="wk">Wk 3</span><span><b>The Signal Lamp</b> · if this, then that: buttons and decisions</span></li>
-              <li><span class="wk">Wk 4</span><span><b>Robot Dance Party</b> · loops turn a few moves into a dance</span></li>
-              <li><span class="wk">Wk 5</span><span><b>First Voyage</b> · first drive: guess, try, measure, adjust</span></li>
-              <li><span class="wk">Wk 6</span><span><b>Steer the Ship</b> · turns and the turn ratio</span></li>
-              <li><span class="wk">Wk 7</span><span><b>The Speed Dial</b> · variables: change one number, change the robot</span></li>
-              <li><span class="wk">Wk 8</span><span><b>Make Your Own Blocks</b> · functions: pack many blocks into one</span></li>
-              <li><span class="wk">Wk 9</span><span><b>Radio Ahoy</b> · robots send each other messages</span></li>
-              <li><span class="wk">Wk 10</span><span><b>Button Remote</b> · a remote control and a robot that obeys it</span></li>
-              <li><span class="wk">Wk 11</span><span><b>Tilt Remote</b> · steer by tilting a second micro:bit</span></li>
-              <li><span class="wk">Wk 12</span><span><b>The Treasure Run</b> · everything you know, in one big run</span></li>
-              <li><span class="wk">Wk 13</span><span><b>Captain's Log</b> · review and catch-up week</span></li>
-            </ul>
-          </div>
-          <div class="panel season">
-            <div class="season-head"><span class="tag b">Season 2</span><h3>Make It Think</h3></div>
-            <p class="muted">Sensors and decisions the robot makes on its own. The four Line Labs are ready; more sensor missions are added during the season.</p>
-            <ul class="weeks">
-              <li><span class="wk">Lab 1</span><span><b>Follow the Line</b> · a rule for every case, and memory when the robot is lost</span></li>
-              <li><span class="wk">Lab 2</span><span><b>Four Eyes</b> · many sensors become one number</span></li>
-              <li><span class="wk">Lab 3</span><span><b>Smooth Operator</b> · proportional control: turn as much as you're off</span></li>
-              <li><span class="wk">Lab 4</span><span><b>Detour!</b> · state machines: modes and rules for switching</span></li>
-            </ul>
-            <p class="muted" style="margin-top:.6rem;font-size:.88rem">Coming during the season: <b>Robot Senses</b>, <b>Don't Crash!</b> and <b>Follow the Leader</b>.</p>
-          </div>
-          <div class="panel season">
-            <div class="season-head"><span class="tag g">Season 3</span><h3>Make It Useful</h3></div>
-            <p class="muted">Find a real problem at home and build the fix. In the works for 2027.</p>
-            <ul class="weeks">
-              <li><span class="wk">Soon</span><span><b>Problem Hunt</b> · spot annoying problems around the house</span></li>
-              <li><span class="wk">Soon</span><span><b>Cookie Jar Alarm</b> · a security system for snacks</span></li>
-              <li><span class="wk">Soon</span><span><b>Thirsty Plant Alert</b> · a reminder when the plant needs water</span></li>
-              <li><span class="wk">Soon</span><span><b>Weather Station</b> · measure, log, and chart your own data</span></li>
-              <li><span class="wk">Soon</span><span><b>Invention Sprint</b> · sketch, prototype, test, pitch</span></li>
-            </ul>
-          </div>
-          <div class="panel season">
-            <div class="season-head"><span class="tag">Season 4</span><h3>Make It Epic</h3></div>
-            <p class="muted">Big builds, friendly competition, and a show-and-tell. In the works for 2027.</p>
-            <ul class="weeks">
-              <li><span class="wk">Soon</span><span><b>Sumo Bots</b> · push-battle in a ring; the line sensors find the edge</span></li>
-              <li><span class="wk">Soon</span><span><b>Chain Reaction</b> · robots pass a radio message down the line</span></li>
-              <li><span class="wk">Soon</span><span><b>Capstone</b> · your own robot, your own mission</span></li>
-              <li><span class="wk">Soon</span><span><b>Robot Expo</b> · show-and-tell and awards, with robot videos from home</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="split" style="margin-top:1.5rem">
-          <img src="images/maze.jpg" alt="A small robot with headlights driving a black-tape track on a wooden floor." />
-          <div>
-            <span class="tag">Why it stays fun</span>
-            <h3 style="margin-top:.6rem">Every mission ends with something to show.</h3>
-            <p class="muted" style="margin-top:.6rem">A robot that dances, follows a line, or answers your remote. Showing off is the hook. Badges, the monthly Build-Off, and the quarterly Robot Expo give everyone a reason to finish.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="mini">
-      <div class="wrap">
-        <div class="label">Mini-course</div>
-        <h2 class="h2">Cat Laser Turret</h2>
-        <p class="lead">A four-mission servo course you can take any time: a pan-and-tilt turret that plays with the family cat. <b style="color:var(--ink)">Feather Mode is the default</b> — a bright LED, no laser. Class 2 laser is optional, with an adult, and never the first step.</p>
-        <div class="split">
-          <img src="images/cat-laser.jpg" alt="A homemade two-servo laser turret on a wooden floor, with an orange tabby watching a light on the floor." />
-          <div class="panel" style="margin:0">
-            <ul>
-              <li><b>Meet the Servo</b> — a robot joint that sweeps</li>
-              <li><b>Aim It</b> — pan and tilt by tilting the micro:bit</li>
-              <li><b>Cat Mode</b> — random darts and sneaks, a floor-only safe zone, a 5-minute auto-stop</li>
-              <li><b>Turret on Wheels</b> — radio remote, or a rover that patrols while it plays</li>
-            </ul>
-            <p class="muted">Two small servos (~$5) if you build the physical turret. Simulator works without them. Feather Mode first; laser is optional.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="block" id="ai">
-      <div class="wrap">
-        <div class="label">AI Lab</div>
-        <h2 class="h2">Once a month, the mission becomes an AI Lab</h2>
-        <p class="lead">Kids learn three things: how to use AI as a helper, how to use it safely, and how to train their own models and put them on a robot. Free tools. No extra kit in year one.</p>
+        <div class="label">What they'll build</div>
+        <h2 class="h2">Season 1 is ready: 12 missions from a blinking heart to a radio-controlled rover.</h2>
+        <p class="lead">Loops, decisions, variables, functions and radio, one mission at a time. Season 2 adds sensors: the robot follows a line and decides for itself.</p>
         <div class="grid g3">
-          <div class="panel">
-            <span class="tag b">Use it</span>
-            <h3>AI as a helper</h3>
-            <p class="muted">Ask it to explain code or find a bug. Then test what it says on the real robot. The robot is the judge.</p>
-          </div>
-          <div class="panel">
-            <span class="tag">Use it safely</span>
-            <h3>Robot Rules for AI</h3>
-            <p class="muted">What not to share, how to spot wrong answers, and why AI isn't a friend. The crew signs the Robot Rules. A grown-up stays in the room on chatbot missions because of age limits — the kid still drives.</p>
-          </div>
-          <div class="panel">
-            <span class="tag g">Train it</span>
-            <h3>Build your own model</h3>
-            <p class="muted">Wave, clap, stand still — then drive the rover with the model you trained. Bad data makes bad AI. Kids see it.</p>
-          </div>
+          <div class="panel"><span class="tag">Season 1 · ready</span><h3>Make It Move</h3><p class="muted">12 missions plus a review week. Heartbeat, Signal Lamp, Robot Dance Party, Steer the Ship, Radio Ahoy, The Treasure Run.</p></div>
+          <div class="panel"><span class="tag b">Season 2 · 4 of 7 ready</span><h3>Make It Think</h3><p class="muted">The Line Labs: follow a line, steer smoothly, switch modes. Sensor missions are added ahead of members each week.</p></div>
+          <div class="panel"><span class="tag g">Seasons 3–4 · 2027</span><h3>Make It Useful, Make It Epic</h3><p class="muted">Inventions for real problems at home, then Sumo Bots and a capstone robot of your own.</p></div>
         </div>
-        <div class="grid g2">
-          <div class="panel">
-            <h3>Robot Rules for AI</h3>
-            <ol class="ai-rules">
-              <li>Never share your name, address, school, photos, or passwords with an AI.</li>
-              <li>AI can be confidently wrong. Test it before you trust it.</li>
-              <li>Chatbots have minimum ages. Stay in the room on those missions.</li>
-              <li>AI is a tool, not a friend. Real questions go to real people.</li>
-              <li>Say when AI helped. It's part of showing your work.</li>
-              <li>You are the engineer. AI makes suggestions, you make decisions.</li>
-            </ol>
-          </div>
-          <div class="panel">
-            <h3>How kids use chatbots here</h3>
-            <ul>
-              <li>Kids never need a chatbot account. Model training uses free tools with no sign-up.</li>
-              <li>Chatbot missions can be demoed live in office hours so the kid still drives.</li>
-              <li>Accounts sit with the grown-up who pays. No private messages between members.</li>
-              <li>Showcase posts are approved before anyone else sees them. Office hours are recorded.</li>
-            </ul>
-          </div>
-        </div>
+        <p style="margin-top:1.2rem"><a class="btn btn-ghost" href="missions.html">See every mission, the kit, and the AI Lab</a></p>
       </div>
     </section>
 
@@ -687,11 +541,12 @@
           </table>
         </div>
         <p class="price-note">Same dollars as three monthly bills, one invoice. Stay monthly if you might pause before the 12 weeks are done.</p>
+        <p class="price-note"><b style="color:var(--ink)">What's ready:</b> Season 1 has all 12 missions. Season 2 has 4 of 7, and the rest are released ahead of members. Seasons 3 and 4 open in 2027.</p>
         <div class="grid g3">
           <div class="panel">
             <span class="tag">Year-round</span>
             <h3>Monthly, all year</h3>
-            <p class="muted">A new mission every week, all four seasons. Pause any month. Best if you want the whole pirate year.</p>
+            <p class="muted">A new mission each week of the season, and the whole library between seasons. Pause any month.</p>
             <p class="muted"><b style="color:var(--ink)">Explorer $39/mo</b> · <b style="color:var(--ink)">Inventor $99/mo</b></p>
           </div>
           <div class="panel">
@@ -716,11 +571,11 @@
             <div class="price">$39<small> /month</small></div>
             <p class="muted">Founding: <b style="color:var(--ink)">$29/mo</b> or <b style="color:var(--ink)">$87 / season</b> · public season $117</p>
             <ul>
-              <li>New mission video every week</li>
+              <li>A new mission each week of the season</li>
               <li>Rookie and Pro build levels</li>
               <li>Weekly logic puzzle, no hardware needed</li>
               <li>Member showcase and monthly Build-Off</li>
-              <li>Full back library, including Cat Laser Turret</li>
+              <li>The full mission library</li>
             </ul>
             <a class="btn btn-ghost btn-full" href="#join">Join the founding waitlist</a>
           </div>
@@ -777,7 +632,7 @@
         <div style="margin-top:1.5rem;max-width:48rem">
           <details open>
             <summary>Do we need a robot on day one? <span class="chev">▾</span></summary>
-            <p>Programming, driving, and sensors run in the free <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> — no kit. Physical movement (a rover on the floor, a tape track) needs the Year 1 kit. The kit is about $50–60: micro:bit V2 plus a Cutebot (or Maqueen with board ~$54), bought from the maker, batteries extra. Soil sensors, extra servos, and the Cat Laser Turret parts are optional add-ons, never required to finish the week.</p>
+            <p>Programming, driving, and sensors run in the free <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">MakeCode simulator</a> — no kit. Physical movement (a rover on the floor, a tape track) needs the Year 1 kit. The kit is about $50–60: micro:bit V2 plus a Cutebot (or Maqueen with board ~$54), bought from the maker, batteries extra. Add-ons like extra servos are optional, never required to finish the week.</p>
           </details>
           <details>
             <summary>What ages is this for? <span class="chev">▾</span></summary>
@@ -785,11 +640,11 @@
           </details>
           <details>
             <summary>How much time is this, really? <span class="chev">▾</span></summary>
-            <p>Plan on 1–2 hours of building during the week, plus a 10–15 minute Monday video. Inventor office hour is Thursday, drop-in, 60–90 minutes. The kid can skip a week and catch up from the library.</p>
+            <p>Plan on 1–2 hours of building during the week. Inventor office hour is Thursday, drop-in, 60–90 minutes. The kid can skip a week and catch up from the library.</p>
           </details>
           <details>
             <summary>Do live sessions need a parent? <span class="chev">▾</span></summary>
-            <p>Explorers have none — Monday video and a build at home. Inventor Thursday is optional drop-in help. The kid comes on with the robot. A grown-up does not need to sit in or teach. For kids under 13, someone should be in the house. Sessions are recorded.</p>
+            <p>Explorers have none: a Monday mission and a build at home. Inventor Thursday is optional drop-in help. The kid comes on with the robot. A grown-up does not need to sit in or teach. For kids under 13, someone should be in the house. Sessions are recorded.</p>
           </details>
           <details>
             <summary>How do you keep kids safe? <span class="chev">▾</span></summary>
@@ -813,7 +668,7 @@
           </details>
           <details>
             <summary>Already a member? <span class="chev">▾</span></summary>
-            <p>Log in at <a href="https://learn.mgit.io" style="color:var(--accent)" target="_blank" rel="noopener">learn.mgit.io</a> with the account your parent created. Same campus as MGIT — Robot Logic Lab is the Gunterbots school on that login.</p>
+            <p>Use <a href="https://learn.mgit.io/my/courses.php" style="color:var(--accent)">Member login</a> with the account your parent created. You land on your own courses.</p>
           </details>
         </div>
       </div>
@@ -825,7 +680,7 @@
           <div>
             <div class="label">Founding waitlist · 20 spots · late October 2026</div>
             <h2>Join the founding waitlist.</h2>
-            <p class="muted" style="margin-top:.75rem">Tell us who is building. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding seats open in late October 2026. No charge today.</p>
+            <p class="muted" style="margin-top:.75rem">Name and email are all we need. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding seats open in late October 2026. No charge today.</p>
             <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $79 a month (or $87 / $237 a season) while you remain a member. Pause keeps the rate. Cancel and rejoin later is public pricing. Founders wall, badge, and a GN2R pirate patch in the mail.</p>
           </div>
           <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
@@ -840,34 +695,23 @@
             <label>Email
               <input name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
             </label>
-            <label>Who is building?
-              <select name="builder" required>
-                <option value="" disabled selected>Choose one</option>
+            <label>Who is building? <span class="muted" style="display:inline">(optional)</span>
+              <select name="builder">
+                <option value="" selected>Choose one</option>
                 <option>Kid 8–10</option>
                 <option>Kid 11–14</option>
                 <option>Parent and kid together</option>
                 <option>Adult / kid at heart</option>
               </select>
             </label>
-            <label>Which founding seat?
-              <select name="tier" required>
-                <option value="" disabled selected>Choose one</option>
+            <label>Which founding seat? <span class="muted" style="display:inline">(optional)</span>
+              <select name="tier">
+                <option value="" selected>Not sure yet</option>
                 <option>Explorer — $29/mo or $87/season</option>
                 <option>Inventor — $79/mo or $237/season</option>
-                <option>Not sure yet</option>
               </select>
             </label>
-            <label>How do you want to sail?
-              <select name="calendar" required>
-                <option value="" disabled selected>Choose one</option>
-                <option>Year-round monthly</option>
-                <option>Fall season (September–November)</option>
-                <option>Spring season (January–March)</option>
-                <option>Summer camp (June or July)</option>
-                <option>Not sure yet</option>
-              </select>
-            </label>
-            <label>Anything we should know? <span class="muted">(optional)</span>
+            <label>Anything we should know? <span class="muted" style="display:inline">(optional)</span>
               <textarea name="note" rows="3" placeholder="Homeschool co-op, gift for a grandkid, Utah, …"></textarea>
             </label>
             <button class="btn btn-primary btn-full" type="submit" id="submit-btn">Join the waitlist</button>
@@ -890,7 +734,7 @@
         </div>
         <div>
           <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a><br />
-          <a href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a> ·
+          <a href="https://learn.mgit.io/my/courses.php">Member login</a> ·
           <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html">Let's Make Wheels</a> ·
           <a href="https://www.youtube.com/channel/UC4CIOAoX7dYtOeQBi9R8izw">YouTube</a>
         </div>
@@ -941,6 +785,7 @@
       parkBuddy();
 
       var form = document.getElementById("waitlist");
+      if (!form) return;
       var ok = document.getElementById("form-ok");
       var err = document.getElementById("form-err");
       var btn = document.getElementById("submit-btn");
@@ -954,7 +799,7 @@
           email: form.email.value,
           builder: form.builder.value,
           tier: form.tier.value,
-          calendar: form.calendar.value,
+          
           note: form.note.value,
           _subject: "Robot Logic Lab founding waitlist"
         };
