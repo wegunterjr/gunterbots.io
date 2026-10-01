@@ -116,16 +116,22 @@
     .logo img { width: 32px; height: 32px; }
     .logo-name { font-family: var(--display); font-weight: 700; letter-spacing: .02em; font-size: .95rem; }
     .logo-sub { display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; color: var(--ink-2); text-transform: uppercase; }
-    .nav-links { display: none; gap: 1.4rem; }
+    .nav-links { display: none; gap: 1.15rem; }
     .nav-links a { font-size: .9rem; color: var(--ink-2); text-decoration: none; }
     .nav-links a:hover { color: var(--ink); }
+    .nav-cta-wrap { display: none; align-items: center; gap: 1rem; }
+    .nav-login {
+      font-size: .9rem; font-weight: 600; color: var(--ink-2); text-decoration: none;
+    }
+    .nav-login:hover { color: var(--ink); }
     .nav-cta { display: none; }
     .burger { width: 44px; height: 44px; border: 0; background: none; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
     .mobile-menu { display: none; background: var(--paper); border-top: 1px solid var(--line); padding: 1rem 0 1.25rem; }
     .mobile-menu.open { display: block; }
     .mobile-menu a { display: flex; height: 2.8rem; align-items: center; text-decoration: none; color: var(--ink); }
-    @media (min-width: 860px) {
+    @media (min-width: 960px) {
       .nav-links { display: flex; }
+      .nav-cta-wrap { display: flex; }
       .nav-cta { display: inline-flex; }
       .burger { display: none; }
       .mobile-menu { display: none !important; }
@@ -327,7 +333,10 @@
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn-primary nav-cta" href="#join">Reserve a founding spot</a>
+      <div class="nav-cta-wrap">
+        <a class="nav-login" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
+        <a class="btn btn-primary nav-cta" href="#join">Reserve a founding spot</a>
+      </div>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -339,6 +348,7 @@
       <a href="#ai">AI Lab</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
+      <a href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
       <a class="btn btn-primary btn-full" href="#join" style="margin-top:.5rem">Reserve a founding spot</a>
     </div>
   </header>
@@ -352,9 +362,9 @@
           <p class="pitch">Robot Logic Lab is a kitchen-table robotics club. Kids 8–14 and kids at heart learn logic by building real robots, one mission a week. GN2R is your robot guide. Walter is the captain of a merry band of pirates.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#join">Reserve a founding spot</a>
-            <a class="btn btn-ghost" href="#missions">See the year of missions</a>
+            <a class="btn btn-ghost" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
           </div>
-          <p class="fine">First 20 families lock Explorer at $29/mo or Inventor at $89/mo — for life.</p>
+          <p class="fine">Founding gift for the first 20 families: rate locked for life, a name on the Founders wall, and a GN2R pirate patch in the mail.<br />Already in the crew? <a href="https://learn.mgit.io" target="_blank" rel="noopener" style="color:var(--accent)">Log in at learn.mgit.io</a>.</p>
         </div>
         <figure class="hero-shot">
           <img src="images/hero.jpg" alt="A child at a kitchen table holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
@@ -571,8 +581,8 @@
     <section class="block" id="pricing">
       <div class="wrap">
         <div class="label">The offer</div>
-        <h2 class="h2">Two tiers. One founding deal.</h2>
-        <p class="lead">Founding Family pricing is for the first 20 families only, locked for as long as you stay. In exchange we ask for feedback and a short testimonial, and your name goes on the Founders wall.</p>
+        <h2 class="h2">Two tiers. One founding gift.</h2>
+        <p class="lead">The first 20 families get the founding gift: Explorer or Inventor locked at $29 / $89 for as long as you stay, your name on the Founders wall, a Founding Family badge in the club, and a GN2R pirate patch in the mail. In exchange we ask for feedback and a short testimonial.</p>
         <div class="grid g3">
           <div class="panel tier">
             <span class="tag b">Most members</span>
@@ -606,13 +616,13 @@
             <span class="tag g">First 20 families</span>
             <h3>Founding Family</h3>
             <div class="price">$29 / $89</div>
-            <p class="muted">Locked for life. Closes when 20 spots fill.</p>
+            <p class="muted">The founding gift. Closes when 20 spots fill.</p>
             <ul>
-              <li>Explorer or Inventor at the founding rate</li>
-              <li>Feedback and a short testimonial in exchange</li>
+              <li>Rate locked for life: $29 Explorer or $89 Inventor</li>
+              <li>GN2R pirate patch mailed to the crew</li>
+              <li>Founding Family badge in the club</li>
               <li>Name on the Founders wall</li>
-              <li>Sibling seat later: +$10/mo per extra kid in the same home</li>
-              <li>Gift subscriptions for grandparents at the holidays</li>
+              <li>Feedback and a short testimonial in exchange</li>
             </ul>
             <a class="btn btn-ghost btn-full" href="#join">Claim a founding spot</a>
           </div>
@@ -660,8 +670,12 @@
             <p>Founding families open late October 2026. Public launch follows in November, in time for holiday gift subscriptions. Join the waitlist and you'll get the free 5-day Robot Starter Challenge — no kit needed — while we finish Season 1.</p>
           </details>
           <details>
+            <summary>What is the founding gift? <span class="chev">▾</span></summary>
+            <p>For the first 20 families: Explorer at $29/mo or Inventor at $89/mo, locked for as long as you stay (that's $10 and $30 off the public rate, forever). A GN2R pirate patch in the mail. A Founding Family badge in the club. Your name on the Founders wall. We ask for feedback and a short testimonial in exchange.</p>
+          </details>
+          <details>
             <summary>Already a member? <span class="chev">▾</span></summary>
-            <p>Head to the course at <a href="https://learn.mgit.io" style="color:var(--accent)">learn.mgit.io</a> and log in with the account your parent created.</p>
+            <p>Log in at <a href="https://learn.mgit.io" style="color:var(--accent)" target="_blank" rel="noopener">learn.mgit.io</a> with the account your parent created. Same campus as MGIT — Robot Logic Lab is the Gunterbots school on that login.</p>
           </details>
         </div>
       </div>
@@ -674,7 +688,7 @@
             <div class="label">Waitlist · 20 founding spots</div>
             <h2>Save a founding-family seat.</h2>
             <p class="muted" style="margin-top:.75rem">Tell us who is building. We'll send the free 5-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding spots open. No charge today.</p>
-            <p class="muted" style="margin-top:.75rem">Explorer founding rate $29/mo. Inventor founding rate $89/mo. Locked for as long as you stay.</p>
+            <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $89 locked for life, Founders wall, Founding Family badge, and a GN2R pirate patch in the mail.</p>
           </div>
           <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
             <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
@@ -728,7 +742,7 @@
         </div>
         <div>
           <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a><br />
-          <a href="https://learn.mgit.io">Member login</a> ·
+          <a href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a> ·
           <a href="https://wegunterjr.github.io/gunterbots_sentinel.io/lets-make-wheels.html">Let's Make Wheels</a> ·
           <a href="https://www.youtube.com/channel/UC4CIOAoX7dYtOeQBi9R8izw">YouTube</a>
         </div>
