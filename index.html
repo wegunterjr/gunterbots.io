@@ -677,6 +677,7 @@ while True:
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value="https://gunterbots.com/thanks.html" />
+            <input type="hidden" name="variant" value="A-story" />
             <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
             <label>Your name
               <input name="name" type="text" required autocomplete="name" placeholder="Alex Gunter" />
@@ -811,6 +812,7 @@ while True:
           tier: form.tier.value,
           
           note: form.note.value,
+          variant: "A-story",
           _subject: "Robot Logic Lab founding waitlist"
         };
         // One form-encoded POST to n8n. It's a "simple" request, so there is no CORS preflight and

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join the founding waitlist — Robot Logic Lab</title>
+  <meta name="description" content="Robot Logic Lab by Gunterbots. Join the founding waitlist. Real robots, one mission a week. No charge today." />
+  <meta name="theme-color" content="#0F1626" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://gunterbots.com/join.html" />
+  <meta property="og:title" content="Join the founding waitlist — Robot Logic Lab" />
+  <meta property="og:description" content="Real robots. One mission a week. GN2R is the guide. No charge today." />
+  <meta property="og:url" content="https://gunterbots.com/join.html" />
+  <meta property="og:image" content="https://gunterbots.com/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper:#0F1626; --panel:#16203A; --ink:#E6EBF4; --ink-2:#C2CBDC; --line:#2A3656;
+      --accent:#FF8A4C; --accent-deep:#E8590C;
+      --display:"Chakra Petch",sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100svh; background: var(--paper); color: var(--ink);
+      font-family: var(--body); line-height: 1.6;
+      background-image: linear-gradient(rgba(230,235,244,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(230,235,244,.045) 1px,transparent 1px);
+      background-size: 24px 24px;
+    }
+    a { color: var(--accent); }
+    h1 { font-family: var(--display); font-size: clamp(2rem,6vw,3.1rem); line-height: 1.1; margin: 0; }
+    p { margin: 0; }
+    .wrap { width: min(40rem, calc(100% - 2rem)); margin: 0 auto; padding: 1.5rem 0 3rem; display: grid; gap: 1.25rem; }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); text-decoration: none; }
+    .logo img { width: 42px; height: 28px; object-fit: contain; }
+    .logo-name { font-family: var(--display); font-weight: 700; }
+    .logo-sub { display: block; font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; color: var(--ink-2); text-transform: uppercase; }
+    .login { color: var(--ink-2); text-decoration: none; font-weight: 600; font-size: .95rem; }
+    .login:hover { color: var(--ink); }
+    .label { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+    .muted { color: var(--ink-2); }
+    .points { margin: 0; padding-left: 1.15em; color: var(--ink); display: grid; gap: .35rem; }
+    form { display: grid; gap: .85rem; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.15rem; }
+    label { display: grid; gap: .35rem; font-size: .92rem; font-weight: 600; }
+    input, select, textarea {
+      width: 100%; background: var(--paper); color: var(--ink); border: 1px solid var(--line);
+      border-radius: 8px; padding: .7rem .8rem; font: inherit;
+    }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; height: 3rem; border: 0; border-radius: 8px;
+      background: var(--accent-deep); color: #fff; font: 600 1rem var(--body); cursor: pointer;
+    }
+    .btn:disabled { opacity: .6; cursor: wait; }
+    .hp { position: absolute; left: -9999px; }
+    .note { font-size: .88rem; color: var(--ink-2); }
+    .err { display: none; color: #ffb4a8; font-size: .92rem; }
+    .err.show { display: block; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" href="/">
+        <img src="images/gn2r-eyes.png" alt="" />
+        <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">by Gunterbots · GN2R</span></span>
+      </a>
+      <a class="login" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
+    </div>
+    <div class="label">Founding waitlist · 20 spots · late October 2026</div>
+    <h1>Join the crew.</h1>
+    <p class="muted">A home robotics club. The kid writes the programs. Real robots, one mission a week. GN2R is the guide. No charge today.</p>
+    <ul class="points">
+      <li>Explorer <b>$29/mo</b> or Inventor <b>$79/mo</b> while you remain a founding member</li>
+      <li>Or a season: $87 / $237 for 12 weekly missions (Fall Sep–Nov, Spring Jan–Mar)</li>
+      <li>GN2R pirate patch, Founders wall, and a badge in the mail</li>
+    </ul>
+    <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
+      <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://gunterbots.com/thanks.html" />
+      <input type="hidden" name="variant" id="variant" value="B-simple" />
+      <input type="hidden" name="source" id="source" value="" />
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+      <label>Your name
+        <input name="name" type="text" required autocomplete="name" placeholder="Alex Gunter" />
+      </label>
+      <label>Email
+        <input name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+      </label>
+      <label>Who is building?
+        <select name="builder" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Kid 8–10</option>
+          <option>Kid 11–14</option>
+          <option>Parent and kid together</option>
+          <option>Adult / kid at heart</option>
+        </select>
+      </label>
+      <label>Anything we should know? <span class="muted">(optional)</span>
+        <textarea name="note" rows="2" placeholder="Sentinel crew, homeschool, gift…"></textarea>
+      </label>
+      <button class="btn" type="submit" id="submit-btn">Join the waitlist</button>
+      <p class="note">We email the account holder, not kids. <a href="privacy.html">Privacy</a> · <a href="/">Full story</a></p>
+      <div class="err" id="form-err">The form didn't send. Email hello@gunterbots.com and we'll add you by hand.</div>
+    </form>
+  </div>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var src = params.get("src") || "";
+      document.getElementById("source").value = src;
+      var form = document.getElementById("waitlist");
+      var err = document.getElementById("form-err");
+      var btn = document.getElementById("submit-btn");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (form._honey && form._honey.value) return;
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        var data = {
+          name: form.name.value,
+          email: form.email.value,
+          builder: form.builder.value,
+          note: form.note.value,
+          variant: "B-simple",
+          source: src,
+          _subject: "Robot Logic Lab founding waitlist"
+        };
+        function postJson(url) {
+          return fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(data)
+          }).then(function (r) {
+            if (!r.ok) throw new Error("send failed");
+            return r.json().catch(function () { return { ok: true }; });
+          });
+        }
+        postJson("https://n8n.gunterbots.com/webhook/rll-waitlist")
+          .catch(function () { return postJson("https://formsubmit.co/ajax/hello@gunterbots.com"); })
+          .then(function () { window.location.href = "thanks.html"; })
+          .catch(function () {
+            err.classList.add("show");
+            btn.disabled = false;
+            btn.textContent = "Join the waitlist";
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
