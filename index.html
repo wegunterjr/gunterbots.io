@@ -145,7 +145,7 @@
 
     .hero { padding: 6.5rem 0 3.5rem; }
     .hero-grid { display: grid; gap: 2rem; align-items: center; }
-    .hero h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: -.02em; }
+    .hero h1 { font-size: clamp(2.4rem, 7vw, 3.9rem); letter-spacing: -.02em; }
     .hero h1 span { color: var(--accent); }
     .hero .pitch { margin-top: 1rem; font-size: 1.18rem; max-width: 44ch; color: var(--ink-2); }
     .hero-actions { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .75rem; }
@@ -170,7 +170,7 @@
       #join { padding-bottom: 5.5rem; }
     }
     @media (min-width: 960px) {
-      .hero-grid { grid-template-columns: 1.05fr .95fr; gap: 3.5rem; }
+      .hero-grid { grid-template-columns: 1.35fr .9fr; gap: 3rem; }
       .hero-shot img.photo { aspect-ratio: 4/3; }
     }
     .gn2r-buddy {
@@ -309,7 +309,17 @@
     input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
     .hp { position: absolute; left: -9999px; }
     .form-note { font-size: .9rem; color: var(--ink-2); }
-    .try ol { margin: .35rem 0 0; padding-left: 1.2em; display: grid; gap: .45rem; color: var(--ink); }
+    .try-grid { display: grid; gap: 1rem; margin-top: 1.4rem; }
+    @media (min-width: 860px) { .try-grid { grid-template-columns: 1fr 1fr; align-items: start; } }
+    .try-code, .try-sim { display: grid; gap: .8rem; min-width: 0; }
+    .tabs { display: flex; gap: .4rem; }
+    .tabs button { font: 600 .85rem var(--body); color: var(--ink-2); background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: .35rem .9rem; cursor: pointer; }
+    .tabs button[aria-selected="true"] { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+    .tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .blocks-img { width: min(260px, 70%); height: auto; border: 0; aspect-ratio: auto; }
+    pre.py { margin: 0; padding: 1rem; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; font: .9rem/1.55 var(--mono); color: var(--ink); }
+    .sim-frame { position: relative; width: 100%; max-width: 420px; aspect-ratio: 1 / 1; margin: 0 auto; border-radius: 8px; overflow: hidden; background: var(--paper); }
+    .sim-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .price-note { font-size: .95rem; color: var(--ink-2); max-width: 62ch; margin-top: .35rem; }
     .math { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: .95rem; }
     .math th, .math td { text-align: left; padding: .55rem .65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -340,6 +350,8 @@
     }
     .hero-facts { list-style: none; padding: 0; margin: .9rem 0 0; display: flex; flex-wrap: wrap; gap: .45rem; }
     .hero-facts li { font-size: .85rem; font-weight: 600; color: var(--ink); border: 1px solid var(--line); border-radius: 99px; padding: .3rem .75rem; background: var(--panel, transparent); }
+    .pay-ways { display: grid; gap: .7rem; margin-top: 1.6rem; max-width: 70ch; color: var(--ink-2); font-size: .95rem; }
+    .pay-ways b { color: var(--ink); }
     @media (min-width: 860px) { .sticky { display: none; } }
     @media print {
       header.nav, .sticky, .burger, .gn2r-buddy { display: none !important; }
@@ -407,29 +419,39 @@
 
     <section class="block" id="try" style="padding-top:0">
       <div class="wrap">
-        <div class="label">Try this · 10 minutes · no kit</div>
+        <div class="label">Try it free · 10 minutes · no kit</div>
         <h2 class="h2">Mission 1: The Robot's Heartbeat</h2>
-        <p class="lead">Every robot you'll ever meet is a loop. Make a heart blink on a pretend micro:bit. That's the same idea as a rover's heartbeat.</p>
-        <div class="grid g2 try">
-          <div class="panel">
-            <h3>On a computer</h3>
-            <ol>
-              <li>Open <a href="https://makecode.microbit.org" style="color:var(--accent)" target="_blank" rel="noopener">makecode.microbit.org</a> and start a new project.</li>
-              <li>Inside <b>forever</b>, add <b>show icon</b> (a heart), <b>pause 500 ms</b>, <b>clear screen</b>, <b>pause 500 ms</b>.</li>
-              <li>Watch the board on the left beat. That's a loop: do this, then do it again.</li>
-            </ol>
-            <p class="muted" style="margin-top:.75rem">No robot required. The picture <em>is</em> the robot until a box arrives.</p>
+        <p class="lead">Every robot runs on a loop. This is the whole first program. Press play on the simulator, then open it yourself and make the heart beat faster.</p>
+        <div class="try-grid">
+          <div class="panel try-code">
+            <div class="tabs" role="tablist" aria-label="Show the program as">
+              <button type="button" role="tab" id="tab-blocks" aria-selected="true" aria-controls="pane-blocks">Blocks</button>
+              <button type="button" role="tab" id="tab-python" aria-selected="false" aria-controls="pane-python">Python</button>
+            </div>
+            <div id="pane-blocks" role="tabpanel" aria-labelledby="tab-blocks">
+              <img class="blocks-img" src="images/heartbeat-blocks.png" alt="MakeCode blocks: forever, show icon big heart, pause 500 ms, show icon small heart, pause 500 ms" width="448" height="632" />
+              <p class="muted">Kids start with blocks in MakeCode.</p>
+            </div>
+            <div id="pane-python" role="tabpanel" aria-labelledby="tab-python" hidden>
+<pre class="py"><code>from microbit import *
+
+while True:
+    display.show(Image.HEART)
+    sleep(500)
+    display.show(Image.HEART_SMALL)
+    sleep(500)</code></pre>
+              <p class="muted">The same program in Python. Pro builders can switch to typed code when they're ready. Try it in the <a href="https://python.microbit.org/v/3" target="_blank" rel="noopener" style="color:var(--accent)">micro:bit Python editor</a>.</p>
+            </div>
           </div>
-          <div class="panel">
-            <h3>No computer handy</h3>
-            <ol>
-              <li>You write the program. A crewmate (sibling, friend, anyone) is the robot.</li>
-              <li>You say: “Clap. Wait. Clap. Wait. Repeat.” They loop until you say stop.</li>
-              <li>Change the program: two claps, then a stomp. Switch jobs and go again.</li>
-            </ol>
-            <p class="muted" style="margin-top:.75rem">That's the pirate way: steal the idea with whatever's on the table.</p>
+          <div class="panel try-sim">
+            <div class="sim-frame">
+              <iframe src="https://makecode.microbit.org/---run?id=_Jtx475E1AMvX" title="The heartbeat program running on a simulated micro:bit" loading="lazy" sandbox="allow-popups allow-forms allow-scripts allow-same-origin" allowfullscreen></iframe>
+            </div>
+            <p><a class="btn btn-ghost" href="https://makecode.microbit.org/_Jtx475E1AMvX" target="_blank" rel="noopener">Open it in MakeCode</a></p>
+            <p class="muted">No computer handy? Be the robot: one person calls "beat, wait, beat, wait," and the other loops until they hear "stop."</p>
           </div>
         </div>
+        <p class="muted" style="margin-top:1rem">Members get the full mission every week: the build, why it works, a Pro challenge, a bug hunt and a quick quiz.</p>
       </div>
     </section>
 
@@ -440,7 +462,7 @@
         <div class="crew">
           <div class="crew-art">
             <img class="flag" src="images/pirate-flag.jpg" alt="Robot pirate flag: a mechanical skull in a captain's hat over crossed bones." />
-            <img class="mascot" src="images/gn2r-bot.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
+            <img class="mascot" src="images/gn2r-guide.png" alt="GN2R, a round-headed gray and coral robot with big pale eyes." />
           </div>
           <div class="crew-copy">
             <blockquote>Here be the course we're chartin' today, mateys.</blockquote>
@@ -518,52 +540,7 @@
       <div class="wrap">
         <div class="label">The offer</div>
         <h2 class="h2">Year-round, a season, or summer.</h2>
-        <p class="lead">Pick Explorer or Inventor, then how you pay. A season is <b style="color:var(--ink)">12 weeks of missions plus a catch-up week</b> — three months. Fall is September, October, November. Spring is January, February, March. Inventor live help is a Thursday office hour — 12 of those in a season, not a lecture class.</p>
-        <div style="overflow:auto">
-          <table class="math">
-            <thead>
-              <tr><th></th><th>Monthly</th><th>Season (3 months, pay once)</th><th>Founding (first 20)</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Explorer</td>
-                <td>$39/mo</td>
-                <td>$117 <span style="color:var(--ink-2)">($39 × 3)</span></td>
-                <td>$29/mo or $87/season</td>
-              </tr>
-              <tr>
-                <td>Inventor <span style="color:var(--ink-2)">(includes Thursday office hour)</span></td>
-                <td>$99/mo</td>
-                <td>$297 <span style="color:var(--ink-2)">($99 × 3)</span></td>
-                <td>$79/mo or $237/season</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="price-note">Same dollars as three monthly bills, one invoice. Stay monthly if you might pause before the 12 weeks are done.</p>
-        <p class="price-note"><b style="color:var(--ink)">What's ready:</b> Season 1 has all 12 missions. Season 2 has 4 of 7, and the rest are released ahead of members. Seasons 3 and 4 open in 2027.</p>
-        <div class="grid g3">
-          <div class="panel">
-            <span class="tag">Year-round</span>
-            <h3>Monthly, all year</h3>
-            <p class="muted">A new mission each week of the season, and the whole library between seasons. Pause any month.</p>
-            <p class="muted"><b style="color:var(--ink)">Explorer $39/mo</b> · <b style="color:var(--ink)">Inventor $99/mo</b></p>
-          </div>
-          <div class="panel">
-            <span class="tag b">School year</span>
-            <h3>Fall or Spring season</h3>
-            <p class="muted">Pay once. 12 weeks of missions plus a catch-up week — three months. Fall is September–November. Spring is January–March. Inventor includes 12 Thursday office hours. Then you're done unless you come back.</p>
-            <p class="muted"><b style="color:var(--ink)">Explorer $117</b> · <b style="color:var(--ink)">Inventor $297</b></p>
-          </div>
-          <div class="panel">
-            <span class="tag g">Summer</span>
-            <h3>Robot Rescue Camp</h3>
-            <p class="muted">Four weeks, one story: build a rover, give it eyes, run a living-room canyon, rescue day. June or July. Live kickoff and Friday showcase.</p>
-            <p class="muted"><b style="color:var(--ink)">$149</b> early bird · <b style="color:var(--ink)">$199</b> regular<br />Inventors free · Explorers $79</p>
-          </div>
-        </div>
-        <p class="lead" style="margin-top:2.2rem">Two depths. One founding gift.</p>
-        <p class="muted" style="max-width:62ch">The first 20 families get the founding gift: Explorer $29/mo or Inventor $79/mo (or $87 / $237 a season — three months at the founding monthly rate) for as long as you remain a member, your name on the Founders wall, a Founding Family badge, and a GN2R pirate patch in the mail. We'd love honest feedback. A public testimonial is optional.</p>
+        <p class="lead">Pick Explorer or Inventor. The first 20 families keep the founding price for as long as they stay members.</p>
         <div class="grid g3">
           <div class="panel tier">
             <span class="tag b">Start here</span>
@@ -607,6 +584,11 @@
             </ul>
             <a class="btn btn-ghost btn-full" href="#join">Join the founding waitlist</a>
           </div>
+        </div>
+        <div class="pay-ways">
+          <p><b>Pay by the season instead.</b> Three months, paid once: Explorer $117 or Inventor $297 (founding $87 / $237). A season is 12 weeks of missions plus a catch-up week. Fall is September–November, Spring is January–March.</p>
+          <p><b>Summer: Robot Rescue Camp.</b> Four weeks in June or July: build a rover, give it eyes, run a living-room canyon, then Rescue Day. $149 early bird, $199 regular. Inventors free, Explorers $79.</p>
+          <p><b>What's ready:</b> Season 1 has all 12 missions. Season 2 has 4 of 7, and the rest are released ahead of members. Seasons 3 and 4 open in 2027.</p>
         </div>
       </div>
     </section>
@@ -783,6 +765,17 @@
       }
       window.addEventListener("scroll", parkBuddy, { passive: true });
       parkBuddy();
+
+      var tabs = document.querySelectorAll('#try [role="tab"]');
+      tabs.forEach(function (t) {
+        t.addEventListener("click", function () {
+          tabs.forEach(function (o) {
+            var on = o === t;
+            o.setAttribute("aria-selected", on ? "true" : "false");
+            document.getElementById(o.getAttribute("aria-controls")).hidden = !on;
+          });
+        });
+      });
 
       var form = document.getElementById("waitlist");
       if (!form) return;
