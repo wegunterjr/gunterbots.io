@@ -357,6 +357,8 @@
     .pay-ways { display: grid; gap: .7rem; margin-top: 1.6rem; max-width: 70ch; color: var(--ink-2); font-size: .95rem; }
     .pay-ways b { color: var(--ink); }
     [hidden] { display: none !important; }
+    .seats { display: inline-block; margin: .2rem 0 .6rem; padding: .3rem .8rem; border-radius: 999px; background: rgba(255,138,76,.14); color: var(--accent); font-family: var(--mono); font-size: .85rem; letter-spacing: .04em; }
+    .seats b { color: var(--ink); }
     @media (min-width: 860px) { .sticky { display: none; } }
     @media print {
       header.nav, .sticky, .burger, .gn2r-buddy { display: none !important; }
@@ -408,7 +410,7 @@
           <div class="label">Robot Logic Lab by Gunterbots · <span data-show="founding">founding seats open now</span><span data-show="regular" hidden>Season 1 open now</span></div>
           <h1>Build a robot. <span>Learn to think like an engineer.</span></h1>
           <p class="pitch">One hands-on mission every week for kids 8–14 and curious adults. Start free in the simulator, then bring your robot to life at home.</p>
-          <ul class="hero-facts"><li data-show="founding">From $29/month founding</li><li data-show="regular" hidden>From $39/month</li><li>No kit needed to start</li><li>Live help available</li></ul>
+          <ul class="hero-facts"><li data-show="founding">From $29/month founding<span data-seats-line hidden> · <span data-seats-left>20</span> seats left</span></li><li data-show="regular" hidden>From $39/month</li><li>No kit needed to start</li><li>Live help available</li></ul>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#pricing"><span><span data-show="founding">Claim a founding seat</span><span data-show="regular" hidden>Join now</span></span></a>
             <a class="btn btn-ghost" href="#try">Try a 10-minute mission</a>
@@ -548,6 +550,7 @@ while True:
       <div class="wrap">
         <div class="label">The offer</div>
         <h2 class="h2">Pick a plan and start this week.</h2>
+        <p class="seats" data-seats-line hidden><b data-seats-left>20</b> of 20 founding seats left</p>
         <p class="lead" data-show="founding"><b>Founding seats are open.</b> The first 20 families pay $29 or $79 a month and keep that price for as long as they stay members. After that it's $39 and $99.</p>
         <p class="lead" data-show="regular" hidden>Pick Explorer or Inventor, monthly or by the season. Your login arrives by email a minute after checkout.</p>
         <div class="grid g3">
@@ -587,7 +590,7 @@ while True:
             <span class="tag g">First 20 families</span>
             <h3>Founding Family</h3>
             <div class="price">$29 / $79<small> /month</small></div>
-            <p class="muted" data-show="founding">Open now. Join Explorer or Inventor above to claim a seat. Closes when 20 families have joined.</p>
+            <p class="muted" data-show="founding">Open now. Join Explorer or Inventor above to claim a seat. Closes when 20 families have joined.<span data-seats-line hidden> <b style="color:var(--ink)"><span data-seats-left>20</span> seats left.</b></span></p>
             <p class="muted" data-show="regular" hidden>All 20 founding seats are taken. Thank you, founders!</p>
             <ul>
               <li>Founding price while you remain a member ($29 / $79 a month, or $87 / $237 a season)</li>
