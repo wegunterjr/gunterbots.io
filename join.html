@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join the founding waitlist — Robot Logic Lab</title>
-  <meta name="description" content="Robot Logic Lab by Gunterbots. Join the founding waitlist. Real robots, one mission a week. No charge today." />
+  <title>Free 4-day Robot Starter Challenge — Robot Logic Lab</title>
+  <meta name="description" content="Robot Logic Lab by Gunterbots. Try the free 4-day Robot Starter Challenge, or claim a founding seat. Real robots, one mission a week." />
   <meta name="theme-color" content="#0F1626" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="canonical" href="https://gunterbots.com/join.html" />
-  <meta property="og:title" content="Join the founding waitlist — Robot Logic Lab" />
+  <meta property="og:title" content="Free 4-day Robot Starter Challenge — Robot Logic Lab" />
   <meta property="og:description" content="Real robots. One mission a week. GN2R is the guide. No charge today." />
   <meta property="og:url" content="https://gunterbots.com/join.html" />
   <meta property="og:image" content="https://gunterbots.com/og.jpg" />
@@ -62,6 +62,7 @@
     .note { font-size: .88rem; color: var(--ink-2); }
     .err { display: none; color: #ffb4a8; font-size: .92rem; }
     .err.show { display: block; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
@@ -73,13 +74,13 @@
       </a>
       <a class="login" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
     </div>
-    <div class="label">Founding waitlist · 20 spots · late October 2026</div>
-    <h1>Join the crew.</h1>
-    <p class="muted">A home robotics club. The kid writes the programs. Real robots, one mission a week. GN2R is the guide. No charge today.</p>
+    <div class="label">Free · no kit · no card</div>
+    <h1>Try the free 4-day Robot Starter Challenge.</h1>
+    <p class="muted">A home robotics club. The kid writes the programs. Real robots, one mission a week. GN2R is the guide. Start with four short emails, one a day: paper and household stuff, no kit.</p>
     <ul class="points">
-      <li>Explorer <b>$29/mo</b> or Inventor <b>$79/mo</b> while you remain a founding member</li>
-      <li>Or a season: $87 / $237 for 12 weekly missions (Fall Sep–Nov, Spring Jan–Mar)</li>
-      <li>GN2R pirate patch, Founders wall, and a badge in the mail</li>
+      <li data-show="founding"><b>Ready now?</b> Founding seats are open: Explorer <b>$29/mo</b> or Inventor <b>$79/mo</b> while you stay a member. <a href="index.html#pricing">See plans and join</a></li>
+      <li data-show="regular" hidden><b>Ready now?</b> Explorer $39/mo or Inventor $99/mo. <a href="index.html#pricing">See plans and join</a></li>
+      <li>Season 1 is ready: 12 missions that unlock one at a time</li>
     </ul>
     <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
       <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
@@ -107,7 +108,7 @@
       <label>Anything we should know? <span class="muted">(optional)</span>
         <textarea name="note" rows="2" placeholder="Sentinel crew, homeschool, gift…"></textarea>
       </label>
-      <button class="btn" type="submit" id="submit-btn">Join the waitlist</button>
+      <button class="btn" type="submit" id="submit-btn">Send me the challenge</button>
       <p class="note">We email the account holder, not kids. <a href="privacy.html">Privacy</a> · <a href="/">Full story</a></p>
       <div class="err" id="form-err">The form didn't send. Email hello@gunterbots.com and we'll add you by hand.</div>
     </form>
@@ -160,10 +161,11 @@
           .catch(function () {
             err.classList.add("show");
             btn.disabled = false;
-            btn.textContent = "Join the waitlist";
+            btn.textContent = "Send me the challenge";
           });
       });
     })();
   </script>
+  <script src="plans.js"></script>
 </body>
 </html>

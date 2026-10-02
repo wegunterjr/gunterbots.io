@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Robot Logic Lab by Gunterbots</title>
-  <meta name="description" content="Robot Logic Lab by Gunterbots. Your robot guide: GN2R. A home robotics club — real robots, one mission a week, live help on Inventor. Founding waitlist open; seats in late October 2026." />
+  <meta name="description" content="Robot Logic Lab by Gunterbots. Your robot guide: GN2R. A home robotics club — real robots, one mission a week, live help on Inventor. Founding seats open now for the first 20 families." />
   <meta name="theme-color" content="#0F1626" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="canonical" href="https://gunterbots.com/" />
   <meta property="og:title" content="Robot Logic Lab by Gunterbots" />
-  <meta property="og:description" content="Build robots that move, think and play. GN2R is your guide. Founding waitlist open; seats in late October 2026." />
+  <meta property="og:description" content="Build robots that move, think and play. GN2R is your guide. Founding seats open now for the first 20 families." />
   <meta property="og:url" content="https://gunterbots.com/" />
   <meta property="og:image" content="https://gunterbots.com/og.jpg" />
   <meta property="og:type" content="website" />
@@ -356,6 +356,7 @@
     .hero-facts li { font-size: .85rem; font-weight: 600; color: var(--ink); border: 1px solid var(--line); border-radius: 99px; padding: .3rem .75rem; background: var(--panel, transparent); }
     .pay-ways { display: grid; gap: .7rem; margin-top: 1.6rem; max-width: 70ch; color: var(--ink-2); font-size: .95rem; }
     .pay-ways b { color: var(--ink); }
+    [hidden] { display: none !important; }
     @media (min-width: 860px) { .sticky { display: none; } }
     @media print {
       header.nav, .sticky, .burger, .gn2r-buddy { display: none !important; }
@@ -381,7 +382,7 @@
       </nav>
       <div class="nav-cta-wrap">
         <a class="nav-login" href="https://learn.mgit.io/my/courses.php">Member login</a>
-        <a class="btn btn-primary nav-cta" href="#join">Join the founding waitlist</a>
+        <a class="btn btn-primary nav-cta" href="#pricing">Join now</a>
       </div>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -396,7 +397,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
       <a href="https://learn.mgit.io/my/courses.php">Member login</a>
-      <a class="btn btn-primary btn-full" href="#join" style="margin-top:.5rem">Join the founding waitlist</a>
+      <a class="btn btn-primary btn-full" href="#pricing" style="margin-top:.5rem">Join now</a>
     </div>
   </header>
 
@@ -404,15 +405,15 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="label">Robot Logic Lab by Gunterbots · founding seats late October 2026</div>
+          <div class="label">Robot Logic Lab by Gunterbots · <span data-show="founding">founding seats open now</span><span data-show="regular" hidden>Season 1 open now</span></div>
           <h1>Build a robot. <span>Learn to think like an engineer.</span></h1>
           <p class="pitch">One hands-on mission every week for kids 8–14 and curious adults. Start free in the simulator, then bring your robot to life at home.</p>
-          <ul class="hero-facts"><li>From $29/month founding</li><li>No kit needed to start</li><li>Live help available</li></ul>
+          <ul class="hero-facts"><li data-show="founding">From $29/month founding</li><li data-show="regular" hidden>From $39/month</li><li>No kit needed to start</li><li>Live help available</li></ul>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#join">Join the founding waitlist</a>
+            <a class="btn btn-primary" href="#pricing"><span><span data-show="founding">Claim a founding seat</span><span data-show="regular" hidden>Join now</span></span></a>
             <a class="btn btn-ghost" href="#try">Try a 10-minute mission</a>
           </div>
-          <p class="fine">No charge to join the waitlist. Already in the crew? <a href="https://learn.mgit.io/my/courses.php" style="color:var(--accent)">Member login</a>.</p>
+          <p class="fine">Pay securely with Stripe; your login arrives by email a minute later. Not ready? <a href="#join" style="color:var(--accent)">Try the free 4-day challenge</a>. Already in the crew? <a href="https://learn.mgit.io/my/courses.php" style="color:var(--accent)">Member login</a>.</p>
         </div>
         <figure class="hero-shot">
           <img class="photo" src="images/hero.jpg" alt="A child holding a small yellow robot with a glowing LED heart, block code on a laptop beside it." />
@@ -546,14 +547,16 @@ while True:
     <section class="block" id="pricing">
       <div class="wrap">
         <div class="label">The offer</div>
-        <h2 class="h2">Year-round, a season, or summer.</h2>
-        <p class="lead">Pick Explorer or Inventor. The first 20 families keep the founding price for as long as they stay members.</p>
+        <h2 class="h2">Pick a plan and start this week.</h2>
+        <p class="lead" data-show="founding"><b>Founding seats are open.</b> The first 20 families pay $29 or $79 a month and keep that price for as long as they stay members. After that it's $39 and $99.</p>
+        <p class="lead" data-show="regular" hidden>Pick Explorer or Inventor, monthly or by the season. Your login arrives by email a minute after checkout.</p>
         <div class="grid g3">
           <div class="panel tier">
             <span class="tag b">Start here</span>
             <h3>Explorer</h3>
-            <div class="price">$39<small> /month</small></div>
-            <p class="muted">Founding: <b style="color:var(--ink)">$29/mo</b> or <b style="color:var(--ink)">$87 / season</b> · public season $117</p>
+            <div class="price"><span data-show="founding">$29</span><span data-show="regular" hidden>$39</span><small> /month</small></div>
+            <p class="muted" data-show="founding">Founding price, kept while you stay. Regular $39/mo.</p>
+            <p class="muted" data-show="regular" hidden>Or $117 for a season.</p>
             <ul>
               <li>A new mission each week of the season</li>
               <li>Rookie and Pro build levels</li>
@@ -561,13 +564,15 @@ while True:
               <li>Member showcase and monthly Build-Off</li>
               <li>The full mission library</li>
             </ul>
-            <a class="btn btn-ghost btn-full" href="#join">Join the founding waitlist</a>
+            <a class="btn btn-primary btn-full" data-plan="explorer-monthly" href="#pricing"><span>Join monthly: <span data-show="founding">$29</span><span data-show="regular" hidden>$39</span>/mo</span></a>
+            <a class="btn btn-ghost btn-full" data-plan="explorer-season" href="#pricing"><span>Or one season: <span data-show="founding">$87</span><span data-show="regular" hidden>$117</span></span></a>
           </div>
           <div class="panel tier featured">
             <span class="tag">Live help</span>
             <h3>Inventor</h3>
-            <div class="price">$99<small> /month</small></div>
-            <p class="muted">Founding: <b style="color:var(--ink)">$79/mo</b> or <b style="color:var(--ink)">$237 / season</b> · public season $297</p>
+            <div class="price"><span data-show="founding">$79</span><span data-show="regular" hidden>$99</span><small> /month</small></div>
+            <p class="muted" data-show="founding">Founding price, kept while you stay. Regular $99/mo.</p>
+            <p class="muted" data-show="regular" hidden>Or $297 for a season.</p>
             <ul>
               <li>Everything in Explorer</li>
               <li>Thursday office hour with Walter (group, 60–90 min)</li>
@@ -575,13 +580,15 @@ while True:
               <li>Feedback on submitted builds, done live</li>
               <li>Inventor badge, and first demo at Robot Expo</li>
             </ul>
-            <a class="btn btn-primary btn-full" href="#join">Join the founding waitlist</a>
+            <a class="btn btn-primary btn-full" data-plan="inventor-monthly" href="#pricing"><span>Join monthly: <span data-show="founding">$79</span><span data-show="regular" hidden>$99</span>/mo</span></a>
+            <a class="btn btn-ghost btn-full" data-plan="inventor-season" href="#pricing"><span>Or one season: <span data-show="founding">$237</span><span data-show="regular" hidden>$297</span></span></a>
           </div>
           <div class="panel tier">
             <span class="tag g">First 20 families</span>
             <h3>Founding Family</h3>
             <div class="price">$29 / $79<small> /month</small></div>
-            <p class="muted">Closes when 20 spots fill. Opens late October 2026.</p>
+            <p class="muted" data-show="founding">Open now. Join Explorer or Inventor above to claim a seat. Closes when 20 families have joined.</p>
+            <p class="muted" data-show="regular" hidden>All 20 founding seats are taken. Thank you, founders!</p>
             <ul>
               <li>Founding price while you remain a member ($29 / $79 a month, or $87 / $237 a season)</li>
               <li>Pause a month: the rate is waiting when you return</li>
@@ -589,11 +596,10 @@ while True:
               <li>GN2R pirate patch, badge, Founders wall</li>
               <li>Honest feedback welcome; a testimonial is optional</li>
             </ul>
-            <a class="btn btn-ghost btn-full" href="#join">Join the founding waitlist</a>
           </div>
         </div>
         <div class="pay-ways">
-          <p><b>Pay by the season instead.</b> Three months, paid once: Explorer $117 or Inventor $297 (founding $87 / $237). A season is 12 weeks of missions plus a catch-up week. Fall is September–November, Spring is January–March.</p>
+          <p><b>Monthly or a season?</b> Monthly is the ongoing club; pause or cancel any month. A season is three months paid once: Explorer $117 or Inventor $297 (founding $87 / $237). A season is 12 weeks of missions plus a catch-up week. Fall is September–November, Spring is January–March.</p>
           <p><b>Summer: Robot Rescue Camp.</b> Four weeks in June or July: build a rover, give it eyes, run a living-room canyon, then Rescue Day. $149 early bird, $199 regular. Inventors free, Explorers $79.</p>
           <p><b>What's ready:</b> Season 1 has all 12 missions. Season 2 has 4 of 7, and the rest are released ahead of members. Seasons 3 and 4 open in 2027.</p>
         </div>
@@ -641,7 +647,7 @@ while True:
           </details>
           <details>
             <summary>When does it start? <span class="chev">▾</span></summary>
-            <p>Founding families open late October 2026. Public launch follows in November, in time for holiday gift subscriptions. Join the waitlist and you'll get the free 4-day Robot Starter Challenge — no kit needed — while we finish Season 1.</p>
+            <p>Now. Season 1 is ready, all 12 missions. Join any week and start at Mission 1; each mission unlocks when you finish the one before it, so you go at your own pace. The first 20 families get the founding price. Not ready to pay? Try the free 4-day Robot Starter Challenge first — no kit needed.</p>
           </details>
           <details>
             <summary>Monthly, a season, or summer — what's the difference? <span class="chev">▾</span></summary>
@@ -667,10 +673,11 @@ while True:
       <div class="wrap">
         <div class="join">
           <div>
-            <div class="label">Founding waitlist · 20 spots · late October 2026</div>
-            <h2>Join the founding waitlist.</h2>
-            <p class="muted" style="margin-top:.75rem">Name and email are all we need. We'll send the free 4-day Robot Starter Challenge (paper, household stuff, no kit) and email you when founding seats open in late October 2026. No charge today.</p>
-            <p class="muted" style="margin-top:.75rem">Founding gift: $29 / $79 a month (or $87 / $237 a season) while you remain a member. Pause keeps the rate. Cancel and rejoin later is public pricing. Founders wall, badge, and a GN2R pirate patch in the mail.</p>
+            <div class="label">Free · no kit · no card</div>
+            <h2>Not ready yet? Try the free 4-day Robot Starter Challenge.</h2>
+            <p class="muted" style="margin-top:.75rem">Name and email are all we need. One short email a day for four days: paper, household stuff, no kit. Do it with your builder and see if Robot Logic Lab fits.</p>
+            <p class="muted" style="margin-top:.75rem" data-show="founding">Ready now? <a href="#pricing" style="color:var(--accent)">Founding seats are open</a>: $29 / $79 a month while you remain a member, plus a Founders wall spot, badge, and a GN2R pirate patch.</p>
+            <p class="muted" style="margin-top:.75rem" data-show="regular" hidden>Ready now? <a href="#pricing" style="color:var(--accent)">Pick a plan</a> and your login arrives a minute later.</p>
           </div>
           <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
             <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
@@ -694,19 +701,19 @@ while True:
                 <option>Adult / kid at heart</option>
               </select>
             </label>
-            <label><span>Which founding seat? <span class="muted" style="font-weight:400;font-size:inherit">(optional)</span></span>
+            <label><span>Which plan are you thinking about? <span class="muted" style="font-weight:400;font-size:inherit">(optional)</span></span>
               <select name="tier">
                 <option value="" selected>Not sure yet</option>
-                <option>Explorer — $29/mo or $87/season</option>
-                <option>Inventor — $79/mo or $237/season</option>
+                <option>Explorer</option>
+                <option>Inventor</option>
               </select>
             </label>
             <label><span>Anything we should know? <span class="muted" style="font-weight:400;font-size:inherit">(optional)</span></span>
               <textarea name="note" rows="3" placeholder="Homeschool co-op, gift for a grandkid, Utah, …"></textarea>
             </label>
-            <button class="btn btn-primary btn-full" type="submit" id="submit-btn">Join the waitlist</button>
-            <p class="form-note">You'll also get the free 4-day starter challenge. We email the account holder, not kids. See <a href="privacy.html" style="color:var(--accent)">privacy</a>.</p>
-            <div class="form-ok" id="form-ok">You're on the list. Check your inbox for the first starter-challenge email (and a confirmation from us).</div>
+            <button class="btn btn-primary btn-full" type="submit" id="submit-btn">Send me the challenge</button>
+            <p class="form-note">No charge. We email the account holder, not kids. See <a href="privacy.html" style="color:var(--accent)">privacy</a>.</p>
+            <div class="form-ok" id="form-ok">You're in. Check your inbox for Day 1 of the starter challenge (and a confirmation from us).</div>
             <div class="form-err" id="form-err">The form didn't send. Email hello@gunterbots.com and we'll add you by hand.</div>
           </form>
         </div>
@@ -741,7 +748,7 @@ while True:
   </a>
 
   <div class="sticky">
-    <a class="btn btn-primary btn-full" href="#join">Join the founding waitlist</a>
+    <a class="btn btn-primary btn-full" href="#pricing">Join now</a>
   </div>
 
   <script>
@@ -848,10 +855,11 @@ while True:
           }).catch(function () {
             err.classList.add("show");
             btn.disabled = false;
-            btn.textContent = "Join the waitlist";
+            btn.textContent = "Send me the challenge";
           });
       });
     })();
   </script>
+  <script src="plans.js"></script>
 </body>
 </html>

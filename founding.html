@@ -42,6 +42,7 @@
     .muted { color: var(--ink-2); }
     .test { display: none; border: 1px dashed var(--accent); border-radius: 10px; padding: .7rem .9rem; font-size: .92rem; }
     .test.show { display: block; }
+    [hidden] { display: none !important; }
     .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
     .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.15rem; display: grid; gap: .7rem; align-content: start; }
     .card.featured { border-color: var(--accent-deep); }
@@ -71,12 +72,14 @@
     </div>
 
     <div class="label">Founding Family · first 20 families</div>
-    <h1>Your founding seat is ready.</h1>
-    <p class="muted">Thanks for joining the waitlist. Pick a seat below. You get the founding price for as long as you stay a member, plus a GN2R pirate patch, a badge and your name on the Founders wall. Your login arrives by email a minute or two after checkout.</p>
+    <h1 data-show="founding">Your founding seat is ready.</h1>
+    <h1 data-show="regular" hidden>All 20 founding seats are taken.</h1>
+    <p class="muted" data-show="regular" hidden>Thank you for the interest! You can still join at the regular price: <a href="index.html#pricing">see plans</a>.</p>
+    <p class="muted" data-show="founding">Pick a seat below. You get the founding price for as long as you stay a member, plus a GN2R pirate patch, a badge and your name on the Founders wall. Your login arrives by email a minute or two after checkout.</p>
 
     <div class="test" id="test-note"><b>Test mode.</b> These buttons use Stripe's test checkout. Pay with card 4242 4242 4242 4242, any future date, any CVC and ZIP. No real money moves.</div>
 
-    <div class="grid">
+    <div class="grid" data-show="founding">
       <div class="card">
         <span class="tag">Start here</span>
         <h2>Explorer</h2>
@@ -88,8 +91,8 @@
           <li>The full mission library</li>
         </ul>
         <div class="buttons">
-          <a class="btn" data-plan="explorer-founding-monthly" href="#">Join monthly: $29/mo</a>
-          <a class="btn ghost" data-plan="explorer-founding-season" href="#">Or one season: $87</a>
+          <a class="btn" data-plan="explorer-monthly" href="index.html#pricing">Join monthly: $29/mo</a>
+          <a class="btn ghost" data-plan="explorer-season" href="index.html#pricing">Or one season: $87</a>
         </div>
       </div>
       <div class="card featured">
@@ -103,8 +106,8 @@
           <li>Inventor badge and first demo at Robot Expo</li>
         </ul>
         <div class="buttons">
-          <a class="btn" data-plan="inventor-founding-monthly" href="#">Join monthly: $79/mo</a>
-          <a class="btn ghost" data-plan="inventor-founding-season" href="#">Or one season: $237</a>
+          <a class="btn" data-plan="inventor-monthly" href="index.html#pricing">Join monthly: $79/mo</a>
+          <a class="btn ghost" data-plan="inventor-season" href="index.html#pricing">Or one season: $237</a>
         </div>
       </div>
     </div>
@@ -115,33 +118,6 @@
       <p>The grown-up who pays gets the login and manages it. Questions? Email <a href="mailto:hello@gunterbots.com">hello@gunterbots.com</a>. <a href="privacy.html">Privacy</a></p>
     </div>
   </div>
-  <script>
-    (function () {
-      // One place to swap test links for live links.
-      var MODE = "live";
-      var LINKS = {
-        test: {
-          "explorer-founding-monthly": "https://buy.stripe.com/test_cNi3cx0AV56ggpFeAm7IY00",
-          "inventor-founding-monthly": "https://buy.stripe.com/test_28E4gBdnHeGQ5L14ZM7IY01",
-          "explorer-founding-season": "https://buy.stripe.com/test_28E7sN1EZcyI3CTdwi7IY04",
-          "inventor-founding-season": "https://buy.stripe.com/test_4gM6oJdnHgOYgpF1NA7IY05"
-        },
-        live: {
-          "explorer-founding-monthly": "https://buy.stripe.com/28E8wQb2Jeinbne1Pk7ss07",
-          "inventor-founding-monthly": "https://buy.stripe.com/cNi00kdaR5LR2QI79E7ss08",
-          "explorer-founding-season": "https://buy.stripe.com/5kQ9AU0o55LR62U0Lg7ss0b",
-          "inventor-founding-season": "https://buy.stripe.com/dRm4gA1s90rx9f679E7ss0c"
-        }
-      };
-      if (MODE === "test") document.getElementById("test-note").classList.add("show");
-      // founding.html?email=parent@example.com fills in the email on Stripe's checkout page.
-      var email = new URLSearchParams(location.search).get("email") || "";
-      document.querySelectorAll("[data-plan]").forEach(function (a) {
-        var url = LINKS[MODE][a.getAttribute("data-plan")];
-        if (!url) { a.removeAttribute("href"); a.style.opacity = ".5"; return; }
-        a.href = url + (email ? "?prefilled_email=" + encodeURIComponent(email) : "");
-      });
-    })();
-  </script>
+  <script src="plans.js"></script>
 </body>
 </html>
