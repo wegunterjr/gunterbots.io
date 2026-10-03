@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Founding seats — Robot Logic Lab</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Founding seats for Robot Logic Lab waitlist families." />
+  <meta name="description" content="Founding seats for Robot Logic Lab: the first 20 families keep the founding price while they stay members." />
   <meta name="theme-color" content="#0F1626" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32" />
@@ -40,8 +40,6 @@
     .login { color: var(--ink-2); text-decoration: none; font-weight: 600; font-size: .95rem; }
     .label { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
     .muted { color: var(--ink-2); }
-    .test { display: none; border: 1px dashed var(--accent); border-radius: 10px; padding: .7rem .9rem; font-size: .92rem; }
-    .test.show { display: block; }
     [hidden] { display: none !important; }
     .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
     .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.15rem; display: grid; gap: .7rem; align-content: start; }
@@ -76,8 +74,6 @@
     <h1 data-show="regular" hidden>All 20 founding seats are taken.</h1>
     <p class="muted" data-show="regular" hidden>Thank you for the interest! You can still join at the regular price: <a href="index.html#pricing">see plans</a>.</p>
     <p class="muted" data-show="founding">Pick a seat below. You get the founding price for as long as you stay a member, plus a GN2R pirate patch, a badge and your name on the Founders wall. Your login arrives by email a minute or two after checkout.</p>
-
-    <div class="test" id="test-note"><b>Test mode.</b> These buttons use Stripe's test checkout. Pay with card 4242 4242 4242 4242, any future date, any CVC and ZIP. No real money moves.</div>
 
     <div class="grid" data-show="founding">
       <div class="card">

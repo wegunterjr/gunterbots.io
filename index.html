@@ -35,10 +35,10 @@
     "educationalLevel": "Ages 8–14 and adults",
     "inLanguage": "en",
     "offers": [
-      { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Inventor", "price": "99", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Explorer season", "price": "117", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Inventor season", "price": "297", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+      { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Inventor", "price": "99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Explorer season", "price": "117", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Inventor season", "price": "297", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
     ]
   }
   </script>
@@ -589,10 +589,11 @@ while True:
           <div class="panel tier">
             <span class="tag g">First 20 families</span>
             <h3>Founding Family</h3>
-            <div class="price">$29 / $79<small> /month</small></div>
+            <div class="price" data-show="founding">$29 / $79<small> /month</small></div>
+            <div class="price" data-show="regular" hidden>Full</div>
             <p class="muted" data-show="founding">Open now. Join Explorer or Inventor above to claim a seat. Closes when 20 families have joined.<span data-seats-line hidden> <b style="color:var(--ink)"><span data-seats-left>20</span> seats left.</b></span></p>
             <p class="muted" data-show="regular" hidden>All 20 founding seats are taken. Thank you, founders!</p>
-            <ul>
+            <ul data-show="founding">
               <li>Founding price while you remain a member ($29 / $79 a month, or $87 / $237 a season)</li>
               <li>Pause a month: the rate is waiting when you return</li>
               <li>Cancel and rejoin later: public pricing</li>
@@ -602,7 +603,7 @@ while True:
           </div>
         </div>
         <div class="pay-ways">
-          <p><b>Monthly or a season?</b> Monthly is the ongoing club; pause or cancel any month. A season is three months paid once: Explorer $117 or Inventor $297 (founding $87 / $237). A season is 12 weeks of missions plus a catch-up week. Fall is September–November, Spring is January–March.</p>
+          <p><b>Monthly or a season?</b> Monthly is the ongoing club; pause or cancel any month. A season is three months paid once: Explorer $117 or Inventor $297<span data-show="founding"> (founding $87 / $237)</span>. A season is 12 weeks of missions plus a catch-up week. Fall is September–November, Spring is January–March.</p>
           <p><b>Summer: Robot Rescue Camp.</b> Four weeks in June or July: build a rover, give it eyes, run a living-room canyon, then Rescue Day. $149 early bird, $199 regular. Inventors free, Explorers $79.</p>
           <p><b>What's ready:</b> Season 1 has all 12 missions. Season 2 has 4 of 7, and the rest are released ahead of members. Seasons 3 and 4 open in 2027.</p>
         </div>
@@ -650,13 +651,13 @@ while True:
           </details>
           <details>
             <summary>When does it start? <span class="chev">▾</span></summary>
-            <p>Now. Season 1 is ready, all 12 missions. Join any week and start at Mission 1; each mission unlocks when you finish the one before it, so you go at your own pace. The first 20 families get the founding price. Not ready to pay? Try the free 4-day Robot Starter Challenge first — no kit needed.</p>
+            <p>Now. Season 1 is ready, all 12 missions. Join any week and start at Mission 1; each mission unlocks when you finish the one before it, so you go at your own pace.<span data-show="founding"> The first 20 families get the founding price.</span> Not ready to pay? Try the free 4-day Robot Starter Challenge first — no kit needed.</p>
           </details>
           <details>
             <summary>Monthly, a season, or summer — what's the difference? <span class="chev">▾</span></summary>
             <p>Monthly is the ongoing club, billed each month. Pause any month. A season is 12 weeks of missions plus a catch-up week — three months, paid once. Fall is September–November. Spring is January–March. Inventor includes one Thursday office hour each of those 12 mission weeks. Explorer season is $117 ($39 × 3). Inventor season is $297 ($99 × 3). Same dollars as three monthly bills; pick monthly if you might pause. Summer is Robot Rescue Camp, four weeks in June or July.</p>
           </details>
-          <details>
+          <details data-show="founding">
             <summary>What is the founding gift? <span class="chev">▾</span></summary>
             <p>For the first 20 families: Explorer $29/mo or Inventor $79/mo (or $87 / $237 a season) for as long as you remain a member. Pause a month and the rate is waiting when you return. Cancel and rejoin later, and public pricing applies. You also get a GN2R pirate patch, a Founding Family badge, and a name on the Founders wall. Honest feedback helps us steer. A public testimonial is optional.</p>
           </details>
@@ -683,7 +684,7 @@ while True:
             <p class="muted" style="margin-top:.75rem" data-show="regular" hidden>Ready now? <a href="#pricing" style="color:var(--accent)">Pick a plan</a> and your login arrives a minute later.</p>
           </div>
           <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
-            <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
+            <input type="hidden" name="_subject" value="Robot Logic Lab starter challenge sign-up" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value="https://gunterbots.com/thanks.html" />
@@ -829,7 +830,7 @@ while True:
           
           note: form.note.value,
           variant: "A-story",
-          _subject: "Robot Logic Lab founding waitlist"
+          _subject: "Robot Logic Lab starter challenge sign-up"
         };
         // One form-encoded POST to n8n. It's a "simple" request, so there is no CORS preflight and
         // it is delivered whether or not n8n allows gunterbots.com. "no-cors" means we can't read

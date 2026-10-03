@@ -72,7 +72,7 @@
         <img src="images/gn2r-eyes.png" alt="" />
         <span><span class="logo-name">Robot Logic Lab</span><span class="logo-sub">by Gunterbots · GN2R</span></span>
       </a>
-      <a class="login" href="https://learn.mgit.io" target="_blank" rel="noopener">Login</a>
+      <a class="login" href="https://learn.mgit.io/my/courses.php" target="_blank" rel="noopener">Member login</a>
     </div>
     <div class="label">Free · no kit · no card</div>
     <h1>Try the free 4-day Robot Starter Challenge.</h1>
@@ -83,7 +83,7 @@
       <li>Season 1 is ready: 12 missions that unlock one at a time</li>
     </ul>
     <form id="waitlist" action="https://formsubmit.co/hello@gunterbots.com" method="POST">
-      <input type="hidden" name="_subject" value="Robot Logic Lab founding waitlist" />
+      <input type="hidden" name="_subject" value="Robot Logic Lab starter challenge sign-up" />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://gunterbots.com/thanks.html" />
@@ -96,9 +96,9 @@
       <label>Email
         <input name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
       </label>
-      <label>Who is building?
-        <select name="builder" required>
-          <option value="" disabled selected>Choose one</option>
+      <label>Who is building? <span class="muted">(optional)</span>
+        <select name="builder">
+          <option value="" selected>Choose one</option>
           <option>Kid 8–10</option>
           <option>Kid 11–14</option>
           <option>Parent and kid together</option>
@@ -139,7 +139,7 @@
           note: form.note.value,
           variant: "B-simple",
           source: src,
-          _subject: "Robot Logic Lab founding waitlist"
+          _subject: "Robot Logic Lab starter challenge sign-up"
         };
         // Same as the homepage: one form-encoded "no-cors" POST to n8n (no CORS preflight, so it
         // is delivered), with FormSubmit as the backup only if n8n can't be reached at all.

@@ -35,10 +35,10 @@
     "educationalLevel": "Ages 8–14 and adults",
     "inLanguage": "en",
     "offers": [
-      { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Inventor", "price": "99", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Explorer season", "price": "117", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" },
-      { "@type": "Offer", "name": "Inventor season", "price": "297", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
+      { "@type": "Offer", "name": "Explorer", "price": "39", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Inventor", "price": "99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Explorer season", "price": "117", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "Inventor season", "price": "297", "priceCurrency": "USD", "availability": "https://schema.org/InStock" }
     ]
   }
   </script>
@@ -615,49 +615,6 @@
       }
       window.addEventListener("scroll", parkBuddy, { passive: true });
       parkBuddy();
-
-      var form = document.getElementById("waitlist");
-      if (!form) return;
-      var ok = document.getElementById("form-ok");
-      var err = document.getElementById("form-err");
-      var btn = document.getElementById("submit-btn");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (form._honey && form._honey.value) return;
-        btn.disabled = true;
-        btn.textContent = "Sending…";
-        var data = {
-          name: form.name.value,
-          email: form.email.value,
-          builder: form.builder.value,
-          tier: form.tier.value,
-          
-          note: form.note.value,
-          _subject: "Robot Logic Lab founding waitlist"
-        };
-        function postJson(url) {
-          return fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify(data)
-          }).then(function (r) {
-            if (!r.ok) throw new Error("send failed");
-            return r.json().catch(function () { return { ok: true }; });
-          });
-        }
-        postJson("https://n8n.gunterbots.com/webhook/rll-waitlist")
-          .catch(function () { return postJson("https://formsubmit.co/ajax/hello@gunterbots.com"); })
-          .then(function () {
-            ok.classList.add("show");
-            err.classList.remove("show");
-            form.reset();
-            window.location.href = "thanks.html";
-          }).catch(function () {
-            err.classList.add("show");
-            btn.disabled = false;
-            btn.textContent = "Join the waitlist";
-          });
-      });
     })();
   </script>
 </body>
