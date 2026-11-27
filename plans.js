@@ -1,12 +1,12 @@
 /* Robot Logic Lab: one place for the checkout links.
  *
- * SEATS = "founding" while founding seats are open (first 20 families).
+ * SEATS = "founding" while founding seats are open (first 30 families).
  * Change it to "regular" when they are gone: every Join button switches to $39 / $99,
  * and anything marked data-show="founding" hides while data-show="regular" appears.
  *
  * Buttons:   <a data-plan="explorer-monthly" href="#pricing">…</a>
  * Text:      <span data-show="founding">…</span> <span data-show="regular">…</span>
- * Seats:     <span data-seats-line hidden><b data-seats-left></b> of 20 left</span>
+ * Seats:     <span data-seats-line hidden><b data-seats-left></b> of 30 left</span>
  * ?email=you@example.com on the page URL is passed to Stripe so the email is filled in.
  */
 (function () {
